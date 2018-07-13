@@ -1,35 +1,46 @@
 environment:
   matrix:
-  - QT: C:\Qt\5.7\msvc2015_64
-    PLATFORM: amd64
-    COMPILER: msvc
-    VSVER: 14
+    - QTDIR: C:\Qt\5.9\mingw53_32
+      MINGW: C:\Qt\Tools\mingw53_32
+    - QTDIR: C:\Qt\5.9\msvc2015_64
 
-#clone_depth: 1
+configuration:
+  - release
 
-init:
-  - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
+# Get the project submodules
+# Set the environment variables and paths to make
+install:
+  - git submodule update --init --recursive
+  - call "%QTDIR%\bin\qtenv2.bat"
+  - set PATH=%PATH%;%QTDIR%\bin;%MINGW%\bin
+  - if %QTDIR:msvc=%==%QTDIR% set make=mingw32-make.exe
+  - if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
+  - if not %QTDIR:msvc2015=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" %ARCH%
+  - if not %QTDIR:msvc2017=%==%QTDIR% call "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %ARCH%
+  - if not %QTDIR:msvc=%==%QTDIR% set make=nmake.exe
+  - if not %QTDIR:msvc=%==%QTDIR% %make% /? > nul
 
-build_script:
+# Run qmake
+before_build:
+  - cd %APPVEYOR_BUILD_FOLDER%
   - cd NumericalCalulator
   - qmake NumericalCalulator.pro
 
-artifacts:
-  - path: build\windows\msvc\x86_64\release\NumericalCalculator$(appveyor_repo_tag_name)_windows_x86_64_portable.zip
-    name: portable
-  - path: installer\windows\x86_64\NumericalCalculator$(appveyor_repo_tag_name)_windows_x86_64_installer.exe
-    name: installer
 
-deploy:
-  - provider: GitHub
-    tag: $(appveyor_repo_tag_name)
-    release: $(appveyor_repo_tag_name)
-    description: $(appveyor_repo_tag_name)
-    auth_token:
-      secure: bOwrg0z7hv/7CnAQD2q+sf74q2vH40mWJLZYc8EzYvqkrXk9KYnd23rVCJ3Fsrqs
-    artifact: portable, installer
-    draft: false
-    prerelease: false
-    force_update: true
-    on:
-      appveyor_repo_tag: true
+# Build the projects
+build_script:
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - cd NumericalCalulator
+  - '%make%'
+  
+  
+after_build:
+  - cd %APPVEYOR_BUILD_FOLDER%\NumericalCalulator\release
+  - mkdir release
+  - cd release
+  - xcopy %APPVEYOR_BUILD_FOLDER%\NumericalCalulator\release\NumericalCalulator.exe %APPVEYOR_BUILD_FOLDER%\NumericalCalulator\release\release\
+  - windeployqt SameWorld.exe
+  
+
+artifacts:
+  - path: NumericalCalulator\release\release
