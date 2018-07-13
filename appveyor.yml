@@ -39,7 +39,7 @@ after_build:
   - mkdir release
   - cd release
   - xcopy %APPVEYOR_BUILD_FOLDER%\NumericalCalulator\release\NumericalCalulator.exe %APPVEYOR_BUILD_FOLDER%\NumericalCalulator\release\release\
-  - windeployqt SameWorld.exe
+  - windeployqt NumericalCalulator.exe
   
 
 artifacts:
