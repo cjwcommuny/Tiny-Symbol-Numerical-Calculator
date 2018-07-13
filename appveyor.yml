@@ -1,11 +1,11 @@
-  environment:
+environment:
   matrix:
   - QT: C:\Qt\5.7\msvc2015_64
     PLATFORM: amd64
     COMPILER: msvc
     VSVER: 14
 
-clone_depth: 1
+#clone_depth: 1
 
 init:
   - set TAG_NAME=%APPVEYOR_REPO_TAG_NAME%
