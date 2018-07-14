@@ -29,7 +29,39 @@ SOURCES += \
 
 HEADERS += \
         mainwindow.h \
-    lib/etlbase.h
+    lib/etlbase.h \
+    lib/Eigen/Cholesky \
+    lib/Eigen/CholmodSupport \
+    lib/Eigen/Core \
+    lib/Eigen/Dense \
+    lib/Eigen/Eigen \
+    lib/Eigen/Eigenvalues \
+    lib/Eigen/Geometry \
+    lib/Eigen/Householder \
+    lib/Eigen/IterativeLinearSolvers \
+    lib/Eigen/Jacobi \
+    lib/Eigen/LU \
+    lib/Eigen/MetisSupport \
+    lib/Eigen/OrderingMethods \
+    lib/Eigen/PardisoSupport \
+    lib/Eigen/PaStiXSupport \
+    lib/Eigen/QR \
+    lib/Eigen/QtAlignedMalloc \
+    lib/Eigen/Sparse \
+    lib/Eigen/SparseCholesky \
+    lib/Eigen/SparseCore \
+    lib/Eigen/SparseLU \
+    lib/Eigen/SparseQR \
+    lib/Eigen/SPQRSupport \
+    lib/Eigen/StdDeque \
+    lib/Eigen/StdList \
+    lib/Eigen/StdVector \
+    lib/Eigen/SuperLUSupport \
+    lib/Eigen/SVD \
+    lib/Eigen/UmfPackSupport
 
 FORMS += \
         mainwindow.ui
+
+DISTFILES += \
+    lib/Eigen/CMakeLists.txt

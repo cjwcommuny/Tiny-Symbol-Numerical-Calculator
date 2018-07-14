@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+//#include "lib/Eigen/Dense"
 
 int main(int argc, char *argv[])
 {
