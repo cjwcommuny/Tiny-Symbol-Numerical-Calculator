@@ -3,10 +3,10 @@
 
 #include "lib/etlbase.h"
 
-class OutputNumericalResultNotification_model: public IPropertyNotification
+class OutputNumericalResultNotification_viewmodel: public IPropertyNotification
 {
 public:
-    OutputNumericalResultNotification_model();
+    OutputNumericalResultNotification_viewmodel();
     void OnPropertyChanged(const std::string& str);
 };
 

@@ -4,8 +4,10 @@
 #include <memory>
 #include "Parameter/parameter.h"
 #include "Viewmodel/Command/command.h"
+#include "lib/etlbase.h"
+#include "Notification/notification.h"
 
-class Viewmodel
+class Viewmodel: Proxy_PropertyNotification<Viewmodel>
 {
 public:
     Viewmodel();
@@ -20,6 +22,10 @@ private:
 
     //execute command
     std::shared_ptr<Command> get_expression_command();
+
+    //notification
+    OutputNumericalResultNotification_viewmodel notification;
+    void notify(std::string str);
 };
 
 #endif // VIEWMODEL_H

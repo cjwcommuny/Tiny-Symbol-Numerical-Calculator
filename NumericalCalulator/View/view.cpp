@@ -1,9 +1,10 @@
 #include "View/view.h"
 #include "ui_view.h"
 
-View::View(QWidget *parent) : QMainWindow(parent), ui(new Ui::view)
+View::View(QWidget *parent) : QMainWindow(parent), ui(new Ui::view), notification(std::make_shared<OutputNumericalResultNotification>())
 {
      ui->setupUi(this);
+     AddNotification(notification);//bind notification
 }
 
 View::~View()
