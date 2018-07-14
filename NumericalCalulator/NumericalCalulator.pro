@@ -38,7 +38,11 @@ SOURCES += \
     Viewmodel/viewmodel.cpp \
     Model/model.cpp \
     #View/window.cpp \
-    View/view.cpp
+    View/view.cpp \
+    Viewmodel/Command/getexpressioncommand.cpp \
+    Parameter/parameter.cpp \
+    Viewmodel/Command/command.cpp \
+    Notification/notification.cpp
 
 HEADERS += \
         #View/mainwindow.h \
@@ -955,7 +959,11 @@ HEADERS += \
     #mainwindow.h \
     Viewmodel/viewmodel.h \
     Model/model.h \
-    View/view.h
+    View/view.h \
+    Viewmodel/Command/getexpressioncommand.h \
+    Parameter/parameter.h \
+    Viewmodel/Command/command.h \
+    Notification/notification.h
 
 FORMS += \
         #mainwindow.ui \
