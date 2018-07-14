@@ -1,11 +1,14 @@
 #include "app.h"
 
-App::App()
+App::App(): view(new View), model(new Model), viewmodel(new Viewmodel)
 {
 
 }
 
-App::run()
+void App::run()
 {
-
+    //view = new View;
+    //model = new Model;
+    //viewmodel = new Viewmodel;
+    view->show();
 }

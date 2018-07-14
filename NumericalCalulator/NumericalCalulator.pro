@@ -26,19 +26,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         #Common/main.cpp \
         #View/mainwindow.cpp \
-    Common/main.cpp \
-    View/mainwindow.cpp \
+    #Common/main.cpp \
+    #View/mainwindow.cpp \
     #Common/main.cpp \
     #View/mainwindow.cpp \
     #Common/main.cpp \
     #View/mainwindow.cpp \
     App/app.cpp \
-    Common/main.cpp \
+    #Common/main.cpp \
     main.cpp \
-    mainwindow.cpp
+    Viewmodel/viewmodel.cpp \
+    Model/model.cpp \
+    #View/window.cpp \
+    View/view.cpp
 
 HEADERS += \
-        View/mainwindow.h \
+        #View/mainwindow.h \
     lib/etlbase.h \
     lib/Eigen/Cholesky \
     lib/Eigen/CholmodSupport \
@@ -370,7 +373,7 @@ HEADERS += \
     lib/Eigen/SVD \
     lib/Eigen/UmfPackSupport \
     lib/etlbase.h \
-    View/mainwindow.h \
+    #View/mainwindow.h \
     lib/Eigen/src/Cholesky/LDLT.h \
     lib/Eigen/src/Cholesky/LLT.h \
     lib/Eigen/src/Cholesky/LLT_LAPACKE.h \
@@ -672,7 +675,7 @@ HEADERS += \
     lib/Eigen/SVD \
     lib/Eigen/UmfPackSupport \
     lib/etlbase.h \
-    View/mainwindow.h \
+    #View/mainwindow.h \
     lib/Eigen/src/Cholesky/LDLT.h \
     lib/Eigen/src/Cholesky/LLT.h \
     lib/Eigen/src/Cholesky/LLT_LAPACKE.h \
@@ -945,25 +948,25 @@ HEADERS += \
     lib/Eigen/src/SVD/UpperBidiagonalization.h \
     lib/Eigen/src/UmfPackSupport/UmfPackSupport.h \
     lib/etlbase.h \
-    View/mainwindow.h \
+    #View/mainwindow.h \
     App/app.h \
     App/app.h \
-    mainwindow.cpp.autosave \
-    mainwindow.h
+    #mainwindow.cpp.autosave \
+    #mainwindow.h \
+    Viewmodel/viewmodel.h \
+    Model/model.h \
+    View/view.h
 
 FORMS += \
         #mainwindow.ui \
     #View/mainwindow.ui \
-    View/mainwindow.ui \
-    mainwindow.ui
+    #View/mainwindow.ui \
+    #mainwindow.ui
+    View/view.ui
 
 DISTFILES += \
-    lib/Eigen/CMakeLists.txt \
-    lib/Eigen/CMakeLists.txt \
     lib/Eigen/CMakeLists.txt \
     NumericalCalulator.pro.user
 
 SUBDIRS += \
     NumericalCalulator.pro \
-    NumericalCalulator.pro \
-    NumericalCalulator.pro

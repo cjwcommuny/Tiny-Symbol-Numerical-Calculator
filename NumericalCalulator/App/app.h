@@ -2,16 +2,20 @@
 #define APP_H
 
 #include <QMainWindow>
+#include "Viewmodel/viewmodel.h"
+#include "View/view.h"
+#include "Model/model.h"
+#include <memory>
 
 class App
 {
 public:
     App();
-    run();
+    void run();
 private:
-    std::shared_ptr<View> view;
+    std::shared_ptr<Viewmodel> viewmodel;
     std::shared_ptr<Model> model;
-    std::shared_ptr<Mainwindow> mainwindow;
+    std::shared_ptr<View> view;
 };
 
 #endif // APP_H
