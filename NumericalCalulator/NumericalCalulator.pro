@@ -44,7 +44,9 @@ SOURCES += \
     Viewmodel/Command/command.cpp \
     Notification/notification.cpp \
     Notification/outputnumericalresultnotification_viewmodel.cpp \
-    Notification/outputnumericalresultnotification_view.cpp
+    Notification/outputnumericalresultnotification_view.cpp \
+    Common/matrix.cpp \
+    Common/polynomial.cpp
 
 HEADERS += \
         #View/mainwindow.h \
@@ -967,7 +969,9 @@ HEADERS += \
     Viewmodel/Command/command.h \
     Notification/notification.h \
     Notification/outputnumericalresultnotification_viewmodel.h \
-    Notification/outputnumericalresultnotification_view.h
+    Notification/outputnumericalresultnotification_view.h \
+    Common/matrix.h \
+    Common/polynomial.h
 
 FORMS += \
         #mainwindow.ui \
