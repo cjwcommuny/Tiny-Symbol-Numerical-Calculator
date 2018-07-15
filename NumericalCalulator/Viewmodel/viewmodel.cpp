@@ -14,3 +14,9 @@ void Viewmodel::notify(std::string str)
 {
     Fire_OnPropertyChanged(str);
 }
+
+std::shared_ptr<std::string> Viewmodel::getResult()
+{
+    //result = _model->getExpression();
+    return result;
+}

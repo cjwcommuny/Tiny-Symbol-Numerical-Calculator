@@ -12,12 +12,10 @@ class Model: public Proxy_PropertyNotification<Model>
 public:
     Model();
     void notify();
-
     void transmit_expression(std::string str);
-    void bind(std::shared_ptr<Viewmodel> viewmodel) {_viewmodel = viewmodel;}
+    std::shared_ptr<std::string> getExpression() {return expression;}
 private:
-    std::string expression;
-    std::shared_ptr<Viewmodel> _viewmodel;
+    std::shared_ptr<std::string> expression;
 };
 
 #endif // MODEL_H

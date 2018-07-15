@@ -18,22 +18,17 @@ class Viewmodel: public Proxy_PropertyNotification<Viewmodel>
 {
 public:
     Viewmodel();
-    void bind(std::shared_ptr<Model> model, std::shared_ptr<View> view) {_model = model; _view = view;}
+    void bind(std::shared_ptr<Model> model/*, std::shared_ptr<View> view*/) {_model = model; /*_view = view;*/}
     std::shared_ptr<OutputNumericalResultNotification_viewmodel> notification;
     void exec_get_expression_command(std::string str);
+    std::shared_ptr<std::string> getResult();
+    void setResult(std::shared_ptr<std::string> result) {this->result = result;}
 protected:
 
 private:
     std::shared_ptr<Model> _model;
-    std::shared_ptr<View> _view;
     std::shared_ptr<getExpressionCommand> get_expression_command;
-
-    //execute command
-
-    //std::shared_ptr<Command> exec_get_expression_command();
-
-    //notification
-
+    std::shared_ptr<std::string> result;
     void notify(std::string str);
 };
 

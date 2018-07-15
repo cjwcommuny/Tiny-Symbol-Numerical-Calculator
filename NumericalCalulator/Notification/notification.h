@@ -4,6 +4,7 @@
 #include "lib/etlbase.h"
 #include "View/view.h"
 #include "Viewmodel/viewmodel.h"
+#include <assert.h>
 
 class Viewmodel;
 class View;

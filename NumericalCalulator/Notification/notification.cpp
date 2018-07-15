@@ -10,6 +10,8 @@ void OutputNumericalResultNotification_viewmodel::OnPropertyChanged(const std::s
 void OutputNumericalResultNotification_view::OnPropertyChanged(const std::string &str)
 {
     if (str == "ResultGenerated") {
-        _view->ChangeOutputResultText(str);
+        std::shared_ptr<std::string> result = _view->getResult();
+        assert(result);
+        _view->ChangeOutputResultText(*result);
     }
 }

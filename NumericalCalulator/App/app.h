@@ -16,8 +16,8 @@ public:
     App();
     void run();
 private:
-    std::shared_ptr<Viewmodel> viewmodel;
     std::shared_ptr<Model> model;
+    std::shared_ptr<Viewmodel> viewmodel;
     std::shared_ptr<View> view;
 };
 
