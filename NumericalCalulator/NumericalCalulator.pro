@@ -42,7 +42,9 @@ SOURCES += \
     Viewmodel/Command/getexpressioncommand.cpp \
     Parameter/parameter.cpp \
     Viewmodel/Command/command.cpp \
-    Notification/notification.cpp
+    Notification/notification.cpp \
+    Notification/outputnumericalresultnotification_viewmodel.cpp \
+    Notification/outputnumericalresultnotification_view.cpp
 
 HEADERS += \
         #View/mainwindow.h \
@@ -963,7 +965,9 @@ HEADERS += \
     Viewmodel/Command/getexpressioncommand.h \
     Parameter/parameter.h \
     Viewmodel/Command/command.h \
-    Notification/notification.h
+    Notification/notification.h \
+    Notification/outputnumericalresultnotification_viewmodel.h \
+    Notification/outputnumericalresultnotification_view.h
 
 FORMS += \
         #mainwindow.ui \

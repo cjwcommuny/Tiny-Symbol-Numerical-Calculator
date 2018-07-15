@@ -7,6 +7,8 @@
 #include "Viewmodel/Command/command.h"
 #include "Viewmodel/Command/getexpressioncommand.h"
 #include "Notification/notification.h"
+#include "Notification/outputnumericalresultnotification_view.h"
+#include "Notification/outputnumericalresultnotification_viewmodel.h"
 #include "View/view.h"
 
 class Model;

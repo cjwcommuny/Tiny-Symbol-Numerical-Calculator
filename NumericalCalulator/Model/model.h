@@ -3,6 +3,7 @@
 #include <memory>
 #include "lib/etlbase.h"
 #include "Notification/notification.h"
+#include "Notification/outputnumericalresultnotification_viewmodel.h"
 #include "Viewmodel/viewmodel.h"
 
 class Viewmodel;
