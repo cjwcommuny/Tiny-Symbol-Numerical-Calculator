@@ -2,10 +2,10 @@
 
 Model::Model()
 {
-    AddPropertyNotification(_viewmodel->notification);
+
 }
 
-void Model::transmit_expression(QString str)
+void Model::transmit_expression(std::string str)
 {
     //process the expression
     expression = str;

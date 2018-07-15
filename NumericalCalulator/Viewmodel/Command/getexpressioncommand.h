@@ -6,12 +6,13 @@
 #include "Viewmodel/viewmodel.h"
 
 class Viewmodel;
+class Command;
 
-class getExpressionCommand: Command
+class getExpressionCommand: public Command
 {
 public:
     getExpressionCommand(Viewmodel *vm): viewmodel(vm) {}
-    void Exec();
+    void Exec() override;
 private:
     Viewmodel *viewmodel;
 

@@ -10,6 +10,8 @@
 
 class OutputNumericalResultNotification_view;
 class OutputNumericalResultNotification_viewmodel;
+class Command;
+class Viewmodel;
 
 namespace Ui {
 class view;
@@ -25,6 +27,8 @@ public:
 
     void set_get_expression_command(std::shared_ptr<Command> command);
     void bind(std::shared_ptr<Viewmodel> viewmodel) {_viewmodel = viewmodel;}
+    std::shared_ptr<OutputNumericalResultNotification_view> notification;
+    void ChangeOutputResultText(const std::string str);
 signals:
 
 public slots:
@@ -38,9 +42,9 @@ private:
     std::shared_ptr<Command> get_expression_command;
 
     //notification
-    OutputNumericalResultNotification_view notification;
 
-    void ChangeOutputResultText(const std::string str);
+
+
 };
 
 #endif // WINDOW_H

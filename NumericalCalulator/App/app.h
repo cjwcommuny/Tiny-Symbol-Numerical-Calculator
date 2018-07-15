@@ -2,13 +2,13 @@
 #define APP_H
 
 #include <QMainWindow>
-#include "Viewmodel/viewmodel.h"
-#include "View/view.h"
-#include "Model/model.h"
 #include <memory>
 #include "lib/etlbase.h"
 #include "Viewmodel/Command/command.h"
 #include "Viewmodel/Command/getexpressioncommand.h"
+#include "Viewmodel/viewmodel.h"
+#include "View/view.h"
+#include "Model/model.h"
 
 class App
 {

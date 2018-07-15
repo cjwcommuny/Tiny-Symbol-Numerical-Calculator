@@ -30,7 +30,7 @@ class ICommandBase
 {
 public:
 	//virtual void SetParameter(const std::shared_ptr<ICommandParameter>& param) = 0;
-    virtual void SetParameter(const Parameter& param) = 0;
+    virtual void SetParameter(std::shared_ptr<Parameter> param) = 0;
 	virtual void Exec() = 0;
 /*
 virtual std::shared_ptr<ICommandBase> get_Undo() = 0;
