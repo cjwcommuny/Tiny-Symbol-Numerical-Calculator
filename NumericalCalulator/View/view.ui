@@ -37,6 +37,49 @@
      <string>PushButton</string>
     </property>
    </widget>
+   <widget class="QTabWidget" name="outputTabWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>681</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Output</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="resultTextBox">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>681</width>
+        <height>191</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Error/Warning</string>
+     </attribute>
+     <widget class="QPlainTextEdit" name="ErrorTextBox">
+      <property name="geometry">
+       <rect>
+        <x>-7</x>
+        <y>-4</y>
+        <width>681</width>
+        <height>191</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

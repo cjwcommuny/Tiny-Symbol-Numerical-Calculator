@@ -6,6 +6,9 @@
 #include "View/view.h"
 #include "Model/model.h"
 #include <memory>
+#include "lib/etlbase.h"
+#include "Viewmodel/Command/command.h"
+#include "Viewmodel/Command/getexpressioncommand.h"
 
 class App
 {

@@ -8,6 +8,9 @@
 #include "Viewmodel/Command/getexpressioncommand.h"
 #include "Notification/notification.h"
 
+class OutputNumericalResultNotification_view;
+class OutputNumericalResultNotification_viewmodel;
+
 namespace Ui {
 class view;
 }
@@ -21,6 +24,7 @@ public:
     ~View();
 
     void set_get_expression_command(std::shared_ptr<Command> command);
+    void bind(std::shared_ptr<Viewmodel> viewmodel) {_viewmodel = viewmodel;}
 signals:
 
 public slots:
@@ -29,11 +33,14 @@ private slots:
 
 private:
     Ui::view *ui;
+    std::shared_ptr<Viewmodel> _viewmodel;
 
     std::shared_ptr<Command> get_expression_command;
 
     //notification
-    OutputNumericalResultNotification notification;
+    OutputNumericalResultNotification_view notification;
+
+    void ChangeOutputResultText(const std::string str);
 };
 
 #endif // WINDOW_H

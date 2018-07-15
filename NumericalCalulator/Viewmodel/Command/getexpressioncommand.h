@@ -3,6 +3,9 @@
 #include "lib/etlbase.h"
 #include <memory>
 #include "Viewmodel/Command/command.h"
+#include "Viewmodel/viewmodel.h"
+
+class Viewmodel;
 
 class getExpressionCommand: Command
 {

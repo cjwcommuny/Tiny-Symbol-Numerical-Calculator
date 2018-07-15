@@ -1,12 +1,15 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma once
 ////////////////////////////////////////////////////////////////////////////////
-
+#ifndef ETLBASE_H
+#define ETLBASE_H
 #include <memory>
-#include <any>
+//#include <any>
 #include <vector>
 #include <map>
 #include <stack>
+
+#include "Parameter/parameter.h"
 
 //types
 typedef unsigned char     uchar;
@@ -27,7 +30,7 @@ class ICommandBase
 {
 public:
 	//virtual void SetParameter(const std::shared_ptr<ICommandParameter>& param) = 0;
-	virtual void SetParameter(const std::any& param) = 0;
+    virtual void SetParameter(const Parameter& param) = 0;
 	virtual void Exec() = 0;
 /*
 virtual std::shared_ptr<ICommandBase> get_Undo() = 0;
@@ -120,7 +123,7 @@ public:
 };
 
 //state machine
-
+/*
 class IStateBase
 {
 public:
@@ -141,9 +144,11 @@ void Process(unsigned int uEvent, std::any& param)
 }
 ...
 */
+/*
 private:
 	int m_iCurrentState;
 	std::map<int, std::shared_ptr<IStateBase>> m_map;
 };
-
+*/
+#endif
 ////////////////////////////////////////////////////////////////////////////////

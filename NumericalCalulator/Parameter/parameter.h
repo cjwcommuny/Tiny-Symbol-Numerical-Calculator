@@ -11,10 +11,10 @@ public:
 class StringParameter: public Parameter
 {
 private:
-    QString _str;
+    std::string _str;
 public:
-    StringParameter(QString str): _str(str) {}
-    QString getString() {return _str;}
+    StringParameter(std::string str): _str(str) {}
+    std::string getString() {return _str;}
 };
 
 #endif // PARAMETER_H

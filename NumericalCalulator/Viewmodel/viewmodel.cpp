@@ -1,18 +1,13 @@
 #include "viewmodel.h"
 
-Viewmodel::Viewmodel(): get_expression_command(std::make_shared<getExpressionCommand>(this)), notification(make_shared<OutputNumericalResultNotification>())
+Viewmodel::Viewmodel(): get_expression_command(std::make_shared<getExpressionCommand>(this)), notification(make_shared<OutputNumericalResultNotification_view>())
 {
-    _model->AddPropertyNotification(notification);//bind notification
-}
-
-std::shared_ptr<Command> Viewmodel::get_expression_command()
-{
-    return get_expression_command;
+    AddPropertyNotification(_view->notification);//bind notification
 }
 
 void Viewmodel::exec_get_expression_command(QString str)
 {
-    model->transmit_expression(str);
+    _model->transmit_expression(str);
 }
 
 void Viewmodel::notify(std::string str)

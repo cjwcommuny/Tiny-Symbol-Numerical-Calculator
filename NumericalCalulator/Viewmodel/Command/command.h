@@ -11,9 +11,9 @@ class Command: public ICommandBase
 public:
     Command();
     virtual void Exec() = 0;
-    void SetParameter(const std::any& param) {parameter = param;}
+    void SetParameter(std::shared_ptr<Parameter> param) {parameter = param;}
 protected:
-    std::shared_ptr<Parameters> parameter;
+    std::shared_ptr<Parameter> parameter;
 private:
 
 };
