@@ -37,7 +37,9 @@ SOURCES += \
     Notification/outputnumericalresultnotification_view.cpp \
     Common/matrix.cpp \
     Common/polynomial.cpp \
-    Notification/outputerrornotification_view.cpp
+    Notification/outputerrornotification_view.cpp \
+    Algorithm/matrixparser.cpp \
+    Algorithm/computedeterminant.cpp
 
 
 HEADERS += \
@@ -85,7 +87,9 @@ HEADERS += \
     Common/Eigen/SuperLUSupport \
     Common/Eigen/SVD \
     Common/Eigen/UmfPackSupport \
-    Notification/outputerrornotification_view.h
+    Notification/outputerrornotification_view.h \
+    Algorithm/matrixparser.h \
+    Algorithm/computedeterminant.h
 
 FORMS += \
     View/view.ui

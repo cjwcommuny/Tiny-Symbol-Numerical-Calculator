@@ -1,0 +1,12 @@
+#include "computedeterminant.h"
+
+T ComputeDeterminant(matrix<T> &sourceMatrix)
+{
+    try {
+        if (sourceMatrix.getCol() != sourceMatrix.getRow()) {
+            //don't have determinant
+        }
+    }
+    
+    
+}
