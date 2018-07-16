@@ -6,6 +6,8 @@ class Polynomial
 {
 public:
     Polynomial();
+    int getHighestRank() const;
+    double getCoefficient(int rank);
 };
 
 #endif // POLYNOMIAL_H

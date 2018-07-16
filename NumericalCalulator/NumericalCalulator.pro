@@ -39,7 +39,8 @@ SOURCES += \
     Common/polynomial.cpp \
     Notification/outputerrornotification_view.cpp \
     Algorithm/matrixparser.cpp \
-    Algorithm/computedeterminant.cpp
+    Algorithm/computedeterminant.cpp \
+    Algorithm/solvepolynomialequation.cpp
 
 
 HEADERS += \
@@ -60,7 +61,8 @@ HEADERS += \
     Common/etlbase.h \
     Notification/outputerrornotification_view.h \
     Algorithm/matrixparser.h \
-    Algorithm/computedeterminant.h
+    Algorithm/computedeterminant.h \
+    Algorithm/solvepolynomialequation.h
 
 FORMS += \
     View/view.ui
