@@ -3,9 +3,8 @@
 
 #include <QMainWindow>
 #include <memory>
-#include "lib/etlbase.h"
-#include "Viewmodel/Command/command.h"
-#include "Viewmodel/Command/getexpressioncommand.h"
+#include "Common/etlbase.h"
+#include "Common/command.h"
 #include "Viewmodel/viewmodel.h"
 #include "View/view.h"
 #include "Model/model.h"

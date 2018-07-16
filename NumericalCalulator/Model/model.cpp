@@ -1,25 +1,36 @@
+<<<<<<< HEAD
 #include <memory>
 #include <vector>
 #include "model.h"
 using namespace std;
+=======
+#include "Model/model.h"
+>>>>>>> chenjiawei
 
 Model::Model()
 {
     expression = std::make_shared<std::string>("null string");
 }
 
-void Model::transmit_expression(std::string str)
+bool Model::transmit_expression(std::string str)
 {
     //process the expression
-    *expression = str;
-    notify();
+    if (str == "error") {
+        //notifyFailure();
+        return false;
+    } else {
+        *expression = str;
+        notifyResult();
+        return true;
+    }
 }
 
-void Model::notify()
+void Model::notifyResult()
 {
     Fire_OnPropertyChanged("ResultGenerated");
 }
 
+<<<<<<< HEAD
 /*this function is used to analyse an expression with only one pair of '[' and ']', and return a pointer to a matrix */
 template <typename T, typename sizeT = size_t>
 std::shared_ptr<matrix<T, sizeT>> Model::SingleRowmatrixParser(std::string expression)
@@ -303,4 +314,9 @@ std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
         mptr->setCol(0);
     }
     return mptr;
+=======
+void Model::notifyFailure()
+{
+    Fire_OnPropertyChanged("Failure");
+>>>>>>> chenjiawei
 }

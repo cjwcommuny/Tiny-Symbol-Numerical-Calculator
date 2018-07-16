@@ -1,4 +1,5 @@
-#include "outputnumericalresultnotification_view.h"
+#include "Notification/outputnumericalresultnotification_view.h"
+#include "View/view.h"
 
 void OutputNumericalResultNotification_view::OnPropertyChanged(const std::string &str)
 {

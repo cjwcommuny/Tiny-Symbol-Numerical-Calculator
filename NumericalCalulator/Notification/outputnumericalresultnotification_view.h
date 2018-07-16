@@ -1,9 +1,8 @@
 #ifndef OUTPUTNUMERICALRESULTNOTIFICATION_VIEW_H
 #define OUTPUTNUMERICALRESULTNOTIFICATION_VIEW_H
 
-#include "Notification/notification.h"
+#include "Common/etlbase.h"
 
-class Viewmodel;
 class View;
 
 class OutputNumericalResultNotification_view: public IPropertyNotification

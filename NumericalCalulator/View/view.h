@@ -3,16 +3,11 @@
 
 #include <QMainWindow>
 #include <memory>
-#include "lib/etlbase.h"
-#include "Viewmodel/Command/command.h"
-#include "Viewmodel/Command/getexpressioncommand.h"
-#include "Notification/notification.h"
+#include "Common/etlbase.h"
+#include "Common/command.h"
 #include "Notification/outputnumericalresultnotification_view.h"
+#include "Notification/outputerrornotification_view.h"
 
-class OutputNumericalResultNotification_view;
-class OutputNumericalResultNotification_viewmodel;
-class Command;
-class Viewmodel;
 
 namespace Ui {
 class view;
@@ -28,12 +23,14 @@ public:
 
     //void set_get_expression_command(std::shared_ptr<Command> command);
     //void bind(std::shared_ptr<Viewmodel> viewmodel) {_viewmodel = viewmodel;}
-    std::shared_ptr<OutputNumericalResultNotification_view> notification;
+
     void ChangeOutputResultText(const std::string str);
     std::shared_ptr<std::string> getResult() const;
     void set_getExpressionCommand(std::shared_ptr<Command> get_expression_command)
         {this->get_expression_command = get_expression_command;}
     void setResult(std::shared_ptr<std::string> result) {this->result = result;}
+    std::shared_ptr<OutputNumericalResultNotification_view> getNotification() {return notification;}
+    std::shared_ptr<OutputErrorNotification_view> getNotificationError() {return notification_error;}
 signals:
 
 public slots:
@@ -41,6 +38,8 @@ private slots:
     void on_returnButton_clicked();
 
 private:
+    std::shared_ptr<OutputErrorNotification_view> notification_error;
+    std::shared_ptr<OutputNumericalResultNotification_view> notification;
     Ui::view *ui;
     //std::shared_ptr<Viewmodel> _viewmodel;
 
