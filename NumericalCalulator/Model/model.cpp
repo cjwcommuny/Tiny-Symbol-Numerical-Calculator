@@ -1,18 +1,29 @@
-#include "model.h"
+#include "Model/model.h"
 
 Model::Model()
 {
     expression = std::make_shared<std::string>("null string");
 }
 
-void Model::transmit_expression(std::string str)
+bool Model::transmit_expression(std::string str)
 {
     //process the expression
-    *expression = str;
-    notify();
+    if (str == "error") {
+        //notifyFailure();
+        return false;
+    } else {
+        *expression = str;
+        notifyResult();
+        return true;
+    }
 }
 
-void Model::notify()
+void Model::notifyResult()
 {
     Fire_OnPropertyChanged("ResultGenerated");
+}
+
+void Model::notifyFailure()
+{
+    Fire_OnPropertyChanged("Failure");
 }

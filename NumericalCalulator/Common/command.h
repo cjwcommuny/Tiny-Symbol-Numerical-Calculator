@@ -2,8 +2,7 @@
 #define COMMAND_H
 
 #include <memory>
-#include "lib/etlbase.h"
-//#include "Viewmodel/viewmodel.h"
+#include "Common/etlbase.h"
 #include "Parameter/parameter.h"
 
 

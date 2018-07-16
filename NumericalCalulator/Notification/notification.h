@@ -1,7 +1,7 @@
 #ifndef NOTIFICATION_H
 #define NOTIFICATION_H
 
-#include "lib/etlbase.h"
+#include "Common/etlbase.h"
 #include "View/view.h"
 #include "Viewmodel/viewmodel.h"
 #include <assert.h>
