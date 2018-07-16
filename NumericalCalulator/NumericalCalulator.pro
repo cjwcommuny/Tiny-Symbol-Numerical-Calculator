@@ -35,12 +35,10 @@ SOURCES += \
     Notification/notification.cpp \
     Notification/outputnumericalresultnotification_viewmodel.cpp \
     Notification/outputnumericalresultnotification_view.cpp \
-    Common/matrix.cpp
-=======
     Common/matrix.cpp \
-    Common/polynomial.cpp
->>>>>>> 5ce1cec1d081c58a6e672e29aadc875035c4d560
     Common/polynomial.cpp \
+    Notification/outputerrornotification_view.cpp
+
 
 HEADERS += \
     App/app.h \

@@ -8,6 +8,7 @@
 #include "Viewmodel/Command/getexpressioncommand.h"
 #include "Notification/outputnumericalresultnotification_viewmodel.h"
 
+class Model;
 
 class Viewmodel: public Proxy_PropertyNotification<Viewmodel>, public Proxy_CommandNotification<Viewmodel>
 {

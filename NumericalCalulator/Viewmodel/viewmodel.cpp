@@ -1,5 +1,5 @@
 
-#include "viewmodel.h"
+#include "Viewmodel/viewmodel.h"
 
 Viewmodel::Viewmodel():
     get_expression_command(std::make_shared<getExpressionCommand>(this)),

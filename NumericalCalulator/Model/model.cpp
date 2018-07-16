@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 #include <memory>
 #include <vector>
-#include "model.h"
-using namespace std;
-=======
 #include "Model/model.h"
->>>>>>> chenjiawei
+using namespace std;
+
 
 Model::Model()
 {
@@ -30,7 +27,6 @@ void Model::notifyResult()
     Fire_OnPropertyChanged("ResultGenerated");
 }
 
-<<<<<<< HEAD
 /*this function is used to analyse an expression with only one pair of '[' and ']', and return a pointer to a matrix */
 template <typename T, typename sizeT = size_t>
 std::shared_ptr<matrix<T, sizeT>> Model::SingleRowmatrixParser(std::string expression)
@@ -314,9 +310,4 @@ std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
         mptr->setCol(0);
     }
     return mptr;
-=======
-void Model::notifyFailure()
-{
-    Fire_OnPropertyChanged("Failure");
->>>>>>> chenjiawei
 }
