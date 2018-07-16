@@ -22,7 +22,7 @@ matrix<T> matrix::operator*(matrix<T> lMatrix, matrix<T> rMatrix)
         for (sizeT i = 0; i < lMatrix.getRow(); ++i) {
             for (sizeT j = 0; j < rMatrix.getCol(); ++j) {//for every cell in the result matrix
                 for (sizeT k = 0; k < lMatrix.getCol(); ++k) {
-                    resultMatrix.data(i, j) += lMatrix.data(i, k) * rMatrix.data(j, k);
+                    resultMatrix.data[i,j] += lMatrix.data[i, k] * rMatrix.data[j, k];
                 }
             }
         }
@@ -39,7 +39,7 @@ matrix<T> matrix::operator+(matrix<T> lMatrix, matrix<T> rMatrix)
     } else {
         for (sizeT i = 0; i < resultMatrix.getRow(); ++i) {
             for (sizeT j = 0; j < resultMatrix.getCol(); ++j) {
-                resultMatrix.data(i, j) = lMatrix.data(i, j) + rMatrix.data(i, j);
+                resultMatrix.data[i,j] = lMatrix.data[i,j] + rMatrix.data[i,j];
             }
         }
         return resultMatrix;
@@ -55,7 +55,7 @@ matrix<T> matrix::operator-(matrix<T> lMatrix, matrix<T> rMatrix)
     } else {
         for (sizeT i = 0; i < resultMatrix.getRow(); ++i) {
             for (sizeT j = 0; j < resultMatrix.getCol(); ++j) {
-                resultMatrix.data(i, j) = lMatrix.data(i, j) - rMatrix.data(i, j);
+                resultMatrix.data[i,j] = lMatrix.data[i,j] - rMatrix.data[i,j];
             }
         }
         return resultMatrix;

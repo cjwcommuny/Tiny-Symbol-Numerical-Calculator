@@ -42,10 +42,11 @@ public:
     {
         data.push_back(tVec);
     }
-    T &getData(int i, int j)
+    T getData(int i, int j)
     {
         return data[i][j];
     }
+
 
     template <typename T, typename sizeT = size_t>
     matrix<T> operator*(matrix<T> lMatrix, matrix<T> rMatrix);
