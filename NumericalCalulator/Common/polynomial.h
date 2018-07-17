@@ -25,14 +25,14 @@ class LinkList
 	public:
 	LinkList();
 	LinkList(string Equation);
-        Link * get();
-        int Get_max()
-        {
-            return MAX;
-        }
-        int analyze(); 
-        int Get(int i,char x,Link *head);
-        int Get_coefficient(int i);
-        //void prit(Link *head); 
-		};
+    Link * get();
+    int Get_max()
+    {
+        return MAX;
+    }
+    int analyze();
+    int Get(int i,char x,Link *head);
+    int Get_coefficient(int i);
+    //void print(Link *head);
+};
 #endif
