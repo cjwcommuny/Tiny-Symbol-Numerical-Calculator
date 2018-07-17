@@ -38,14 +38,14 @@ private slots:
     void on_returnButton_clicked();
 
 private:
+    //notification
     std::shared_ptr<OutputErrorNotification_view> notification_error;
     std::shared_ptr<OutputNumericalResultNotification_view> notification;
     Ui::view *ui;
-    //std::shared_ptr<Viewmodel> _viewmodel;
 
     std::shared_ptr<Command> get_expression_command;
     std::shared_ptr<std::string> result;
-    //notification
+
 
 
 

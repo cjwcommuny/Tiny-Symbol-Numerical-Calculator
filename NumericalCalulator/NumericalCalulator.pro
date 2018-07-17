@@ -37,7 +37,10 @@ SOURCES += \
     Notification/outputnumericalresultnotification_view.cpp \
     Common/matrix.cpp \
     Common/polynomial.cpp \
-    Notification/outputerrornotification_view.cpp
+    Notification/outputerrornotification_view.cpp \
+    Algorithm/matrixparser.cpp \
+    Algorithm/computedeterminant.cpp \
+    Algorithm/solvepolynomialequation.cpp
 
 
 HEADERS += \
@@ -56,36 +59,10 @@ HEADERS += \
     Common/polynomial.h\
     Common/polynomial.h \
     Common/etlbase.h \
-    Common/Eigen/Cholesky \
-    Common/Eigen/CholmodSupport \
-    Common/Eigen/Core \
-    Common/Eigen/Dense \
-    Common/Eigen/Eigen \
-    Common/Eigen/Eigenvalues \
-    Common/Eigen/Geometry \
-    Common/Eigen/Householder \
-    Common/Eigen/IterativeLinearSolvers \
-    Common/Eigen/Jacobi \
-    Common/Eigen/LU \
-    Common/Eigen/MetisSupport \
-    Common/Eigen/OrderingMethods \
-    Common/Eigen/PardisoSupport \
-    Common/Eigen/PaStiXSupport \
-    Common/Eigen/QR \
-    Common/Eigen/QtAlignedMalloc \
-    Common/Eigen/Sparse \
-    Common/Eigen/SparseCholesky \
-    Common/Eigen/SparseCore \
-    Common/Eigen/SparseLU \
-    Common/Eigen/SparseQR \
-    Common/Eigen/SPQRSupport \
-    Common/Eigen/StdDeque \
-    Common/Eigen/StdList \
-    Common/Eigen/StdVector \
-    Common/Eigen/SuperLUSupport \
-    Common/Eigen/SVD \
-    Common/Eigen/UmfPackSupport \
-    Notification/outputerrornotification_view.h
+    Notification/outputerrornotification_view.h \
+    Algorithm/matrixparser.h \
+    Algorithm/computedeterminant.h \
+    Algorithm/solvepolynomialequation.h
 
 FORMS += \
     View/view.ui
