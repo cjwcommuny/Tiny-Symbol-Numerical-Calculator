@@ -5,6 +5,9 @@
 #include "Common/matrix.h"
 #include "Notification/notification.h"
 
+#include "Algorithm/matrixparser.h"
+#include "Algorithm/computedeterminant.h"
+
 
 
 class Model: public Proxy_PropertyNotification<Model>

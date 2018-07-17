@@ -1,7 +1,8 @@
 #include "solvepolynomialequation.h"
-
+/*
 std::vector<double> solvePolynomialEquation(Polynomial &equation)
 {
+
     std::vector<double> result;
     if (equation.getHighestRank() == 0) {
         if (equation.getCoefficient(0) != 0) {
@@ -33,4 +34,6 @@ std::vector<double> solvePolynomialEquation(Polynomial &equation)
     } else {
         //high order equation
     }
+
 }
+*/
