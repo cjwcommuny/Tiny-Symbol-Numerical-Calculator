@@ -41,6 +41,7 @@ SOURCES += \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp
+    Common/polynomial.cpp
 
 
 HEADERS += \
@@ -56,8 +57,6 @@ HEADERS += \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
     Common/matrix.h\
-    Common/polynomial.h\
-    Common/polynomial.h \
     Common/etlbase.h \
     Notification/outputerrornotification_view.h \
     Algorithm/matrixparser.h \
