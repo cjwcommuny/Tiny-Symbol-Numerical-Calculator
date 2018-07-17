@@ -1,4 +1,4 @@
-#include "Common/polynominal.h"
+#include "Common/polynomial.h"
 LinkList::LinkList(string Equation)
 {
     MAX = 0;

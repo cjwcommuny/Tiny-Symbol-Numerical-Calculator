@@ -61,7 +61,8 @@ HEADERS += \
     Notification/outputerrornotification_view.h \
     Algorithm/matrixparser.h \
     Algorithm/computedeterminant.h \
-    Algorithm/solvepolynomialequation.h
+    Algorithm/solvepolynomialequation.h \
+    Common/polynomial.h
 
 FORMS += \
     View/view.ui
