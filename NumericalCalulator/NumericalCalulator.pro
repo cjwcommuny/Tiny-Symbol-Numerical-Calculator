@@ -54,8 +54,6 @@ HEADERS += \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
     Common/matrix.h\
-    Common/polynomial.h\
-    Common/polynomial.h \
     Common/etlbase.h \
     Common/Eigen/Cholesky \
     Common/Eigen/CholmodSupport \
@@ -87,7 +85,7 @@ HEADERS += \
     Common/Eigen/SVD \
     Common/Eigen/UmfPackSupport \
     Notification/outputerrornotification_view.h \
-    Common/polynomial.h
+    Common/polynominal.h
 
 FORMS += \
     View/view.ui

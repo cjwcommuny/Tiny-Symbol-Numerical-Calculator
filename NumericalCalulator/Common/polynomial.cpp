@@ -1,4 +1,4 @@
-#include "Common/polynomial.h"
+#include "Common/polynominal.h"
 LinkList::LinkList(string Equation)
 {
     MAX = 0;
@@ -69,7 +69,7 @@ int LinkList::Get(int i,char x,Link *head)
     }
     return 0;
 }
-Get_coefficient(int i)
+int LinkList::Get_coefficient(int i)
 {
     return get_coefficient[i];
 }
@@ -83,8 +83,7 @@ Get_coefficient(int i)
         node = node->Next;
         }
 }*/
-Link * LinkList::get()
-{
+Link * LinkList::get(){
     int j = 0,m = 0;
     for(int i = 0; i < equation.length(); i ++)
     {
