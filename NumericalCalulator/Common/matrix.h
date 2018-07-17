@@ -8,53 +8,63 @@
 #include <iostream>
 using namespace std;
 
-template<typename T, typename sizeT = size_t>
 class matrix
 {
 private:
-    vector <vector<T>> data;
-    sizeT nRow;
-    sizeT nCol;
+    vector <vector<double>> data;
+    size_t nRow;
+    size_t nCol;
 
 public:
-    matrix();
-    matrix(sizeT row, sizeT col);
-    matrix(T a);
+    matrix() = default;
+    matrix(size_t row, size_t col): data(vector<vector<double>>(row, vector<double>(col))), nRow(row), nCol(col) {}
     //getter
-    sizeT getRow() const
+    size_t getRow() const
     {
         return nRow;
     }
-    sizeT getCol() const
+    size_t getCol() const
     {
         return nCol;
     }
     //setter
-    void setRow(sizeT r)
+    void setRow(size_t r)
     {
         nRow = r;
     }
-    void setCol(sizeT c)
+    void setCol(size_t c)
     {
         nCol = c;
     }
-    void setData(vector<T> tVec)
+    void setData(vector<double> tVec)
     {
         data.push_back(tVec);
     }
-    T getData(int i, int j)
+    double getData(int i, int j) const
     {
         return data[i][j];
     }
 
+    void setDataSingle(double t, size_t i, size_t j)
+    {
+        data[i][j] = t;
+    }
 
-    template <typename T, typename sizeT = size_t>
-    matrix<T> operator*(matrix<T> lMatrix, matrix<T> rMatrix);
-    
-    template <typename T, typename sizeT = size_t>
-    matrix<T> operator+(matrix<T> lMatrix, matrix<T> rMatrix);
+    void print()
+    {
+        for (size_t i = 0; i < getRow(); ++i) {
+            for (size_t j = 0; j < getCol(); ++j) {
+                std::cout << data[i][j] << " ";
+            }
+            std::cout << std::endl;
+        }
+    }
 
-    template <typename T, typename sizeT = size_t>
-    matrix<T> operator-(matrix<T> lMatrix, matrix<T> rMatrix);
+    friend matrix operator*(matrix lMatrix, matrix rMatrix);
+
+    friend matrix operator+(matrix lMatrix, matrix rMatrix);
+
+    friend matrix operator-(matrix lMatrix, matrix rMatrix);
 };
+
 #endif // MATRIX_H

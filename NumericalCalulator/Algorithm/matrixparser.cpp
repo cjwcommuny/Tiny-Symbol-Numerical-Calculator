@@ -2,12 +2,11 @@
 using namespace std;
 
 /*this function is used to analyse an expression with only one pair of '[' and ']', and return a pointer to a matrix */
-template <typename T, typename sizeT = size_t>
-std::shared_ptr<matrix<T, sizeT>> Model::SingleRowmatrixParser(std::string expression)
+std::shared_ptr<matrix> SingleRowmatrixParser(std::string expression)
 {
-    shared_ptr<matrix<T, size_t>> mptr(new matrix<T, size_t>);
-    vector<T> tVec;
-    T tUncertain;
+    shared_ptr<matrix> mptr(new matrix);
+    vector<double> tVec;
+    double tUncertain;
     int rc = 1; //rc = 1 means it is a single-row matrix, while rc = 0 means it is a single-column matrix
     int l = expression.length();
     int i = 1;
@@ -76,14 +75,13 @@ std::shared_ptr<matrix<T, sizeT>> Model::SingleRowmatrixParser(std::string expre
 }
 
 /*this function is used to analyse an expression with many pairs of '[' and ']', and return a pointer to a matrix */
-template <typename T, typename sizeT = size_t>
-std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
+std::shared_ptr<matrix> matrixParser(std::string expression)
 {
-    shared_ptr<matrix<T, size_t>> mptr(new matrix<T, size_t>);
+    shared_ptr<matrix> mptr(new matrix);
     mptr->setRow(0);
     mptr->setCol(0);
-    vector<T> tVec;
-    T tUncertain;
+    vector<double> tVec;
+    double tUncertain;
     int l = expression.length();
     int i = 0;
     int l1 = 0;
@@ -93,7 +91,7 @@ std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
     for (int s = 0; s < l; s++)
     {
         if ((expression[s] < '0' || expression[s] > '9') && expression[s] != ' ' &&expression[s] != ',' &&expression[s] != ';' && expression[s] != '[' && expression[s] != ']')
-        //if(expression[s] == '@' || expression[s] == '!')
+            //if(expression[s] == '@' || expression[s] == '!')
         {
             cout << "syntax error at location: " << s << endl;
             //cout << (int)expression[s] << endl;
@@ -127,13 +125,13 @@ std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
                 mptr->setCol(0);
                 return mptr;
             }
-            mptr = SingleRowmatrixParser<float, size_t>(temp);
+            mptr = SingleRowmatrixParser(temp);
             return mptr;
 
         }
         else if (expression[i] == '[')  //[[003, 04 5], 2 ,3, 4] [7, 7 ,7] [2 5 8]
         {
-            shared_ptr<matrix<T, size_t>> mt(new matrix<T, size_t>);
+            shared_ptr<matrix> mt(new matrix);
 
             int rc = 1;  // ' 'or ','for seperation
             int countMatrix = 0, cMatrix = 0;
@@ -146,7 +144,7 @@ std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
                 }
 
                 temp.assign(expression, i, l2 - i + 1);
-                mt = SingleRowmatrixParser<float, size_t>(temp);
+                mt = SingleRowmatrixParser(temp);
                 if (mt->getCol() == 0 && mt->getRow() == 0)
                     return mt;
                 countMatrix++;
@@ -261,7 +259,7 @@ std::shared_ptr<matrix<T, sizeT>> Model::matrixParser(std::string expression)
             }
             if (rc == 1 && mt->getCol() == 1)
             {
-                vector <T> tem;
+                vector <double> tem;
                 for (int v = 0; v < mptr->getRow(); v++)
                 {
                     for (int u = 0; u < mptr->getCol(); u++)

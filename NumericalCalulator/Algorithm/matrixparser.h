@@ -4,10 +4,10 @@
 #include <vector>
 #include "Common/matrix.h"
 
-template <typename T, typename sizeT = size_t>
-std::shared_ptr<matrix<T, sizeT>> SingleRowmatrixParser(std::string expression);
+std::shared_ptr<matrix> SingleRowmatrixParser(std::string expression);
 
-template <typename T, typename sizeT = size_t>
-std::shared_ptr<matrix<T, sizeT>> matrixParser(std::string expression);
+/*this function is used to analyse an expression with many pairs of '[' and ']', and return a pointer to a matrix */
+
+std::shared_ptr<matrix> matrixParser(std::string expression);
 
 #endif // MATRIXPARSER_H
