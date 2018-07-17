@@ -1,16 +1,13 @@
 #ifndef _GETNUM_H
 #define _GETNUM_H
 #include"polynominal.h"
-LinkList::LinkList()
+LinkList::LinkList(string Equation)
 {
-	string t;
-	getline(cin,equation);
-	for(int i =0;i<equation.length();i++)
+	for(int i =0;i<Equation.length();i++)
 	{
-		if(equation[i] != ' ')
-		t+=equation[i];
+		if(Equation[i] != ' ')
+		equation+=Equation[i];
 	}
-	equation  = t;
 	head = tail = (Link*)malloc(sizeof(Link));
 		head->Next = NULL;
 }
