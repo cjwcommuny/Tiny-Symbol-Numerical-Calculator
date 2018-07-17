@@ -19,10 +19,6 @@ public:
     std::shared_ptr<std::string> getExpression() {return expression;}
 private:
     std::shared_ptr<std::string> expression;
-    template <typename T, typename sizeT = size_t>
-    std::shared_ptr<matrix<T, sizeT>> SingleRowmatrixParser(std::string expression);
-    template <typename T, typename sizeT = size_t>
-    std::shared_ptr<matrix<T, sizeT>> matrixParser(std::string expression);
 };
 
 #endif // MODEL_H

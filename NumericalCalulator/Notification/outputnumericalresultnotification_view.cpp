@@ -5,7 +5,7 @@ void OutputNumericalResultNotification_view::OnPropertyChanged(const std::string
 {
     if (str == "ResultGenerated") {
         std::shared_ptr<std::string> result = _view->getResult();
-        assert(result);
+        //assert(result);
         _view->ChangeOutputResultText(*result);
     }
 }
