@@ -1,6 +1,5 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-<<<<<<< HEAD
 #include <memory>
 #include <vector>
 #include <string>
@@ -44,14 +43,12 @@ public:
     {
         return data[i][j];
     }
-=======
 
 
 class Matrix
 {
 public:
     Matrix();
->>>>>>> 5ce1cec1d081c58a6e672e29aadc875035c4d560
 };
 
 #endif // MATRIX_H

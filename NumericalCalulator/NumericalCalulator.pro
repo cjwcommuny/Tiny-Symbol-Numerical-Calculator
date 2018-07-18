@@ -45,7 +45,9 @@ SOURCES += \
     Notification/notification.cpp \
     Notification/outputnumericalresultnotification_viewmodel.cpp \
     Notification/outputnumericalresultnotification_view.cpp \
-<<<<<<< HEAD
+<<<<<<< HEAD \
+    Common/matrix.cpp \
+    Common/polynomial.cpp
     Common/matrix.cpp
 =======
     Common/matrix.cpp \
@@ -974,7 +976,9 @@ HEADERS += \
     Notification/notification.h \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
-<<<<<<< HEAD
+<<<<<<< HEAD \
+    Common/matrix.h \
+    Common/polynomial.h
     Common/matrix.h
 =======
     Common/matrix.h \
