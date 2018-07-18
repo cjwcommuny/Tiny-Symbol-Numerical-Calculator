@@ -7,8 +7,8 @@ LinkList::LinkList(string Equation)
         if(Equation[i] != ' ')
         equation+=Equation[i];
     }
-    head = tail = (Link*)malloc(sizeof(Link));
-    head =tail = NULL;
+    Head = Tail = (Link*)malloc(sizeof(Link));
+    Head =Tail = NULL;
     try{
         if(this->analyze()==0)
             throw "abc";
@@ -67,10 +67,10 @@ int LinkList::analyze()
     else
     return 1;
 }
-int LinkList::Get(int i,char x,Link *head)
+int LinkList::Get(int i,char x)
 {
     Link *node;
-    node = head;
+    node = Head;
     while(node)
     {
         if(node->Index ==i&&node->X==x)
@@ -86,7 +86,7 @@ int LinkList::Get_coefficient(int i)
 void LinkList::print()
 {
     Link *node;
-    node = head;
+    node = Head;
     while(node)
     {
         cout<<node->Num<<" "<<node->X<<" "<<node->Index<<" "<<node->Operator<<endl;
@@ -120,22 +120,22 @@ Link * LinkList::get(){
             }
             MAX =( MAX>newLinkList->Index) ? MAX:newLinkList->Index;
             get_coefficient[newLinkList->Index]=newLinkList->Num;
-            head = Rank(head,newLinkList);
+            Head = Rank(newLinkList);
     }
-            return head;
+            return Head;
 }
-Link * LinkList::Rank(Link *head,Link *node)
+Link * LinkList::Rank(Link *node)
 {
-    Link * temp = head;
-    if(head == NULL)
+    Link * temp = Head;
+    if(Head == NULL)
     {
-        head = node;
+        Head = node;
     }
     else{
         if(node->Index>temp->Index)
         {
-            node->Next = head;
-            head = node;
+            node->Next = Head;
+            Head = node;
         }
         else
         {
@@ -153,5 +153,5 @@ Link * LinkList::Rank(Link *head,Link *node)
             temp->Next = node;
         }
     }
-    return head;
+    return Head;
 }
