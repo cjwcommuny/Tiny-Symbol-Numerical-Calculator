@@ -36,7 +36,7 @@ SOURCES += \
     Notification/outputnumericalresultnotification_viewmodel.cpp \
     Notification/outputnumericalresultnotification_view.cpp \
     Common/matrix.cpp \
-    Common/polynomial.cpp
+    Common/polynomial.cpp \
     Common/matrix.cpp \
     Common/matrix.cpp \
     Common/polynomial.cpp \
@@ -66,7 +66,7 @@ HEADERS += \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
     Common/matrix.h \
-    Common/polynomial.h
+    Common/polynomial.h \
     Common/matrix.h
     Common/matrix.h\
     Common/etlbase.h \
