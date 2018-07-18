@@ -21,6 +21,7 @@ class LinkList
 	private:
     size_t MAX;
     std::map<int,double> get_coefficient;
+public:
 	Link *head,*tail;
 	public:
 	LinkList();
