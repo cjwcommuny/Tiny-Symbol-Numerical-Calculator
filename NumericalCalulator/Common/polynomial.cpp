@@ -171,4 +171,4 @@ Link * LinkList::Rank(Link *head,Link *node)
         }
     }
     return head;
-}*/
+}
