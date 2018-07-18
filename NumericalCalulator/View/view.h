@@ -31,6 +31,7 @@ public:
     void setResult(std::shared_ptr<std::string> result) {this->result = result;}
     std::shared_ptr<OutputNumericalResultNotification_view> getNotification() {return notification;}
     std::shared_ptr<OutputErrorNotification_view> getNotificationError() {return notification_error;}
+
 signals:
 
 public slots:
@@ -46,7 +47,8 @@ private:
     std::shared_ptr<Command> get_expression_command;
     std::shared_ptr<std::string> result;
 
-
+protected:
+    void paintEvent(QPaintEvent *);
 
 
 };

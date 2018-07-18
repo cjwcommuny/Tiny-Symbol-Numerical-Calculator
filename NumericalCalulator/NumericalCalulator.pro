@@ -40,7 +40,10 @@ SOURCES += \
     Notification/outputerrornotification_view.cpp \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
-    Algorithm/solvepolynomialequation.cpp
+    Algorithm/solvepolynomialequation.cpp \
+    View/curveform.cpp \
+    Common/drawpolynomialcurve.cpp \
+    Common/point.cpp
     Common/polynomial.cpp
 
 
@@ -62,10 +65,14 @@ HEADERS += \
     Algorithm/matrixparser.h \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
-    Common/polynomial.h
+    Common/polynomial.h \
+    View/curveform.h \
+    Common/drawpolynomialcurve.h \
+    Common/point.h
 
 FORMS += \
-    View/view.ui
+    View/view.ui \
+    View/curveform.ui
 
 DISTFILES += \
     NumericalCalulator.pro.user \

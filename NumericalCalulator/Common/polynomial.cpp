@@ -1,4 +1,16 @@
 #include "Common/polynomial.h"
+
+double LinkList::compute(double x) const
+{
+    Link *current = head;
+    double result = 0;
+    while (current != nullptr) {
+        result += current->Num * pow(x, current->Index);
+    }
+    return result;
+}
+
+
 LinkList::LinkList(string Equation)
 {
     MAX = 0;
@@ -69,7 +81,7 @@ int LinkList::Get(int i,char x,Link *head)
     }
     return 0;
 }
-int LinkList::Get_coefficient(int i)
+double LinkList::Get_coefficient(int i)
 {
     return get_coefficient[i];
 }
