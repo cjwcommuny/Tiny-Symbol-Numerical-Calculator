@@ -1,5 +1,5 @@
-#ifndef _POLYNOMINAL_H
-#define _POLYNOMINAL_H
+#ifndef _POLYNOMIAL_H
+#define _POLYNOMIAL_H
 #include<iostream>
 using namespace std;
 #include<malloc.h>
@@ -9,29 +9,28 @@ using namespace std;
 typedef struct link
 {
     char X;
-    double Num;
-	struct link *Next;
-	char Operator;
-	int Index;
+    int Num;
+    struct link *Next;
+    int Index;
 }Link;
-static Link *Head,*Tail;
+static Link *head,*tail;
 class LinkList
 {
     std::string equation;
-	private:
+    private:
     size_t MAX;
     std::map<int,int> get_coefficient;
-	public:
-	LinkList();
-	LinkList(string Equation);
+    public:
+    LinkList();
+    LinkList(string Equation);
     Link * get();
-    Link * Rank(Link *node);
+    Link * Rank(Link *head,Link *node);
     int Get_max()
     {
         return MAX;
     }
     int analyze();
-    int Get(int i,char x);
+    int Get(int i,char x,Link *head);
     int Get_coefficient(int i);
     void print();
 };

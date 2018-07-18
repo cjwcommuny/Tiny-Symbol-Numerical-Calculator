@@ -1,4 +1,5 @@
 LinkList::LinkList(string str)//分析算式是否合理，不合理将抛出，将字符串解析存在map和链表里,在连表里由指数从高到低一次排序。其中Num为系数，Index为指数，x为未知数，Operator为该项后的运算符。
 int LinkList::Get(int i,char x)//输入指数和未知数返回系数；
 int LinkList::Get_coefficient(int i)//输入指数返回系数；
+int LinkList::Get_max()//返回最大指数
 

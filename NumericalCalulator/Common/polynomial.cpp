@@ -1,4 +1,4 @@
-#include "Common/polynomial.h"
+/*#include "Common/polynomial.h"
 LinkList::LinkList(string Equation)
 {
     MAX = 0;
@@ -7,10 +7,10 @@ LinkList::LinkList(string Equation)
         if(Equation[i] != ' ')
         equation+=Equation[i];
     }
-    Head = Tail = (Link*)malloc(sizeof(Link));
-    Head =Tail = NULL;
+    head = tail = (Link*)malloc(sizeof(Link));
+    head =tail = NULL;
     try{
-        if(this->analyze()==0)
+        if(this->analyze()==1)
             throw "abc";
         this->get();
         this->print();
@@ -25,8 +25,6 @@ int LinkList::analyze()
     int t=-1;
     size_t size;
     size = equation.length();
-    if(equation[size-1]=='=')
-    size --;
     for(int j=0;j<size;j++)
     {
         if(t==-1&&((equation[j]>='a'&&equation[j]<='z')||(equation[j]>='A'&&equation[j]<='Z')))
@@ -34,16 +32,16 @@ int LinkList::analyze()
     }
     for(int M=0;M<size;M++)
      {
-        if(!((equation[M]>='0'&&equation[M]<='9')||equation[M]==equation[t]||equation[M]=='+'||equation[M]=='-'||equation[M]=='*'||equation[M]=='/'||equation[M]=='^'))
+        if(!((equation[M]>='0'&&equation[M]<='9')||equation[M]==equation[t]||equation[M]=='+'||equation[M]=='-'||equation[M]=='='||equation[M]=='^'))
         return 1;
      }
     if((equation[0]>'0'&&equation[0]<='9')||equation[0]==equation[t])
     {
         for(int i = 0;i<size-1;i++)
     {
-        if(equation[i]>'0'&&equation[i]<='9')
+        if(equation[i]>='0'&&equation[i]<='9')
         {
-             if(!(equation[i+1]>='0'&&equation[0]<='9'||equation[i+1]==equation[t]||equation[i+1]=='+'||equation[i+1]=='-'||equation[i+1]=='*'||equation[i+1]=='/'))
+             if(!(equation[i+1]>'0'&&equation[i+1]<='9'||equation[i+1]==equation[t]||equation[i+1]=='='||equation[i+1]=='+'||equation[i+1]=='-'))
              return 1;
         }
          else if(equation[i]=='^')
@@ -51,26 +49,32 @@ int LinkList::analyze()
              if(!(equation[i+1]>0&&equation[i+1]<='9'))
              return 1;
          }
-         else if(equation[i]=='+'||equation[i]=='-'||equation[i]=='*'||equation[i]=='/')
+         else if(equation[i]=='+'||equation[i]=='-')
          {
              if(!((equation[i+1]>'0'&&equation[i+1]<='9')||equation[i+1]==equation[t]||'('))
              return 1;
          }
          else if(equation[i]==equation[t])
          {
-            if(!(equation[i+1]=='^'||equation[i+1]=='+'||equation[i+1]=='-'||equation[i+1]=='*'||equation[i+1]=='/'))
+            if(!(equation[i+1]=='^'||equation[i+1]=='+'||equation[i+1]=='-'||equation[i+1]=='='))
             return 1;
          }
+         else if(equation[i]=='=')
+         {
+            if(!(equation[i+1]==equation[t]||(equation[i+1]>'0'&&equation[i+1]<='9')))
+            return 1;
+         }
+
     }
     return 0;
     }
     else
     return 1;
 }
-int LinkList::Get(int i,char x)
+int LinkList::Get(int i,char x,Link *head)
 {
     Link *node;
-    node = Head;
+    node = head;
     while(node)
     {
         if(node->Index ==i&&node->X==x)
@@ -86,15 +90,15 @@ int LinkList::Get_coefficient(int i)
 void LinkList::print()
 {
     Link *node;
-    node = Head;
+    node = head;
     while(node)
     {
-        cout<<node->Num<<" "<<node->X<<" "<<node->Index<<" "<<node->Operator<<endl;
+        cout<<node->Num<<" "<<node->X<<" "<<node->Index<<endl;
         node = node->Next;
         }
 }
 Link * LinkList::get(){
-    int j = 0,m = 0;
+    int j = 0,m = 0,k =1 ,Operator = 1;
     for(int i = 0; i < equation.length(); i ++)
     {
 
@@ -104,7 +108,7 @@ Link * LinkList::get(){
             while(equation[i]<='9'&&equation[i]>='0'){i++;j++;}
             while(j>0){m+=(equation[i-j]-48)*pow(10,j-1);j--;}
             if(!m) m = 1;
-            newLinkList->Num = m;
+            newLinkList->Num = m * k *Operator;
             m = 0;
             if((equation[i]>='a'&&equation[i]<='z')||(equation[i]>='A'&&equation[i]<='Z'))
             {
@@ -114,28 +118,28 @@ Link * LinkList::get(){
                 else newLinkList->Index = 1;
             }
             else{newLinkList->X = 0;newLinkList->Index=0;}
-            if(equation[i] == '+'||equation[i]=='-'||equation[i]=='*'||equation[i]=='/'||equation[i]=='=')
-            {
-                newLinkList->Operator = equation[i];
-            }
+            if(equation[i]=='-')k = -1;
+            if(equation[i]=='+')k = 1;
+            else if(equation[i]=='=')
+            Operator = -Operator;
             MAX =( MAX>newLinkList->Index) ? MAX:newLinkList->Index;
             get_coefficient[newLinkList->Index]=newLinkList->Num;
-            Head = Rank(newLinkList);
+            head = Rank(head,newLinkList);
     }
-            return Head;
+            return head;
 }
-Link * LinkList::Rank(Link *node)
+Link * LinkList::Rank(Link *head,Link *node)
 {
-    Link * temp = Head;
-    if(Head == NULL)
+    Link * temp = head;
+    if(head == NULL)
     {
-        Head = node;
+        head = node;
     }
     else{
         if(node->Index>temp->Index)
         {
-            node->Next = Head;
-            Head = node;
+            node->Next = head;
+            head = node;
         }
         else
         {
@@ -153,5 +157,5 @@ Link * LinkList::Rank(Link *node)
             temp->Next = node;
         }
     }
-    return Head;
-}
+    return head;
+}*/
