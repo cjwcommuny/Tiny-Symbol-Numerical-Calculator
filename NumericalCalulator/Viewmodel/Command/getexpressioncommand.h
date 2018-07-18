@@ -1,12 +1,11 @@
 #ifndef GETEXPRESSIONCOMMAND_H
 #define GETEXPRESSIONCOMMAND_H
-#include "lib/etlbase.h"
+#include "Common/etlbase.h"
 #include <memory>
-#include "Viewmodel/Command/command.h"
-#include "Viewmodel/viewmodel.h"
+#include "Common/command.h"
+
 
 class Viewmodel;
-class Command;
 
 class getExpressionCommand: public Command
 {
