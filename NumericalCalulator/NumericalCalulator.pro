@@ -40,7 +40,8 @@ SOURCES += \
     Notification/outputerrornotification_view.cpp \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
-    Algorithm/solvepolynomialequation.cpp
+    Algorithm/solvepolynomialequation.cpp \
+    Algorithm/matrixtransformation.cpp
     Common/polynomial.cpp
 
 
@@ -62,7 +63,8 @@ HEADERS += \
     Algorithm/matrixparser.h \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
-    Common/polynomial.h
+    Common/polynomial.h \
+    Algorithm/matrixtransformation.h
 
 FORMS += \
     View/view.ui
