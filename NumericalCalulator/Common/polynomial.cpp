@@ -8,7 +8,17 @@ LinkList::LinkList(string Equation)
         equation+=Equation[i];
     }
     head = tail = (Link*)malloc(sizeof(Link));
-        head->Next = NULL;
+    head =tail = NULL;
+    try{
+        if(this->analyze()==0)
+            throw "abc";
+        this->get();
+        this->print();
+    }
+    catch(char *)
+    {
+        cout<<"incrroct input"<<endl;
+    }
 }
 int LinkList::analyze()
 {
@@ -60,7 +70,7 @@ int LinkList::analyze()
 int LinkList::Get(int i,char x,Link *head)
 {
     Link *node;
-    node = head->Next;
+    node = head;
     while(node)
     {
         if(node->Index ==i&&node->X==x)
@@ -73,16 +83,16 @@ int LinkList::Get_coefficient(int i)
 {
     return get_coefficient[i];
 }
-/*void LinkList::prit(Link *head)
+void LinkList::print()
 {
     Link *node;
-    node = head->Next;
+    node = head;
     while(node)
     {
         cout<<node->Num<<" "<<node->X<<" "<<node->Index<<" "<<node->Operator<<endl;
         node = node->Next;
         }
-}*/
+}
 Link * LinkList::get(){
     int j = 0,m = 0;
     for(int i = 0; i < equation.length(); i ++)
@@ -110,8 +120,38 @@ Link * LinkList::get(){
             }
             MAX =( MAX>newLinkList->Index) ? MAX:newLinkList->Index;
             get_coefficient[newLinkList->Index]=newLinkList->Num;
-            tail->Next=newLinkList;
-            tail = newLinkList;
+            head = Rank(head,newLinkList);
     }
             return head;
+}
+Link * LinkList::Rank(Link *head,Link *node)
+{
+    Link * temp = head;
+    if(head == NULL)
+    {
+        head = node;
+    }
+    else{
+        if(node->Index>temp->Index)
+        {
+            node->Next = head;
+            head = node;
+        }
+        else
+        {
+           while(temp->Next!=NULL)
+            {
+               if(node->Index<temp->Index&&node->Index>temp->Next->Index)
+               {
+                   node->Next=temp->Next;
+                   temp->Next=node;
+                   break;
+               }
+               temp=temp->Next;
+            }
+            if(temp->Next == NULL)
+            temp->Next = node;
+        }
+    }
+    return head;
 }
