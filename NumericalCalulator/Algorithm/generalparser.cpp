@@ -1,4 +1,5 @@
 #include "generalparser.h"
+#include "Algorithm/matrixtransformation.h"
 
 std::string generalParser(std::string expression)
 {
@@ -10,7 +11,8 @@ std::string generalParser(std::string expression)
     //std::cout << "=============seperate expression end==========" << std::endl;
     if (functionName == MatrixInversion) {
         std::shared_ptr<matrix> mat = matrixParser(component_out[0]);
-
+        std::shared_ptr<matrix> mat2 = matrixInverse(*mat);
+        resultStr = mat2->toString();
     } else if (functionName == ComputeDeterminant) {
         //std::cout << "=============ComputeDeterminant test==========" << std::endl;
         std::shared_ptr<matrix> mat = matrixParser(component_out[0]);
@@ -19,6 +21,10 @@ std::string generalParser(std::string expression)
         std::stringstream ss;
         ss << result;
         resultStr = ss.str();
+    } else if (functionName == MatrixTranspose) {
+        std::shared_ptr<matrix> mat = matrixParser(component_out[0]);
+        std::shared_ptr<matrix> mat2 = matrixTranspose(*mat);
+        resultStr = mat2->toString();
     } else if (functionName == SolvePolynomialEquation) {
         
     } else if (functionName == DrawPolynomialCurve) {
@@ -71,9 +77,9 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
         } else if (functionName == "SolvePoly") {
             return SolvePolynomialEquation;
         } else if (functionName == "invert") {
-
+            return MatrixInversion;
         } else if (functionName == "transpose") {
-
+            return MatrixTranspose;
         }
         else {//no such functionName
             //error: no such function name

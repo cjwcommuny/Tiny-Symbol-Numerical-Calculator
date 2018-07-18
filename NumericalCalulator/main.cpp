@@ -1,7 +1,9 @@
 #include <QApplication>
 #include "App/app.h"
 //#include "lib/Eigen/Dense"
+#include "Common/matrix.h"
 #include "Algorithm/generalparser.h"
+#include "Algorithm/matrixtransformation.h"
 
 int main(int argc, char *argv[])
 {
@@ -28,11 +30,37 @@ int main(int argc, char *argv[])
     std::cout << inputStr << std::endl;
     std::cout << "=============test end==========" << std::endl;
     */
+    /*
+     * test inversion
+    std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3,4]]");
+    std::cout << "============" << std::endl;
+    std::cout << mat->toString() << " "  << std::endl;
+    std::cout << "=======" << std::endl;
+    std::shared_ptr<matrix> mat2 = matrixInverse(*mat);
+    std::string resultStr = mat2->toString();
+    std::cout << "============" << std::endl;
+    std::cout << resultStr << " "  << std::endl;
+    std::cout << "=======" << std::endl;
+    */
+    /*
+     * test transpose
+    std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3,4]]");
+    std::cout << "============" << std::endl;
+    std::cout << mat->toString() << " "  << std::endl;
+    std::cout << "=======" << std::endl;
+    std::shared_ptr<matrix> mat2 = matrixTranspose(*mat);
+    std::cout << "========transpose end" << std::endl;
+    std::string resultStr = mat2->toString();
+    std::cout << "============" << std::endl;
+    std::cout << resultStr << " "  << std::endl;
+    std::cout << "=======" << std::endl;
+*/
 
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
     return a.exec();
+
 }
 
 

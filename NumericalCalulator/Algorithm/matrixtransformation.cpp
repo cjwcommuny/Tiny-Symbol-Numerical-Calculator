@@ -4,12 +4,12 @@ using namespace std;
 
 shared_ptr<matrix> matrixTranspose(matrix &M)
 {
-    shared_ptr<matrix> mptr(new matrix);
-    mptr->setRow(M.getCol());
-    mptr->setCol(M.getRow());
+    shared_ptr<matrix> mptr(new matrix(M.getCol(), M.getRow()));
+    std::cout << "======" << mptr->getRow() << " " << mptr->getCol() << std::endl;
     for(int i = 0; i < M.getRow(); i++)
-        for (int j = 0; j < M.getCol(); j++)
+        for (int j = 0; j < M.getCol(); j++) {
             mptr->setDataSingle(M.getData(i, j), j, i);
+        }
     return mptr;
 }
 

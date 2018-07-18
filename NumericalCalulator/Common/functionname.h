@@ -1,11 +1,12 @@
 #ifndef FUNCTIONNAME_H
 #define FUNCTIONNAME_H
 
-using FunctionType = enum {
+typedef enum {
     MatrixInversion,
+    MatrixTranspose,
     ComputeDeterminant,
     SolvePolynomialEquation,
     DrawPolynomialCurve
-};
+} FunctionType;
 
 #endif // FUNCTIONNAME_H

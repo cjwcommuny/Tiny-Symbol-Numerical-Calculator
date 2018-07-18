@@ -2,6 +2,7 @@
 #define GENERALPARSER_H
 
 #include <string>
+#include "Common/matrix.h"
 #include "Common/functionname.h"
 #include "Algorithm/matrixparser.h"
 #include "Common/polynomial.h"
