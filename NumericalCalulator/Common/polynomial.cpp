@@ -1,4 +1,4 @@
-/*#include "Common/polynomial.h"
+#include "Common/polynomial.h"
 LinkList::LinkList(string Equation)
 {
     MAX = 0;
@@ -158,4 +158,4 @@ Link * LinkList::Rank(Link *head,Link *node)
         }
     }
     return head;
-}*/
+}
