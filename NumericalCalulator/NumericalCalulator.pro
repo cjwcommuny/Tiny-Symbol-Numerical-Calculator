@@ -50,7 +50,7 @@ SOURCES += \
     Algorithm/generalparser.cpp \
     Common/functionname.cpp \
     Algorithm/matrixtransformation.cpp \
-    Common/polynomial.cpp
+    Common/polynomial.cpp \
 
 
 HEADERS += \
@@ -81,7 +81,7 @@ HEADERS += \
     Algorithm/generalparser.h \
     Common/functionname.h \
     Algorithm/matrixtransformation.h \
-    Common/polynomial.h
+    Common/polynomial.h \
 
 
 FORMS += \
