@@ -1,6 +1,9 @@
 #ifndef MATRIX_H
 #define MATRIX_H
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 #include <memory>
 #include <vector>
 #include <string>
@@ -50,6 +53,12 @@ public:
         data[i][j] = t;
     }
 
+<<<<<<< HEAD
+class Matrix
+{
+public:
+    Matrix();
+=======
     void print()
     {
         for (size_t i = 0; i < getRow(); ++i) {
@@ -65,6 +74,7 @@ public:
     friend matrix operator+(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator-(matrix lMatrix, matrix rMatrix);
+>>>>>>> master
 };
 
 #endif // MATRIX_H

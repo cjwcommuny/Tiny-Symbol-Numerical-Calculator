@@ -36,6 +36,9 @@ SOURCES += \
     Notification/outputnumericalresultnotification_viewmodel.cpp \
     Notification/outputnumericalresultnotification_view.cpp \
     Common/matrix.cpp \
+    Common/polynomial.cpp
+    Common/matrix.cpp \
+    Common/matrix.cpp \
     Common/polynomial.cpp \
     Notification/outputerrornotification_view.cpp \
     Algorithm/matrixparser.cpp \
@@ -62,6 +65,9 @@ HEADERS += \
     Notification/notification.h \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
+    Common/matrix.h \
+    Common/polynomial.h
+    Common/matrix.h
     Common/matrix.h\
     Common/etlbase.h \
     Notification/outputerrornotification_view.h \
@@ -74,7 +80,9 @@ HEADERS += \
     Common/point.h \
     Algorithm/generalparser.h \
     Common/functionname.h \
-    Algorithm/matrixtransformation.h
+    Algorithm/matrixtransformation.h \
+    Common/polynomial.h
+
 
 FORMS += \
     View/view.ui \

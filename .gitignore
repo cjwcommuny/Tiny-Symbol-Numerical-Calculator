@@ -7,3 +7,5 @@ NumericalCalulator/NumericalCalulator.pro.user.*
 *.obj
 *.user
 .vscode/
+NumericalCalulator/NumericalCalulator.pro.user
+*.user
