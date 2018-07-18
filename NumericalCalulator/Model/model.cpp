@@ -1,4 +1,5 @@
 #include "Model/model.h"
+#include "Algorithm/generalparser.h"
 
 
 Model::Model()
@@ -13,14 +14,7 @@ bool Model::transmit_expression(std::string str)
         //notifyFailure();
         return false;
     } else {
-        /*
-        std::shared_ptr<matrix> mat =  matrixParser(str);
-        double result_determinant = ComputeDeterminant(*mat);
-        std::stringstream ss;
-        ss << result_determinant;
-        *expression = ss.str();
-        * */
-        *expression = str;
+        *expression = generalParser(str);
         notifyResult();
         return true;
     }

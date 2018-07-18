@@ -18,6 +18,7 @@ CurveForm::~CurveForm()
 void CurveForm::paintEvent(QPaintEvent*e)
 {
     QPainter painter(this);
+    /*
     size_t height = 300;
     size_t width = 400;
     std::cout << "=============start test==========" << std::endl;
@@ -35,7 +36,7 @@ void CurveForm::paintEvent(QPaintEvent*e)
         painter.drawLine(QPointF(x, height-y), QPointF(xPre, height - yPre));
         xPre = x;
         yPre = y;
-    }
+    }*/
     //size_t height = height();
     //size_t width = width();
     /*

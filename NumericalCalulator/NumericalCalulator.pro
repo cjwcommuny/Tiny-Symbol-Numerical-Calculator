@@ -43,7 +43,9 @@ SOURCES += \
     Algorithm/solvepolynomialequation.cpp \
     View/curveform.cpp \
     Common/drawpolynomialcurve.cpp \
-    Common/point.cpp
+    Common/point.cpp \
+    Algorithm/generalparser.cpp \
+    Common/functionname.cpp
     Common/polynomial.cpp
 
 
@@ -68,7 +70,9 @@ HEADERS += \
     Common/polynomial.h \
     View/curveform.h \
     Common/drawpolynomialcurve.h \
-    Common/point.h
+    Common/point.h \
+    Algorithm/generalparser.h \
+    Common/functionname.h
 
 FORMS += \
     View/view.ui \

@@ -1,7 +1,7 @@
 #include <QApplication>
 #include "App/app.h"
 //#include "lib/Eigen/Dense"
-#include "Common/drawpolynomialcurve.h"
+#include "Algorithm/generalparser.h"
 
 int main(int argc, char *argv[])
 {
@@ -19,10 +19,19 @@ int main(int argc, char *argv[])
 
     std::cout << "=============end test==========" << std::endl;
 */
+    /*
+    std::cout << "=============start test==========" << std::endl;
+    std::string inputStr("ComputeDeterminant([[1,2];[3,4]])");
+    //std::cin >> inputStr;
+    std::cout << "=============get input==========" << std::endl;
+    inputStr = generalParser(inputStr);
+    std::cout << inputStr << std::endl;
+    std::cout << "=============test end==========" << std::endl;
+    */
+
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
-
     return a.exec();
 
 }

@@ -32,7 +32,7 @@ matrix GenerateMinor(const matrix &sourceMatrix, size_t i, size_t j)
 
 
 
-double ComputeDeterminant(const matrix &sourceMatrix)
+double computeDeterminant(const matrix &sourceMatrix)
 {
     double result = 0;
     if (sourceMatrix.getCol() != sourceMatrix.getRow()) {
@@ -42,7 +42,7 @@ double ComputeDeterminant(const matrix &sourceMatrix)
     } else {
         int symbol = 1;
         for (size_t index = 0; index < sourceMatrix.getCol(); ++index) {
-            result += symbol * sourceMatrix.getData(0, index) * ComputeDeterminant(GenerateMinor(sourceMatrix, 0, index));
+            result += symbol * sourceMatrix.getData(0, index) * computeDeterminant(GenerateMinor(sourceMatrix, 0, index));
             symbol = - symbol;
         }
         return result;
