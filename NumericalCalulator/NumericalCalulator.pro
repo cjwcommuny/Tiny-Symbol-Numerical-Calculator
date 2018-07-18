@@ -41,11 +41,15 @@ SOURCES += \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp \
+<<<<<<< HEAD
     View/curveform.cpp \
     Common/drawpolynomialcurve.cpp \
     Common/point.cpp \
     Algorithm/generalparser.cpp \
     Common/functionname.cpp
+=======
+    Algorithm/matrixtransformation.cpp
+>>>>>>> master
     Common/polynomial.cpp
 
 
@@ -72,7 +76,8 @@ HEADERS += \
     Common/drawpolynomialcurve.h \
     Common/point.h \
     Algorithm/generalparser.h \
-    Common/functionname.h
+    Common/functionname.h \
+    Algorithm/matrixtransformation.h
 
 FORMS += \
     View/view.ui \
