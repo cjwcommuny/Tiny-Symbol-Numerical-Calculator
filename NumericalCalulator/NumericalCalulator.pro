@@ -67,7 +67,7 @@ HEADERS += \
     Notification/outputnumericalresultnotification_view.h \
     Common/matrix.h \
     Common/polynomial.h \
-    Common/matrix.h
+    Common/matrix.h \
     Common/matrix.h\
     Common/etlbase.h \
     Notification/outputerrornotification_view.h \
