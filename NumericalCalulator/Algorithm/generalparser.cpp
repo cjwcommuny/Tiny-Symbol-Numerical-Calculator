@@ -70,7 +70,12 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
             return ComputeDeterminant;
         } else if (functionName == "SolvePoly") {
             return SolvePolynomialEquation;
-        } else {//no such functionName
+        } else if (functionName == "invert") {
+
+        } else if (functionName == "transpose") {
+
+        }
+        else {//no such functionName
             //error: no such function name
         }
     }

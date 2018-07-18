@@ -1,11 +1,7 @@
 #include "matrix.h"
 
-<<<<<<< HEAD
-/*
-matrix::matrix()
-=======
+
 matrix operator*(matrix lMatrix, matrix rMatrix)
->>>>>>> master
 {
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getCol() != rMatrix.getRow()) {
@@ -21,14 +17,10 @@ matrix operator*(matrix lMatrix, matrix rMatrix)
         return resultMatrix;
     }
 }
-<<<<<<< HEAD
-*/
-Matrix::Matrix()
-=======
+
 
 
 matrix operator+(matrix lMatrix, matrix rMatrix)
->>>>>>> master
 {
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getRow() != rMatrix.getRow() || lMatrix.getCol() != rMatrix.getCol()) {
