@@ -51,7 +51,8 @@ SOURCES += \
     Algorithm/matrixtransformation.cpp \
     Common/polynomial.cpp \
     View/curveform.cpp \
-    View/highlighttextbox.cpp
+    View/highlighttextbox.cpp \
+    Algorithm/generatevertexarr.cpp
 
 
 HEADERS += \
@@ -83,7 +84,8 @@ HEADERS += \
     Algorithm/matrixtransformation.h \
     Common/polynomial.h \
     View/curveform.h \
-    View/highlighttextbox.h
+    View/highlighttextbox.h \
+    Algorithm/generatevertexarr.h
 
 
 FORMS += \
