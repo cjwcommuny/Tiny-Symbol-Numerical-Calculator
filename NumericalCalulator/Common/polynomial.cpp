@@ -1,4 +1,17 @@
 #include "Common/polynomial.h"
+
+double LinkList::compute(double x) const
+{
+    Link *current = head->Next;
+    double result = 0;
+    while (current != nullptr) {
+        result += current->Num * pow(x, current->Index);
+        current = current->Next;
+    }
+    return result;
+}
+
+
 LinkList::LinkList(string Equation)
 {
     MAX = 0;
@@ -13,9 +26,9 @@ LinkList::LinkList(string Equation)
         if(this->analyze()==1)
             throw "abc";
         this->get();
-        this->print();
+        //this->print();
     }
-    catch(char *)
+    catch(char const*)
     {
         cout<<"incrroct input"<<endl;
     }
@@ -71,7 +84,7 @@ int LinkList::analyze()
     else
     return 1;
 }
-int LinkList::Get(int i,char x,Link *head)
+int LinkList::Get(int i,char x,Link *head) const
 {
     Link *node;
     node = head;
@@ -87,7 +100,7 @@ int LinkList::Get_coefficient(int i)
 {
     return get_coefficient[i];
 }
-void LinkList::print()
+/*void LinkList::print()
 {
     Link *node;
     node = head;
@@ -96,8 +109,8 @@ void LinkList::print()
         cout<<node->Num<<" "<<node->X<<" "<<node->Index<<endl;
         node = node->Next;
         }
-}
-Link * LinkList::get(){
+}*/
+Link * LinkList::get() {
     int j = 0,m = 0,k =1 ,Operator = 1;
     for(int i = 0; i < equation.length(); i ++)
     {

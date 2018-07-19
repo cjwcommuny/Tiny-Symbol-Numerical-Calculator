@@ -13,28 +13,29 @@ typedef struct link
     struct link *Next;
     int Index;
 }Link;
-double niudun(int n);
-double fun(double a);
-double cfun(double a);
-static Link *head,*tail;
-class LinkList
+
+ class LinkList
 {
     std::string equation;
     private:
+    Link *head,*tail;
     size_t MAX;
-    std::map<int,int> get_coefficient;
+    map<int,int> get_coefficient;
     public:
     LinkList();
+    Link* gethead() const {return head;}
+    Link* gettail() const {return tail;}
     LinkList(string Equation);
-    Link * get();
-    Link * Rank(Link *head,Link *node);
-    int Get_max()
+    Link * get  ();
+    Link * Rank (Link *head,Link *node);
+    int Get_max () const
     {
         return MAX;
     }
     int analyze();
-    int Get(int i,char x,Link *head);
+    int Get  (int i,char x,Link *head) const;
     int Get_coefficient(int i);
-    void print();
+    double compute(double x) const;
+    //void print();
 };
 #endif

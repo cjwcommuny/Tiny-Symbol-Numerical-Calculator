@@ -1,5 +1,6 @@
 #include "Algorithm/matrixtransformation.h"
 using namespace std;
+#include<cmath>
 #define MAX 100
 
 shared_ptr<matrix> matrixTranspose(matrix &M)

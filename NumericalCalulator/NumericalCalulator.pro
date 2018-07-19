@@ -65,7 +65,8 @@ HEADERS += \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
     Common/polynomial.h \
-    Algorithm/matrixtransformation.h
+    Algorithm/matrixtransformation.h \
+    Algorithm/niudun.h
 
 FORMS += \
     View/view.ui
