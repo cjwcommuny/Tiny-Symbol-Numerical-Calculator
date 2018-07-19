@@ -13,6 +13,9 @@ typedef struct link
     struct link *Next;
     int Index;
 }Link;
+double niudun(int n);
+double fun(double a);
+double cfun(double a);
 static Link *head,*tail;
 class LinkList
 {

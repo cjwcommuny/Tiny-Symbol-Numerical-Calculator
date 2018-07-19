@@ -41,7 +41,8 @@ SOURCES += \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp \
-    Algorithm/matrixtransformation.cpp
+    Algorithm/matrixtransformation.cpp \
+    Algorithm/niudun.cpp
     Common/polynomial.cpp
 
 
