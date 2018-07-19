@@ -78,8 +78,8 @@ void CurveForm::paintEvent(QPaintEvent*e)
         std::cout << "factor: " << factor << " segment: " << segment << " realhight: " << realHeight << " realwidth: " << realWidth << std::endl;
         std::cout << "============ draw curve===============" << std::endl;
         foreach (auto point, vertexArr) {
-            x = point.getX() / factor + segment;
-            y = realHeight - point.getY() / factor;
+            x = point.getX() / xFactor + segment;
+            y = realHeight - point.getY() / yFactor;
             std::cout << "X: " << x << " Y: " << y << std::endl;
             if (x > realWidth || y < segment) {//point out of widget view
                 break;
@@ -108,13 +108,13 @@ void CurveForm::paintEvent(QPaintEvent*e)
             painter.setPen(coodinatePen);
             painter.drawLine(QPointF(i * scale, realHeight), QPointF(i * scale, realHeight - scaleTeeth));
             painter.setPen(textPen);
-            painter.drawText(QPointF(i * scale, realHeight - scaleTeeth), QString::number(int(i * scale * factor)));
+            painter.drawText(QPointF(i * scale, realHeight - scaleTeeth), QString::number(int(i * scale * xFactor)));
         }
         for (int i = 1; i < yScaleNum; ++i) {// y axis
             painter.setPen(coodinatePen);
             painter.drawLine(QPointF(segment, realHeight - i * scale), QPointF(segment + scaleTeeth, realHeight - i * scale));
             painter.setPen(textPen);
-            painter.drawText(QPointF(segment + scaleTeeth, realHeight - i * scale), QString::number(int(i * scale * factor)));
+            painter.drawText(QPointF(segment + scaleTeeth, realHeight - i * scale), QString::number(int(i * scale * yFactor)));
         }
 
     }

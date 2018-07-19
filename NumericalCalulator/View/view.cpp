@@ -53,4 +53,5 @@ void View::drawCurve()
     std::cout << "===========draw curve==========" << std::endl;
     getUi()->curveGraphView->setVertexArr(getVertexArr());
     getUi()->curveGraphView->setIsDraw(true);
+    getUi()->curveGraphView->update();
 }
