@@ -18,12 +18,14 @@ public:
     explicit CurveForm(QWidget *parent = 0);
     ~CurveForm();
     void paintEvent(QPaintEvent *e);
-    void setVertexArr(std::shared_ptr<vector<Point>> vertexArr) { _vertexArr = vertexArr; }
+    void setVertexArr(std::shared_ptr<std::vector<Point>> vertexArr) { _vertexArr = vertexArr; }
     void setIsDraw(bool flag) { isDraw = flag; }
-
+    //std::shared_ptr<OutputNumericalResultNotification_curveform> getNotification() {return notification;}
+    //Ui::CurveForm getUi() {return ui;}
   private:
+    //std::shared_ptr<OutputNumericalResultNotification_curveform> notification;
     Ui::CurveForm *ui;
-    std::shared_ptr<vector<Point>> _vertexArr;
+    std::shared_ptr<std::vector<Point>> _vertexArr;
     bool isDraw;
 };
 

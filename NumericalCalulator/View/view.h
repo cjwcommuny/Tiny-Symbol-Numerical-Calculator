@@ -35,6 +35,8 @@ public:
     void setVertexArr(std::shared_ptr<std::vector<Point>> vertexArr) { _vertexArr = vertexArr; }
     std::shared_ptr<OutputNumericalResultNotification_view> getNotification() {return notification;}
     std::shared_ptr<OutputErrorNotification_view> getNotificationError() {return notification_error;}
+    Ui::view *getUi() {return ui;}
+    void drawCurve();
 
 signals:
 

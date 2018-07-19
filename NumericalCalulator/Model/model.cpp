@@ -15,6 +15,7 @@ bool Model::transmit_expression(std::string str)
     //process the expression
     std::cout << "=======model get parameter=======" << std::endl;
     std::shared_ptr<Parameter> resultParameter = generalParser(str);
+    std::cout << "=======generate parameter=======" << std::endl;
     if (str == "error") {
         //notifyFailure();
         return false;
@@ -23,7 +24,9 @@ bool Model::transmit_expression(std::string str)
             *expression = std::static_pointer_cast<StringParameter>(resultParameter)->getString();
             notifyResult();
         } else if (resultParameter->getParameterType() == vectorParameter) {
-            *_vertexArr = std::static_pointer_cast<VectorParameter>(resultParameter)->getVector();
+            std::cout << "=============parameter parser==========" << std::endl;
+            *_vertexArr = std::static_pointer_cast<VectorParameter<Point>>(resultParameter)->getVector();
+            notifyCurveResult();
         }
         //*expression = generalParser(str);
         return true;

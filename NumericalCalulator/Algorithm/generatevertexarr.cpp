@@ -2,9 +2,9 @@
 
 std::vector<Point> generateVertexArr(const LinkList &polynomial)
 {
-    const double xMax = 5000;
-    const double yMax = 5000;
-    const double segmentNum = 3000;
+    const double xMax = 500;
+    const double yMax = 500;
+    const double segmentNum = 300;
     double xSegment = xMax / segmentNum;
     double x, y;
     std::vector<Point> vertexArr;

@@ -14,7 +14,7 @@ class Parameter
 private:
   ParameterType _parameterType;
 public:
-    Parameter();
+  Parameter(ParameterType pt): _parameterType(pt) {}
     ParameterType getParameterType() const { return _parameterType; }
 };
 
@@ -23,7 +23,7 @@ class StringParameter: public Parameter
 private:
     std::string _str;
 public:
-    StringParameter(std::string str): _str(str) {}
+    StringParameter(std::string str): _str(str), Parameter(stringParameter) {}
     std::string getString() const {return _str;}
     operator std::string() {return _str;}
 };
@@ -34,7 +34,7 @@ class VectorParameter: public Parameter
 private:
     std::vector<T> _vec;
 public:
-    VectorParameter(std::vector<T> vec): _vec(vec) {}
+    VectorParameter(std::vector<T> vec): _vec(vec), Parameter(vectorParameter) {}
     std::vector<T> getVector() const { return _vec; }
     operator std::vector<T>() { return _vec; }
 };

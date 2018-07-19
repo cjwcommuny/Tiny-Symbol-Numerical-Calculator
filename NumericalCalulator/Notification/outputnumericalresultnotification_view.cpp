@@ -1,5 +1,6 @@
 #include "Notification/outputnumericalresultnotification_view.h"
 #include "View/view.h"
+#include "View/curveform.h"
 
 void OutputNumericalResultNotification_view::OnPropertyChanged(const std::string &str)
 {
@@ -8,7 +9,6 @@ void OutputNumericalResultNotification_view::OnPropertyChanged(const std::string
         //assert(result);
         _view->ChangeOutputResultText(*result);
     } else if (str == "CurveVertexGenerated") {
-        ui->curveform->setVertexArr(_view->getVertexArr);
-        ui->curveform->setIsDraw(true);
+        _view->drawCurve();
     }
 }
