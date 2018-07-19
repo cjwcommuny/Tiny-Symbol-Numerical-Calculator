@@ -43,11 +43,7 @@ int main(int argc, char *argv[])
     std::cout << resultStr << " "  << std::endl;
     std::cout << "=======" << std::endl;
     */
-<<<<<<< HEAD
-
-=======
     /*
->>>>>>> chenjiawei
     //test transpose
     /*
     std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3 4]  ]");
@@ -62,7 +58,6 @@ int main(int argc, char *argv[])
     std::cout << "=======" << std::endl;
     */
 
-<<<<<<< HEAD
     //test simple expression
     /*
     std::shared_ptr<matrix> M1(new matrix(100, 100));
@@ -74,19 +69,11 @@ int main(int argc, char *argv[])
     std::cout<<M2->toString()<<endl;
     */
 
-    /*
-=======
     
->>>>>>> chenjiawei
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
     return a.exec();
-<<<<<<< HEAD
-    */
-=======
-
->>>>>>> chenjiawei
 }
 
 
