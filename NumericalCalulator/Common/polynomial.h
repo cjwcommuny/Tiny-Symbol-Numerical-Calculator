@@ -26,6 +26,7 @@ public:
 	public:
 	LinkList();
 	LinkList(string Equation);
+    Link *gethead() { return head; }
     Link * get();
     Link * Rank(Link *head,Link *node);
     int Get_max()

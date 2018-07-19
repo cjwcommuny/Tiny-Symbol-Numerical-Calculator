@@ -5,7 +5,9 @@
 
 CurveForm::CurveForm(QWidget *parent) :
     QFrame(parent),
-    ui(new Ui::CurveForm)
+    ui(new Ui::CurveForm),
+    _vertexArr(nullptr),
+    isDraw(false)
 {
     ui->setupUi(this);
 }

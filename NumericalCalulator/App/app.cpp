@@ -13,5 +13,6 @@ void App::run()
     view->set_getExpressionCommand(std::static_pointer_cast<Command, getExpressionCommand>(std::make_shared<getExpressionCommand>(viewmodel.get())));
 
     view->setResult(viewmodel->getResult());
+    view->setVertexArr(viewmodel->getVertexArr());
     view->show();
 }

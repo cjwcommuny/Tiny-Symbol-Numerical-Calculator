@@ -7,5 +7,8 @@ void OutputNumericalResultNotification_view::OnPropertyChanged(const std::string
         std::shared_ptr<std::string> result = _view->getResult();
         //assert(result);
         _view->ChangeOutputResultText(*result);
+    } else if (str == "CurveVertexGenerated") {
+        ui->curveform->setVertexArr(_view->getVertexArr);
+        ui->curveform->setIsDraw(true);
     }
 }

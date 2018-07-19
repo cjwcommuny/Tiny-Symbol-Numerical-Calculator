@@ -5,5 +5,7 @@ void OutputNumericalResultNotification_viewmodel::OnPropertyChanged(const std::s
 {
     if (str == "ResultGenerated") {
         _viewmodel->Fire_OnPropertyChanged(str);
+    } else if (str == "CurveVertexGenerated") {
+        _viewmodel->Fire_OnPropertyChanged(str);
     }
 }
