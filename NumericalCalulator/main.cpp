@@ -30,8 +30,9 @@ int main(int argc, char *argv[])
     std::cout << inputStr << std::endl;
     std::cout << "=============test end==========" << std::endl;
     */
-    /*
-     * test inversion
+
+    // test inversion
+
     std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3,4]]");
     std::cout << "============" << std::endl;
     std::cout << mat->toString() << " "  << std::endl;
@@ -41,9 +42,9 @@ int main(int argc, char *argv[])
     std::cout << "============" << std::endl;
     std::cout << resultStr << " "  << std::endl;
     std::cout << "=======" << std::endl;
-    */
+
     /*
-     * test transpose
+    //test transpose
     std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3,4]]");
     std::cout << "============" << std::endl;
     std::cout << mat->toString() << " "  << std::endl;
@@ -54,13 +55,14 @@ int main(int argc, char *argv[])
     std::cout << "============" << std::endl;
     std::cout << resultStr << " "  << std::endl;
     std::cout << "=======" << std::endl;
-*/
+    */
 
+        /*
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
     return a.exec();
-
+*/
 }
 
 
