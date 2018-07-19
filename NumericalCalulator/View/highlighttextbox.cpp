@@ -9,12 +9,23 @@ HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
     keywordFormat.setForeground(Qt::darkBlue);
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
-    keywordPatterns << "\\bhighlight\\b";
+    keywordPatterns << "\\bDraw\\b"
+                    << "\\bComputeDeterminant\\b"
+                    << "\\bSolvePoly\\b"
+                    << "\\binvert\\b"
+                    << "\\btranspose\\b";
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegularExpression(pattern);
         rule.format = keywordFormat;
         highlightingRules.append(rule);
     }
+
+    HighlightingRule numberRule;
+    numberFormat.setForeground(Qt::red);
+    numberFormat.setFontItalic(true);
+    numberRule.pattern = QRegularExpression("[0-9]{1,30}");
+    numberRule.format = numberFormat;
+    highlightingRules.append(numberRule);
 }
 
 HighlightTextBox::~HighlightTextBox()

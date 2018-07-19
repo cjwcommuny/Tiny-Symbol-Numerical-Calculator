@@ -28,6 +28,7 @@ private:
     };
     QVector<HighlightingRule> highlightingRules;
     QTextCharFormat keywordFormat;
+    QTextCharFormat numberFormat;
     //Ui::HighlightTextBox *ui;
 };
 
