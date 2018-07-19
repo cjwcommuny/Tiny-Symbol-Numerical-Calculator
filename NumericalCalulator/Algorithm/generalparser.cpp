@@ -5,6 +5,7 @@ std::string generalParser(std::string expression)
 {
     std::string resultStr;
     expression = removeSpace(expression);
+    expression = removeComment(expression);
     //std::cout << "=============remove space end==========" << std::endl;
     std::vector<std::string> component_out;
     FunctionType functionName = seperateComponent(expression, component_out);
@@ -41,6 +42,18 @@ std::string removeSpace(std::string expression)
             result.push_back(*iter);
         }
     }
+    return result;
+}
+
+std::string removeComment(std::string expression)
+{
+    auto iter = expression.cbegin();
+    for (; iter != expression.cend(); ++iter) {
+        if (*iter == '#') {
+            break;
+        }
+    }
+    std::string result(expression.cbegin(), iter);
     return result;
 }
 

@@ -1,10 +1,10 @@
 #include "curveform.h"
 #include "ui_curveform.h"
-#include "QPainter"
-#include <cmath>
+#include <QPainter>
+#include "Common/point.h"
 
 CurveForm::CurveForm(QWidget *parent) :
-    QWidget(parent),
+    QFrame(parent),
     ui(new Ui::CurveForm)
 {
     ui->setupUi(this);
@@ -18,43 +18,87 @@ CurveForm::~CurveForm()
 void CurveForm::paintEvent(QPaintEvent*e)
 {
     QPainter painter(this);
-    /*
-    size_t height = 300;
-    size_t width = 400;
-    std::cout << "=============start test==========" << std::endl;
-    std::string str("x^2 + x + 1");
-    LinkList l(str);
-    l.get();
-    std::cout << "============= parser end===========" << std::endl;
-    vector<Point> po = generatePolynomialPoint(l, 0, 400, 1, 400, 300);
-    std::cout << "============= generate end===========" << std::endl;
-    double xPre = 0, yPre = 0;
-    double x = 0, y = 0;
-    for (auto iter = po.begin(); iter != po.end(); ++iter) {
-        x = iter->getX();
-        y = height - iter->getY();
-        painter.drawLine(QPointF(x, height-y), QPointF(xPre, height - yPre));
+    //painter.setPen(Qt::NoPen);
+    painter.setBrush(Qt::white);
+    painter.drawRect(rect());
+
+    //pen used to draw axis
+    QPen coodinatePen; 
+    coodinatePen.setWidth(3); //设置宽度 
+    coodinatePen.setBrush(Qt::black); //设置颜色 
+    //painter.setPen(coodinatePen); //选中画笔
+
+    //pen used to draw text
+    QPen textPen;
+    textPen.setWidth(2);
+    textPen.setBrush(Qt::black);
+
+    //pen used to draw curve
+    QPen curvePen;
+    curvePen.setWidth(3);
+    curvePen.setBrush(Qt::red);
+
+    const double segment = 15;
+    double realWidth = this->geometry().width() - segment;
+    double realHeight = this->geometry().height() - segment;
+    //generate a vertex array
+    std::vector<Point> vertexArr = {Point(0,0), Point(3,3), Point(500, 500), Point(920, 920)};
+
+    //get xMax and yMax
+    double xMax = 0, yMax = 0;//modify for test
+    foreach (auto point, vertexArr) {
+        if (point.getX() > xMax) {
+            xMax = point.getX();
+        }
+        if (point.getY() > yMax) {
+            yMax = point.getY();
+        }
+    }
+
+    //compute factor 
+    double xFactor = xMax / realHeight;
+    double yFactor = yMax / realWidth;
+    double factor = (xFactor > yFactor) ? xFactor : yFactor;
+
+    //draw curve
+    painter.setPen(curvePen);
+    int x = 0, y = 0;
+    int xPre = segment, yPre = realHeight;
+    foreach (auto point, vertexArr) {
+        x = point.getX() / factor + segment;
+        y = realHeight - point.getY() / factor;
+        if (x > realWidth || y < segment) {//point out of widget view
+            break;
+        }
+        painter.drawLine(QPointF(xPre, yPre), QPointF(x, y));
         xPre = x;
         yPre = y;
-    }*/
-    //size_t height = height();
-    //size_t width = width();
-    /*
-    size_t height = 300;
-    size_t width = 400;
-    double xPre = 0, yPre = 0;
-    double x = 0, y = 0;
-    int segmentNum = 200;
-    int yFactor = 100;
-    int yDisplacement = 100;
-    for (int i = 0; i < segmentNum; ++i) {
-        x = width / segmentNum * i;
-        y = yFactor * sin(x) + yDisplacement;
-        painter.drawLine(QPointF(x, height-y), QPointF(xPre, height - yPre));
-        xPre = x;
-        yPre = y;
-    }*/
-    //painter.drawLine(QPointF(0, 0), QPointF(100, 100));
+    }
+
+    //draw coodinate system
+    const int scale = 50;
+    const int scaleTeeth = 5;
+    painter.setPen(coodinatePen);
+    painter.drawLine(QPointF(segment, realHeight), QPointF(realWidth, realHeight)); //x axis
+    painter.drawLine(QPointF(segment, realHeight), QPointF(segment, segment)); //y axis
+    painter.drawLine(QPointF(realWidth, realHeight), QPointF(realWidth - scaleTeeth, realHeight - scaleTeeth));//x-arrow
+    painter.drawLine(QPointF(realWidth, realHeight), QPointF(realWidth - scaleTeeth, realHeight + scaleTeeth));//x-arrow
+    painter.drawLine(QPointF(segment, segment), QPointF(segment - scaleTeeth, segment + scaleTeeth)); //y-arrow
+    painter.drawLine(QPointF(segment, segment), QPointF(segment + scaleTeeth, segment + scaleTeeth)); //y-arrow
+    int xScaleNum = (realWidth + segment - 2 * segment) / scale;
+    int yScaleNum = (realHeight - segment) / scale;
+    painter.setPen(textPen);
+    painter.drawText(QPointF(0 + scaleTeeth, realHeight + segment - scaleTeeth), QString::number(0));//(0,0) point
+    for (int i = 1; i < xScaleNum; ++i) {// x axis
+        painter.setPen(coodinatePen);
+        painter.drawLine(QPointF(i * scale, realHeight), QPointF(i * scale, realHeight - scaleTeeth));
+        painter.setPen(textPen);
+        painter.drawText(QPointF(i * scale, realHeight - scaleTeeth), QString::number(int(i * scale * factor)));
+    }
+    for (int i = 1; i < yScaleNum; ++i) {// y axis
+        painter.setPen(coodinatePen);
+        painter.drawLine(QPointF(segment, realHeight - i * scale), QPointF(segment + scaleTeeth, realHeight - i * scale));
+        painter.setPen(textPen);
+        painter.drawText(QPointF(segment + scaleTeeth, realHeight - i * scale), QString::number(int(i * scale * factor)));
+    }
 }
-
-

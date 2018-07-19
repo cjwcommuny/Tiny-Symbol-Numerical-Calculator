@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Numerical Calculator</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="inputTextBox">
+   <widget class="QTextEdit" name="inputTextBox">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -22,6 +22,12 @@
       <width>681</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier</family>
+      <pointsize>15</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="returnButton">
@@ -47,7 +53,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -61,6 +67,15 @@
         <width>681</width>
         <height>111</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
