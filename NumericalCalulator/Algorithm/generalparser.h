@@ -15,4 +15,6 @@ std::string removeSpace(std::string expression);
 
 FunctionType seperateComponent(const std::string &expression, std::vector<std::string> &component_out);
 
+std::string removeComment(std::string expression);
+
 #endif // GENERALPARSER_H

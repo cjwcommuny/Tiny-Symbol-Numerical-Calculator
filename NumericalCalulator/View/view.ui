@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Numerical Calculator</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTextEdit" name="inputTextBox">
@@ -22,6 +22,12 @@
       <width>681</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier</family>
+      <pointsize>15</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="returnButton">
@@ -61,6 +67,12 @@
         <width>681</width>
         <height>111</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier</family>
+        <pointsize>12</pointsize>
+       </font>
       </property>
      </widget>
     </widget>

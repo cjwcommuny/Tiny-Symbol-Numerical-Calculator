@@ -1,4 +1,5 @@
 #include "highlighttextbox.h"
+#include <QColor>
 //#include "ui_HighlightTextBox.h"
 
 HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
@@ -6,6 +7,7 @@ HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
 {
     HighlightingRule rule;
 
+    //keyword format
     keywordFormat.setForeground(Qt::darkBlue);
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
@@ -20,12 +22,21 @@ HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
         highlightingRules.append(rule);
     }
 
+    //number format
     HighlightingRule numberRule;
-    numberFormat.setForeground(Qt::red);
-    numberFormat.setFontItalic(true);
+    numberFormat.setForeground(QColor(237, 145, 33, 255));//orange color for number
+    //numberFormat.setFontItalic(true);
     numberRule.pattern = QRegularExpression("[0-9]{1,30}");
     numberRule.format = numberFormat;
     highlightingRules.append(numberRule);
+
+    //comment format
+    HighlightingRule commentRule;
+    commentFormat.setForeground(QColor(192, 192, 192, 255));//grey color for comment
+    commentFormat.setFontItalic(true);
+    commentRule.pattern = QRegularExpression("#[^\n]*");
+    commentRule.format = commentFormat;
+    highlightingRules.append(commentRule);
 }
 
 HighlightTextBox::~HighlightTextBox()
