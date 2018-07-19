@@ -44,13 +44,13 @@ SOURCES += \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp \
-    View/curveform.cpp \
     Common/drawpolynomialcurve.cpp \
     Common/point.cpp \
     Algorithm/generalparser.cpp \
     Common/functionname.cpp \
     Algorithm/matrixtransformation.cpp \
     Common/polynomial.cpp \
+    View/curveform.cpp
 
 
 HEADERS += \
@@ -75,13 +75,13 @@ HEADERS += \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
     Common/polynomial.h \
-    View/curveform.h \
     Common/drawpolynomialcurve.h \
     Common/point.h \
     Algorithm/generalparser.h \
     Common/functionname.h \
     Algorithm/matrixtransformation.h \
     Common/polynomial.h \
+    View/curveform.h
 
 
 FORMS += \
