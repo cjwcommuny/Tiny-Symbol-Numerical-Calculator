@@ -60,7 +60,6 @@ public:
         }
         return ss.str();
     }
-
     friend matrix operator*(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator+(matrix lMatrix, matrix rMatrix);

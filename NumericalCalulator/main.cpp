@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     */
 
     // test inversion
-
+    /*
     std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3,4]]");
     std::cout << "============" << std::endl;
     std::cout << mat->toString() << " "  << std::endl;
@@ -42,10 +42,11 @@ int main(int argc, char *argv[])
     std::cout << "============" << std::endl;
     std::cout << resultStr << " "  << std::endl;
     std::cout << "=======" << std::endl;
+    */
 
-    /*
     //test transpose
-    std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3,4]]");
+    /*
+    std::shared_ptr<matrix> mat = matrixParser("[[1,2];[3 4]  ]");
     std::cout << "============" << std::endl;
     std::cout << mat->toString() << " "  << std::endl;
     std::cout << "=======" << std::endl;
@@ -57,12 +58,22 @@ int main(int argc, char *argv[])
     std::cout << "=======" << std::endl;
     */
 
-        /*
+    //test simple expression
+    std::shared_ptr<matrix> M1(new matrix(100, 100));
+    std::shared_ptr<matrix> M2(new matrix(100, 100));
+    char result = simpleExpressionParser("[1,2]+[2,3]     ", M1, M2);
+    std::cout<<"result = "<<result<<endl;
+    //std::cout<<M1->getRow()<<endl;
+    std::cout<<M1->toString()<<endl;
+    std::cout<<M2->toString()<<endl;
+
+
+    /*
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
     return a.exec();
-*/
+    */
 }
 
 

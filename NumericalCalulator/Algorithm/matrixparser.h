@@ -10,4 +10,6 @@ std::shared_ptr<matrix> SingleRowmatrixParser(std::string expression);
 
 std::shared_ptr<matrix> matrixParser(std::string expression);
 
+char simpleExpressionParser(std::string expression, shared_ptr<matrix> &M1, shared_ptr<matrix> &M2);
+
 #endif // MATRIXPARSER_H
