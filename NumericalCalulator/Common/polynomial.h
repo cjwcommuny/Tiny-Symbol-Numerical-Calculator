@@ -6,6 +6,9 @@ using namespace std;
 #include<cmath>
 #include<map>
 #include<string>
+double fun(double a);
+double cfun(double a);
+double niudun(int n);
 typedef struct link
 {
     char X;

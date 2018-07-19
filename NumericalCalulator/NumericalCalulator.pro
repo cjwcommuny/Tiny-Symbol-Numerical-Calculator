@@ -51,6 +51,7 @@ SOURCES += \
     Common/functionname.cpp \
     Algorithm/matrixtransformation.cpp \
     Common/polynomial.cpp \
+    Algorithm/niudun.cpp
 
 
 HEADERS += \
