@@ -14,7 +14,20 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
     std::vector<std::string> component_out;
     FunctionType functionName = seperateComponent(expression, component_out);
     std::cout << "=============seperate expression end==========" << std::endl;
-    if (functionName == MatrixInversion) {
+    if (functionName == MatrixBinaryOperation) {
+        std::shared_ptr<matrix> left_mat = std::make_shared<matrix>(matrix());
+        std::shared_ptr<matrix> right_mat = std::make_shared<matrix>(matrix());
+        //matrix left_mat, right_mat;
+        char matrixOperator = simpleExpressionParser(expression, left_mat, right_mat);
+        if (matrixOperator == '*') {
+            resultStr = (*left_mat * *right_mat).toString();
+        } else if (matrixOperator == '+') {
+            resultStr = (*left_mat + *right_mat).toString();
+        } else if (matrixOperator == '-') {
+            resultStr = (*left_mat - *right_mat).toString();
+        }
+        return std::make_shared<StringParameter>(StringParameter(resultStr));
+    } else if (functionName == MatrixInversion) {
         std::shared_ptr<matrix> mat = matrixParser(component_out[0]);
         std::shared_ptr<matrix> mat2 = matrixInverse(*mat);
         resultStr = mat2->toString();
@@ -76,6 +89,9 @@ std::string removeComment(std::string expression)
 
 FunctionType seperateComponent(const std::string &expression, std::vector<std::string> &component_out)
 {
+    if (*(expression.cbegin()) == '[') {//binary matrix operation
+        return MatrixBinaryOperation;
+    }
     auto leftBracePosition = expression.cbegin();
     auto rightBracePosition = expression.cbegin();
     bool leftBraceFound = false, rightBraceFound = false;
