@@ -11,7 +11,7 @@ HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
     keywordFormat.setForeground(Qt::darkBlue);
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
-    keywordPatterns << "\\bDraw\\b"
+    keywordPatterns << "\\bdraw\\b"
                     << "\\bComputeDeterminant\\b"
                     << "\\bSolvePoly\\b"
                     << "\\binvert\\b"
