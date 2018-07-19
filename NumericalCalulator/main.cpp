@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
     */
 
     //test simple expression
+    /*
     std::shared_ptr<matrix> M1(new matrix(100, 100));
     std::shared_ptr<matrix> M2(new matrix(100, 100));
     char result = simpleExpressionParser("[1,2]+[2,3]     ", M1, M2);
@@ -66,7 +67,7 @@ int main(int argc, char *argv[])
     //std::cout<<M1->getRow()<<endl;
     std::cout<<M1->toString()<<endl;
     std::cout<<M2->toString()<<endl;
-
+    */
 
     /*
     QApplication a(argc, argv);
