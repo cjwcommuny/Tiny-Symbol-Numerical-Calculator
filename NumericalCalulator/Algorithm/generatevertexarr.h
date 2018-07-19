@@ -1,6 +1,7 @@
 #ifndef GENERATEVERTEXARR_H
 #define GENERATEVERTEXARR_H
-#include "Common/Point"
+#include <vector>
+#include "Common/Point.h"
 #include "Common/Polynomial.h"
 
 std::vector<Point> generateVertexArr(const LinkList & polynomial);
