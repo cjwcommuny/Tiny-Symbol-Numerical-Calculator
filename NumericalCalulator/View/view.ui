@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="inputTextBox">
+   <widget class="QTextEdit" name="inputTextBox">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -47,7 +47,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">

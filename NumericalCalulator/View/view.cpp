@@ -9,6 +9,7 @@ View::View(QWidget *parent) :
     notification_error(std::make_shared<OutputErrorNotification_view>(this))
 {
     ui->setupUi(this);
+    setupEditor();
 }
 
 View::~View()
@@ -40,3 +41,7 @@ void View::paintEvent(QPaintEvent *)
 }
 
 
+void View::setupEditor()
+{
+    highlighter = new HighlightTextBox(ui->inputTextBox->document());
+}

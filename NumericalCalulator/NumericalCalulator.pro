@@ -50,7 +50,8 @@ SOURCES += \
     Common/functionname.cpp \
     Algorithm/matrixtransformation.cpp \
     Common/polynomial.cpp \
-    View/curveform.cpp
+    View/curveform.cpp \
+    View/highlighttextbox.cpp
 
 
 HEADERS += \
@@ -81,7 +82,8 @@ HEADERS += \
     Common/functionname.h \
     Algorithm/matrixtransformation.h \
     Common/polynomial.h \
-    View/curveform.h
+    View/curveform.h \
+    View/highlighttextbox.h
 
 
 FORMS += \

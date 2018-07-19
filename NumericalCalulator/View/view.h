@@ -7,6 +7,7 @@
 #include "Common/command.h"
 #include "Notification/outputnumericalresultnotification_view.h"
 #include "Notification/outputerrornotification_view.h"
+#include "View/highlighttextbox.h"
 
 
 namespace Ui {
@@ -47,6 +48,8 @@ private:
     std::shared_ptr<Command> get_expression_command;
     std::shared_ptr<std::string> result;
 
+    void setupEditor();
+    HighlightTextBox *highlighter;
 protected:
     void paintEvent(QPaintEvent *);
 
