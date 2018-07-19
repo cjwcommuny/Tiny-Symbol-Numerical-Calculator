@@ -52,7 +52,8 @@ SOURCES += \
     Common/polynomial.cpp \
     View/curveform.cpp \
     View/highlighttextbox.cpp \
-    Algorithm/generatevertexarr.cpp
+    Algorithm/generatevertexarr.cpp \
+    Algorithm/solvelinear.cpp
 
 
 HEADERS += \
@@ -85,7 +86,8 @@ HEADERS += \
     Common/polynomial.h \
     View/curveform.h \
     View/highlighttextbox.h \
-    Algorithm/generatevertexarr.h
+    Algorithm/generatevertexarr.h \
+    Algorithm/solvelinear.h
 
 
 FORMS += \
