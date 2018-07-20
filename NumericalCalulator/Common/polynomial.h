@@ -1,13 +1,12 @@
-#ifndef _POLYNOMIAL_H
-#define _POLYNOMIAL_H
+#ifndef _POLYNOMINAL_H
+#define _POLYNOMINAL_H
 #include<iostream>
 using namespace std;
 #include<malloc.h>
-#include<cmath>
+#include<math.h>
 #include<map>
 #include<string>
 #include<sstream>
-
 typedef struct link
 {
     char X;
@@ -15,29 +14,27 @@ typedef struct link
     struct link *Next;
     double Index;
 }Link;
-
- class LinkList
+class LinkList
 {
     std::string equation;
     private:
     Link *head,*tail;
     size_t MAX;
+    std::map<double,double> get_coefficient;
     public:
     LinkList();
-    Link* gethead() const {return head;}
-    Link* gettail() const {return tail;}
     LinkList(string Equation);
-    Link * get  ();
-    Link * Rank (Link *head,Link *node);
-    std::map<double,double> get_coefficient;
-    double Get_max(){
+    Link * get();
+    Link * Rank(Link *node);
+    double Get_max() const
+    {
         return MAX;
     }
     int analyze();
-    double Get  (int i,char x,Link *head) const;
-    double Get_coefficient(int i);
-    double compute(double x) const;
-    void print();
     string Quadrature();
+    double Get(double i,char x) const;
+    double Get_coefficient(double i) ;
+    //void print();
+    double compute(double x) const;
 };
 #endif

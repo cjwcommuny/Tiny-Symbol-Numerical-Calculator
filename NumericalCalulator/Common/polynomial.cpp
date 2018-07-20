@@ -105,7 +105,7 @@ double LinkList::Get_coefficient(int i)
 {
     return get_coefficient[i];
 }
-void LinkList::print()
+/*void LinkList::print()
 {
     Link *node;
     node = head;
@@ -114,7 +114,7 @@ void LinkList::print()
         cout<<node->Num<<" "<<node->X<<" "<<node->Index<<endl;
         node = node->Next;
         }
-}
+}*/
 Link * LinkList::get(){
     int multiple,j = 0,k =1 ,Operator = 1;
     double m = 0;
@@ -214,7 +214,6 @@ Link * LinkList::Rank(Link *head,Link *node)
     }
     return head;
 }
-<<<<<<< HEAD
 string LinkList::Quadrature()
 {
     string x;
@@ -250,5 +249,4 @@ string LinkList::Quadrature()
     x +="+C";
     return x;
 }
-=======
->>>>>>> master
+
