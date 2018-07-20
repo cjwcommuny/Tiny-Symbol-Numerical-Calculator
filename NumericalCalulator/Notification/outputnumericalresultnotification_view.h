@@ -8,7 +8,7 @@ class View;
 class OutputNumericalResultNotification_view: public IPropertyNotification
 {
 public:
-    std::string resultStr;
+    //std::string resultStr;
 
     OutputNumericalResultNotification_view(View *view): _view(view) {}
     void OnPropertyChanged(const std::string& str);

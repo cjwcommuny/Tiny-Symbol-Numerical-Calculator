@@ -2,7 +2,7 @@
 
 double LinkList::compute(double x) const
 {
-    Link *current = head->Next;
+    Link *current = head;
     double result = 0;
     while (current != nullptr) {
         result += current->Num * pow(x, current->Index);
