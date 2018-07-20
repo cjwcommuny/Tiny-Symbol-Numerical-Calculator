@@ -1,6 +1,5 @@
 #include"common/polynomial.h"
 #include"algorithm/niudun.h"
-#include"Common/polynomial.h"
 #include <assert.h>
 double fun(double a, const LinkList &ll)
 {
