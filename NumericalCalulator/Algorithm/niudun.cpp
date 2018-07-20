@@ -1,10 +1,10 @@
+#include"common/polynomial.h"
 #include"algorithm/niudun.h"
-#include"Common/polynomial.h"
 #include <assert.h>
-double fun(double a)
+double fun(double a,const LinkList &ll)
 {
     double sum = 0;
-    Link *node = head;
+    Link *node = ll.gethead();
     while(node != NULL)
     {
         sum += node->Num*pow(a,node->Index);
@@ -12,10 +12,10 @@ double fun(double a)
     }
     return sum;
 }
-double cfun(double a)
+double cfun(double a,const LinkList &ll)
 {
     double sum = 0;
-    Link *node=head;
+    Link *node=ll.gethead();
     while(node->Index)
     {
         sum += node->Index * node->Num * pow(a,node->Index-1);
@@ -35,13 +35,14 @@ double niudun(const LinkList &ll)
     double Min = -Max;
     for(int i = 0;i<1000;i++)
     {
-        if(cfun(a))
+        if(cfun(a,ll))
         {
-        a = a - fun(a)/cfun(a);
+        a = a - fun(a,ll)/cfun(a,ll);
         a = a>Max?Max:a<Min?Min:a;
         }
-        if(pow(fun(a),2)<pow(0.01,2))
+        if(pow(fun(a,ll),2)<pow(0.01,2))
         {
+            a = (int)(a*100+0.5)/100.0;
             return a;
         }
     }

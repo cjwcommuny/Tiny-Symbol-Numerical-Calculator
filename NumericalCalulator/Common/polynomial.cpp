@@ -1,5 +1,4 @@
 #include "Common/polynomial.h"
-
 double LinkList::compute(double x) const
 {
     Link *current = head;
@@ -10,8 +9,6 @@ double LinkList::compute(double x) const
     }
     return result;
 }
-
-
 LinkList::LinkList(string Equation)
 {
     MAX = 0;
@@ -24,18 +21,18 @@ LinkList::LinkList(string Equation)
     head =tail = NULL;
     try{
         if(this->analyze()==1)
-            throw "abc";
+        throw "abc";
         this->get();
         this->print();
     }
-    catch(char const*)
+    catch(char *)
     {
         cout<<"incrroct input"<<endl;
     }
 }
 int LinkList::analyze()
 {
-    int t=-1;
+    int t=-1,equal=0;
     size_t size;
     size = equation.length();
     for(int j=0;j<size;j++)
@@ -48,8 +45,14 @@ int LinkList::analyze()
         if(!((equation[M]>='0'&&equation[M]<='9')||equation[M]=='.'||equation[M]==equation[t]||equation[M]=='+'||equation[M]=='-'||equation[M]=='='||equation[M]=='^'))
         return 1;
      }
-    if((equation[0]>='0'&&equation[0]<='9')||equation[0]==equation[t])
-    {
+     for(int M=0;M<size;M++)
+     {
+        if(equation[M]=='=')
+        equal++;
+     }
+     if(equal>1) return 1;
+    if((equation[0]>'0'&&equation[0]<='9')||equation[0]=='-'||equation[0]==equation[t])
+    if((equation[size-1]>='0'&&equation[size-1]<='9')||equation[size-1]==equation[t])
         for(int i = 0;i<size-1;i++)
     {
         if(equation[i]>='0'&&equation[i]<='9')
@@ -74,7 +77,7 @@ int LinkList::analyze()
          }
          else if(equation[i]=='=')
          {
-            if(!(equation[i+1]==equation[t]||(equation[i+1]>='0'&&equation[i+1]<='9')))
+            if(!(equation[i+1]==equation[t]||equation[i+1]=='-'||(equation[i+1]>='0'&&equation[i+1]<='9')))
             return 1;
          }
          else if(equation[i]=='.')
@@ -89,7 +92,7 @@ int LinkList::analyze()
     else
     return 1;
 }
-double LinkList::Get(int i,char x,Link *head) const
+double LinkList::Get(double i,char x) const
 {
     Link *node;
     node = head;
@@ -101,11 +104,7 @@ double LinkList::Get(int i,char x,Link *head) const
     }
     return 0;
 }
-double LinkList::Get_coefficient(int i)
-{
-    return get_coefficient[i];
-}
-/*void LinkList::print()
+void LinkList::print()
 {
     Link *node;
     node = head;
@@ -114,7 +113,7 @@ double LinkList::Get_coefficient(int i)
         cout<<node->Num<<" "<<node->X<<" "<<node->Index<<endl;
         node = node->Next;
         }
-}*/
+}
 Link * LinkList::get(){
     int multiple,j = 0,k =1 ,Operator = 1;
     double m = 0;
@@ -124,6 +123,7 @@ Link * LinkList::get(){
             Link *newLinkList;
             newLinkList = (Link*)malloc(sizeof(Link));
             newLinkList->Next = NULL;
+            if(equation[i] =='-'){i++;k=-1;}
             while(equation[i]<='9'&&equation[i]>='0'||equation[i]=='.'){
             if(equation[i]=='.') multiple = i;
             i++;j++;
@@ -175,20 +175,21 @@ Link * LinkList::get(){
             else if(equation[i]=='=')
             {
                 Operator = -Operator;
-                k = 1;
+                if(equation[i+1]=='-'){k=-1;i++;}
+                else k = 1;
             }
             MAX =( MAX>newLinkList->Index) ? MAX:newLinkList->Index;
             get_coefficient[newLinkList->Index]=newLinkList->Num;
-            head = Rank(head,newLinkList);
+            head = Rank(newLinkList);
     }
             return head;
 }
-Link * LinkList::Rank(Link *head,Link *node)
+Link * LinkList::Rank(Link *node)
 {
     Link * temp = head;
     if(head == NULL)
     {
-        head = node;
+        head =tail = node;
     }
     else{
         if(node->Index>temp->Index)
@@ -209,7 +210,10 @@ Link * LinkList::Rank(Link *head,Link *node)
                temp=temp->Next;
             }
             if(temp->Next == NULL)
-            temp->Next = node;
+            {
+                tail->Next = node;
+                tail = node;
+            }
         }
     }
     return head;
@@ -223,30 +227,20 @@ string LinkList::Quadrature()
     {
         if(node!=head&&node->Num>0)
         x += '+';
-        else
+        t << (int)(node->Num/(node->Index+1.0)*100)/100.0;
+        if(t.str()!="1")
+        x +=t.str();
+        t.str("");
+        x += head->X;
+        if(node->Index)
         {
-            if(node->Num!=1)
-            {
-                if(node->Num == -1)
-                x += '-';
-                else{
-                    t << (int)((node->Num*100.0)/(node->Index+1))/100.0;
-                    x +=t.str();
-                    t.str("");
-                }
-            }
-            x += head->X;
-            if(node->Index)
-            {
-                x +='^';
-                t << node->Index + 1;
-                x += t.str();
-                t.str("");
-            }
+            x +='^';
+            t << node->Index + 1;
+            x += t.str();
+            t.str("");
         }
         node = node->Next;
     }
     x +="+C";
     return x;
 }
-

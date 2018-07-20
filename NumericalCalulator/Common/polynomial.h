@@ -22,7 +22,6 @@ class LinkList
     size_t MAX;
     std::map<double,double> get_coefficient;
     public:
-    LinkList();
     LinkList(string Equation);
     Link * get();
     Link * Rank(Link *node);
@@ -32,9 +31,14 @@ class LinkList
     }
     int analyze();
     string Quadrature();
-    double Get(double i,char x) const;
-    double Get_coefficient(double i) ;
-    //void print();
+    double Get  (double i,char x) const;
     double compute(double x) const;
+    void print() const
+    {
+        Link *current = head;
+        while (current != nullptr) {
+            std::cout << "coefficient: " << current->Num << "index: " << current->Index << std::endl;
+        }
+    }
 };
 #endif
