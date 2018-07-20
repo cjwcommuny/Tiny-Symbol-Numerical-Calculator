@@ -1,7 +1,3 @@
----
-typora-root-url: ./
----
-
 # Numerical/Symbol Calculator
 
 ## 简介
