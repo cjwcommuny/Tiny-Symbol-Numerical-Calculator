@@ -1,4 +1,5 @@
 #include "Common/polynomial.h"
+#include <exception>
 double LinkList::compute(double x) const
 {
     Link *current = head;
@@ -19,16 +20,9 @@ LinkList::LinkList(string Equation)
     }
     head = tail = (Link*)malloc(sizeof(Link));
     head =tail = NULL;
-    try{
         if(this->analyze()==1)
-        throw "abc";
+        throw UnexpectExpressionException();
         this->get();
-        this->print();
-    }
-    catch(char *)
-    {
-        cout<<"incrroct input"<<endl;
-    }
 }
 int LinkList::analyze()
 {

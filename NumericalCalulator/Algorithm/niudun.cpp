@@ -1,6 +1,7 @@
 #include"common/polynomial.h"
 #include"algorithm/niudun.h"
 #include <assert.h>
+#include <exception>
 double fun(double a,const LinkList &ll)
 {
     double sum = 0;
@@ -46,5 +47,5 @@ double niudun(const LinkList &ll)
             return a;
         }
     }
-    cout<<"not find"<<endl;
+    throw SolutionNotFoundException();
 }
