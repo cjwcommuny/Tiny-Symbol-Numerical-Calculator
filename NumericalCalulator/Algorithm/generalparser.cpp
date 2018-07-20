@@ -114,50 +114,35 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
             rightBracePosition = iter;
             rightBraceFound = true;
             if (rightBracePosition != expression.cend() - 1) {
-                throw UnexpectExpressionException();
+                //error: redundant symbol in the tail of expression
             }
         }
     }
     if (leftBraceFound == false || rightBraceFound == false) {
-        throw BraceNoCompatibleException();
+        //error: brace not found or not compatible
     } else if (leftBracePosition > rightBracePosition) {
-        throw BraceNoCompatibleException();
+        //error: brace not compatible
     }
     std::string functionName(expression.cbegin(), leftBracePosition);
-    if (functionName == "draw")
-    {
+    if (functionName == "draw") {
         std::string subExpression(leftBracePosition + 1, rightBracePosition);
         component_out.push_back(subExpression);
         return DrawPolynomialCurve;
-    }
-    else if (functionName == "SolveLinear")
-    {
-        //TODO
-    }
-    else
-    { //single parameter
+    } else {//single parameter
         std::string subExpression(leftBracePosition + 1, rightBracePosition);
         component_out.push_back(subExpression);
-        if (functionName == "ComputeDeterminant")
-        {
+        if (functionName == "ComputeDeterminant") {
             return ComputeDeterminant;
-        }
-        else if (functionName == "SolvePoly")
-        {
+        } else if (functionName == "SolvePoly") {
             std::cout << "==========recognize solvepoly=========" << std::endl;
             return SolvePolynomialEquation;
-        }
-        else if (functionName == "invert")
-        {
+        } else if (functionName == "invert") {
             return MatrixInversion;
-        }
-        else if (functionName == "transpose")
-        {
+        } else if (functionName == "transpose") {
             return MatrixTranspose;
         }
-        else
-        { //no such functionName
-            throw FunctionNotFoundException();
+        else {//no such functionName
+            //error: no such function name
         }
     }
 }
