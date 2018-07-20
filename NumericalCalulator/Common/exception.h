@@ -21,6 +21,13 @@ public:
     FunctionNotFoundException(): std::exception("Function not found") {}
 };
 
+class SolutionNotFoundException: public std::exception
+{
+public:
+    SlutionNotFoundException(): std::exception("Slution not found") {}
+};
+
+
 class UnexpectExpressionException: public std::exception //when the above exception not compatible, use this
 {
 public:

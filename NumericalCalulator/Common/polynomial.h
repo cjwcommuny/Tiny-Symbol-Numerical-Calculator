@@ -1,42 +1,36 @@
-#ifndef _POLYNOMIAL_H
-#define _POLYNOMIAL_H
+#ifndef _POLYNOMINAL_H
+#define _POLYNOMINAL_H
 #include<iostream>
 using namespace std;
 #include<malloc.h>
-#include<cmath>
+#include<math.h>
 #include<map>
 #include<string>
-double fun(double a);
-double cfun(double a);
-double niudun(int n);
+#include<sstream>
 typedef struct link
 {
     char X;
     double Num;
 	struct link *Next;
-    char Operator;
 	double Index;
 }Link;
-
- class LinkList
+class LinkList
 {
     std::string equation;
     private:
     Link *head,*tail;
     size_t MAX;
-    map<int,int> get_coefficient;
+    std::map<double,double> get_coefficient;
     public:
-    LinkList();
-    Link* gethead() const {return head;}
-    Link* gettail() const {return tail;}
     LinkList(string Equation);
-    Link * get  ();
-    Link * Rank (Link *node);
-    int Get_max () const
+    Link * get();
+    Link * Rank(Link *node);
+    double Get_max() const
     {
         return MAX;
     }
     int analyze();
+    string Quadrature();
     double Get  (double i,char x) const;
     double compute(double x) const;
     void print() const

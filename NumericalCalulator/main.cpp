@@ -5,9 +5,13 @@
 #include "Algorithm/generalparser.h"
 #include "Algorithm/matrixtransformation.h"
 #include "Algorithm/solvelinear.h"
-
-int main(int argc, char *argv[])
+#include"common/polynomial.h"
+using namespace std;
+#include<stdio.h>
+#include<string>
+int main()
 {
+
     /*
     std::cout << "=============start test==========" << std::endl;
     std::string str("x^2 + x + 1");
@@ -59,6 +63,7 @@ int main(int argc, char *argv[])
     std::cout << "=======" << std::endl;
     */
 
+
     //test simple expression
     /*
     std::shared_ptr<matrix> M1(new matrix(100, 100));
@@ -107,6 +112,7 @@ int main(int argc, char *argv[])
         x = LUdecompose(M, b);
         x->print();
     */
+
 
 
     QApplication a(argc, argv);
