@@ -1,4 +1,6 @@
 #include "Common/polynomial.h"
+#include <sstream>
+
 double LinkList::compute(double x) const
 {
     Link *current = head;
@@ -105,20 +107,7 @@ double LinkList::Get(double i,char x) const
     }
     return 0;
 }
-double LinkList::Get_coefficient(double i)
-{
-    return get_coefficient[i];
-}
-void LinkList::print()
-{
-    Link *node;
-    node = head;
-    while(node)
-    {
-        cout<<node->Num<<" "<<node->X<<" "<<node->Index<<endl;
-        node = node->Next;
-        }
-}
+
 Link * LinkList::get(){
     int multiple,j = 0,k =1 ,Operator = 1;
     double m = 0;
@@ -226,7 +215,7 @@ Link * LinkList::Rank(Link *node)
 string LinkList::Quadrature()
 {
     string x;
-    stringstream t;
+    std::stringstream t;
     Link *node = head;
     while(node)
     {

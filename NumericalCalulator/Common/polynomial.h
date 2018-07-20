@@ -38,14 +38,15 @@ typedef struct link
     }
     int analyze();
     double Get  (double i,char x) const;
-    double Get_coefficient(int i);
     double compute(double x) const;
     void print() const
     {
         Link *current = head;
         while (current != nullptr) {
             std::cout << "coefficient: " << current->Num << "index: " << current->Index << std::endl;
+            current = current->Next;
         }
     }
+    std::string Quadrature();
 };
 #endif
