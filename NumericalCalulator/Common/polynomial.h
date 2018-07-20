@@ -15,7 +15,7 @@ typedef struct link
     double Num;
 	struct link *Next;
     char Operator;
-	int Index;
+	double Index;
 }Link;
 
  class LinkList
