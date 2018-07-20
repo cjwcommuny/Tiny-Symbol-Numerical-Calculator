@@ -1,4 +1,6 @@
 #include "computedeterminant.h"
+#include "Common/exception.h"
+#include <iostream>
 
 
 matrix GenerateMinor(const matrix &sourceMatrix, size_t i, size_t j)
@@ -34,9 +36,12 @@ matrix GenerateMinor(const matrix &sourceMatrix, size_t i, size_t j)
 
 double computeDeterminant(const matrix &sourceMatrix)
 {
+    std::cout << "=============compute determinant=============" << std::endl;
+    std::cout << sourceMatrix.getCol() << " " << sourceMatrix.getRow() << std::endl;
     double result = 0;
     if (sourceMatrix.getCol() != sourceMatrix.getRow()) {
-        //don't have determinant
+        std::cout << "exception!" << std::endl;
+        throw MatrixNotCompatibleException();
     } else if (sourceMatrix.getRow() == 1) {
         return sourceMatrix.getData(0,0);
     } else {

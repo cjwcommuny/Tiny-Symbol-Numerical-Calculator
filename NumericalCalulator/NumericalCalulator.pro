@@ -56,7 +56,8 @@ SOURCES += \
     Algorithm/matrixtransformation.cpp \
     Algorithm/niudun.cpp \
     Common/polynomial.cpp \
-    Algorithm/solvelinear.cpp
+    Algorithm/solvelinear.cpp \
+    Common/exception.cpp
 
 
 HEADERS += \
@@ -92,7 +93,8 @@ HEADERS += \
     Algorithm/generatevertexarr.h \
     Algorithm/matrixtransformation.h \
     Algorithm/niudun.h \
-    Algorithm/solvelinear.h
+    Algorithm/solvelinear.h \
+    Common/exception.h
 
 FORMS += \
     View/view.ui \
