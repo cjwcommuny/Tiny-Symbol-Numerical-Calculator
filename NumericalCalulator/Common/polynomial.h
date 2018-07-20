@@ -6,12 +6,13 @@ using namespace std;
 #include<math.h>
 #include<map>
 #include<string>
+#include<sstream>
 typedef struct link
 {
     char X;
-    int Num;
+    double Num;
     struct link *Next;
-    int Index;
+    double Index;
 }Link;
 
  class LinkList
@@ -37,5 +38,6 @@ typedef struct link
     double Get_coefficient(int i);
     double compute(double x) const;
     void print();
+    string Quadrature();
 };
 #endif

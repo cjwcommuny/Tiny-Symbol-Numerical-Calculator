@@ -26,7 +26,7 @@ LinkList::LinkList(string Equation)
         if(this->analyze()==1)
             throw "abc";
         this->get();
-        //this->print();
+        this->print();
     }
     catch(char const*)
     {
@@ -213,4 +213,39 @@ Link * LinkList::Rank(Link *head,Link *node)
         }
     }
     return head;
+}
+string LinkList::Quadrature()
+{
+    string x;
+    stringstream t;
+    Link *node = head;
+    while(node)
+    {
+        if(node!=head&&node->Num>0)
+        x += '+';
+        else
+        {
+            if(node->Num!=1)
+            {
+                if(node->Num == -1)
+                x += '-';
+                else{
+                    t << (int)((node->Num*100.0)/(node->Index+1))/100.0;
+                    x +=t.str();
+                    t.str("");
+                }
+            }
+            x += head->X;
+            if(node->Index)
+            {
+                x +='^';
+                t << node->Index + 1;
+                x += t.str();
+                t.str("");
+            }
+        }
+        node = node->Next;
+    }
+    x +="+C";
+    return x;
 }

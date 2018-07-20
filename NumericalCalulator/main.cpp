@@ -9,14 +9,13 @@ int main(int argc, char *argv[])
     App *app = new App();
     app->run();
 
-    return a.exec();
-}*/
+    return a.exec();*/
 #include"common/polynomial.h"
-#include"Algorithm/niudun.h"
+using namespace std;
+#include<stdio.h>
+#include<string>
 int main()
 {
-    LinkList polynominal("x^2-x = 0");
-    polynominal.print();
-    cout<<niudun(polynominal);
-}
-
+    LinkList L("3.3X^2 - X =1");
+    cout<<L.Quadrature()<<endl;
+ }
