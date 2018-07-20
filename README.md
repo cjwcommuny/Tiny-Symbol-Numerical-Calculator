@@ -6,6 +6,28 @@
 
 
 
+## 组员与分工
+
+### 分工
+
+* 陈佳伟：MVVM框架搭建；绘制曲线；矩阵算行列式；组装集成组员的代码（view、viewmodel层）
+* 晏港：多项式语法解析器；多项式数据结构；高阶方程求解
+* 姚力铭：矩阵语法解析器；矩阵数据结构；矩阵的运算（包括转置、求逆）；线性方程组的求解
+
+三人分别在 GitHub 的三条分支上进行工作，如图所示：
+
+![branch](D:\Workspace\project\picture for readme\branch.PNG)
+
+当一人在自己分支上完成一个功能或修复一个 bug 后会推送至 master 分支。
+
+### 协作情况
+
+![commit](D:\Workspace\project\picture for readme\commit.PNG)
+
+## 总体界面
+
+
+
 ## 实现的功能
 
 * 语法高亮
