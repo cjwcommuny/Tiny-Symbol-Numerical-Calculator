@@ -37,13 +37,32 @@ SOURCES += \
     Notification/outputnumericalresultnotification_view.cpp \
     Common/matrix.cpp \
     Common/polynomial.cpp \
+    Common/matrix.cpp \
+    Common/matrix.cpp \
+    Common/polynomial.cpp \
     Notification/outputerrornotification_view.cpp \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp \
+    Common/drawpolynomialcurve.cpp \
+    Common/point.cpp \
+    Algorithm/generalparser.cpp \
+    Common/functionname.cpp \
     Algorithm/matrixtransformation.cpp \
-    Algorithm/niudun.cpp
-    Common/polynomial.cpp
+    Common/polynomial.cpp \
+    View/curveform.cpp \
+    View/highlighttextbox.cpp \
+    Algorithm/generatevertexarr.cpp \
+    Algorithm/niudun.cpp \
+    Algorithm/solvelinear.cpp \
+    Algorithm/solvelinear.cpp \
+    Algorithm/matrixtransformation.cpp \
+    Algorithm/niudun.cpp \
+    Common/polynomial.cpp \
+    Common/polynomial.cpp \
+    Algorithm/solvelinear.cpp \
+    Algorithm/solvelinear.cpp \
+    Common/exception.cpp
 
 
 HEADERS += \
@@ -58,6 +77,9 @@ HEADERS += \
     Notification/notification.h \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
+    Common/matrix.h \
+    Common/polynomial.h \
+    Common/matrix.h \
     Common/matrix.h\
     Common/etlbase.h \
     Notification/outputerrornotification_view.h \
@@ -65,11 +87,29 @@ HEADERS += \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
     Common/polynomial.h \
+    Common/drawpolynomialcurve.h \
+    Common/point.h \
+    Algorithm/generalparser.h \
+    Common/functionname.h \
     Algorithm/matrixtransformation.h \
-    Algorithm/niudun.h
+    Common/polynomial.h \
+    View/curveform.h \
+    View/highlighttextbox.h \
+    Algorithm/generatevertexarr.h \
+    Algorithm/niudun.h \
+    Algorithm/solvelinear.h \
+    Algorithm/solvelinear.h \
+    Algorithm/matrixtransformation.h \
+    Algorithm/niudun.h \
+    Algorithm/niudun.h \
+    Algorithm/solvelinear.h \
+    Algorithm/solvelinear.h \
+    Common/exception.h
+
 
 FORMS += \
-    View/view.ui
+    View/view.ui \
+    View/curveform.ui
 
 DISTFILES += \
     NumericalCalulator.pro.user \

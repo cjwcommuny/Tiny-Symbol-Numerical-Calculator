@@ -7,6 +7,7 @@
 #include "Common/command.h"
 #include "Viewmodel/Command/getexpressioncommand.h"
 #include "Notification/outputnumericalresultnotification_viewmodel.h"
+#include "Common/point.h"
 
 
 class Model;
@@ -18,6 +19,7 @@ public:
     void bind(std::shared_ptr<Model> model);
     bool process_expression(std::string str);
     std::shared_ptr<std::string> getResult();
+    std::shared_ptr<std::vector<Point>> getVertexArr() { return _vertexArr; }
     std::shared_ptr<Command> get_getExpressionCommand() {return std::static_pointer_cast<Command>(get_expression_command);}
 protected:
 
@@ -26,6 +28,7 @@ private:
     std::shared_ptr<Model> _model;
     std::shared_ptr<getExpressionCommand> get_expression_command;
     std::shared_ptr<std::string> result;
+    std::shared_ptr<std::vector<Point>> _vertexArr;
     void notify(std::string str);
 };
 

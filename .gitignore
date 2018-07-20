@@ -1,7 +1,15 @@
 build-NumericalCalulator-Desktop_Qt_5_11_0_MSVC2017_64bit-Debug/
+build-NumericalCalulator-Desktop_Qt_5_9_2_MSVC2017_64bit-Debug/
+build-NumericalCalulator-yangang-Debug/
 NumericalCalulator/NumericalCalulator.pro.user.*
 *.user
 *.653579c
 *.653579c
 *.HM
+*.obj
 *.user
+.vscode/
+NumericalCalulator/NumericalCalulator.pro.user
+*.user
+*.autosave
+NumericalCalulator/NumericalCalulator.pro.user

@@ -28,5 +28,6 @@ void Viewmodel::bind(std::shared_ptr<Model> model)
 {
     _model = model;
     result = _model->getExpression();
+    _vertexArr = _model->getVertexArr();
     _model->AddPropertyNotification(notification);//bind notification
 }

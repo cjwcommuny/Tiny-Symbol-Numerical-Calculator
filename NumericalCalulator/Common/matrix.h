@@ -1,6 +1,5 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
 #include <memory>
 #include <vector>
 #include <string>
@@ -50,21 +49,34 @@ public:
         data[i][j] = t;
     }
 
-    void print()
+    std::string toString()
     {
+        std::stringstream ss;
         for (size_t i = 0; i < getRow(); ++i) {
             for (size_t j = 0; j < getCol(); ++j) {
-                std::cout << data[i][j] << " ";
+                ss << data[i][j] << " ";
             }
-            std::cout << std::endl;
+            ss << '\n';
         }
+        return ss.str();
     }
-
+    void print()
+        {
+            for (int i = 0; i < nRow; i++)
+            {
+                for (int j = 0; j < nCol; j++)
+                    cout << data[i][j] << " ";
+                cout << endl;
+            }
+            //cout << "data[" << i << "][" << j << "]: " << data[i][j] << " ";
+        }
     friend matrix operator*(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator+(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator-(matrix lMatrix, matrix rMatrix);
+
+    void splitByCol(size_t col, matrix &mat1, matrix &mat2) const;
 };
 
 #endif // MATRIX_H

@@ -3,15 +3,16 @@
 #include<iostream>
 using namespace std;
 #include<malloc.h>
-#include<math.h>
+#include<cmath>
 #include<map>
 #include<string>
 typedef struct link
 {
     char X;
-    int Num;
-    struct link *Next;
-    int Index;
+    double Num;
+	struct link *Next;
+    char Operator;
+	int Index;
 }Link;
 
  class LinkList

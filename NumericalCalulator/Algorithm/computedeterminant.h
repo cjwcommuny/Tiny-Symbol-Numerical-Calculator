@@ -2,7 +2,7 @@
 #define COMPUTEDETERMINANT_H
 #include "Common/matrix.h"
 
-double ComputeDeterminant(const matrix &sourceMatrix);
+double computeDeterminant(const matrix &sourceMatrix);
 
 matrix GenerateMinor(const matrix &sourceMatrix, size_t i, size_t j);
 

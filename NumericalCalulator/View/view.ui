@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>720</height>
+    <height>836</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Numerical Calculator</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPlainTextEdit" name="inputTextBox">
+   <widget class="QTextEdit" name="inputTextBox">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -22,6 +22,12 @@
       <width>681</width>
       <height>91</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Courier</family>
+      <pointsize>15</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="returnButton">
@@ -43,7 +49,7 @@
       <x>20</x>
       <y>210</y>
       <width>681</width>
-      <height>211</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -59,8 +65,17 @@
         <x>0</x>
         <y>0</y>
         <width>681</width>
-        <height>191</height>
+        <height>111</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -74,11 +89,21 @@
         <x>-7</x>
         <y>-4</y>
         <width>681</width>
-        <height>191</height>
+        <height>121</height>
        </rect>
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="CurveForm" name="curveGraphView">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>380</y>
+      <width>671</width>
+      <height>341</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -102,6 +127,13 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>CurveForm</class>
+   <extends>QGraphicsView</extends>
+   <header>curveform.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
