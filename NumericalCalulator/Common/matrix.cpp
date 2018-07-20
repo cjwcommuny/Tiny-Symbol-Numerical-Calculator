@@ -1,11 +1,12 @@
 #include "matrix.h"
+#include "Common/exception.h"
 
 
 matrix operator*(matrix lMatrix, matrix rMatrix)
 {
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getCol() != rMatrix.getRow()) {
-        //cannot multiply
+        throw MatrixNotCompatibleException();
     } else {
         for (size_t i = 0; i < lMatrix.getRow(); ++i) {
             for (size_t j = 0; j < rMatrix.getCol(); ++j) {//for every cell in the result matrix
@@ -24,7 +25,7 @@ matrix operator+(matrix lMatrix, matrix rMatrix)
 {
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getRow() != rMatrix.getRow() || lMatrix.getCol() != rMatrix.getCol()) {
-        //cannot add
+        throw MatrixNotCompatibleException();
     } else {
         for (size_t i = 0; i < resultMatrix.getRow(); ++i) {
             for (size_t j = 0; j < resultMatrix.getCol(); ++j) {
@@ -39,7 +40,7 @@ matrix operator-(matrix lMatrix, matrix rMatrix)
 {
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getRow() != rMatrix.getRow() || lMatrix.getCol() != rMatrix.getCol()) {
-        //cannot add
+        throw MatrixNotCompatibleException();
     } else {
         for (size_t i = 0; i < resultMatrix.getRow(); ++i) {
             for (size_t j = 0; j < resultMatrix.getCol(); ++j) {
