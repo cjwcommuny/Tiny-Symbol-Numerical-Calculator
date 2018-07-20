@@ -39,4 +39,11 @@ public:
     MatrixNotCompatibleException(): std::exception("Matrices not compatible") {}
 };
 
+
+class RedundantExpressionException: public std::exception // when algorithm fails, use this
+{
+public:
+    RedundantExpressionException(): std::exception("Unexp") {}
+};
+
 #endif // EXCEPTION_H
