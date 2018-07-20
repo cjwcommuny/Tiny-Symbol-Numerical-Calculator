@@ -45,26 +45,26 @@ int LinkList::analyze()
     }
     for(int M=0;M<size;M++)
      {
-        if(!((equation[M]>='0'&&equation[M]<='9')||equation[M]==equation[t]||equation[M]=='+'||equation[M]=='-'||equation[M]=='='||equation[M]=='^'))
+        if(!((equation[M]>='0'&&equation[M]<='9')||equation[M]=='.'||equation[M]==equation[t]||equation[M]=='+'||equation[M]=='-'||equation[M]=='='||equation[M]=='^'))
         return 1;
      }
-    if((equation[0]>'0'&&equation[0]<='9')||equation[0]==equation[t])
+    if((equation[0]>='0'&&equation[0]<='9')||equation[0]==equation[t])
     {
         for(int i = 0;i<size-1;i++)
     {
         if(equation[i]>='0'&&equation[i]<='9')
         {
-             if(!(equation[i+1]>'0'&&equation[i+1]<='9'||equation[i+1]==equation[t]||equation[i+1]=='='||equation[i+1]=='+'||equation[i+1]=='-'))
+             if(!(equation[i+1]>='0'&&equation[i+1]<='9'||equation[i+1]=='.'||equation[i+1]==equation[t]||equation[i+1]=='='||equation[i+1]=='+'||equation[i+1]=='-'))
              return 1;
         }
          else if(equation[i]=='^')
         {
-             if(!(equation[i+1]>0&&equation[i+1]<='9'))
+             if(!(equation[i+1]>='0'&&equation[i+1]<='9'))
              return 1;
          }
          else if(equation[i]=='+'||equation[i]=='-')
          {
-             if(!((equation[i+1]>'0'&&equation[i+1]<='9')||equation[i+1]==equation[t]||'('))
+             if(!((equation[i+1]>='0'&&equation[i+1]<='9')||equation[i+1]==equation[t]||'('))
              return 1;
          }
          else if(equation[i]==equation[t])
@@ -74,7 +74,12 @@ int LinkList::analyze()
          }
          else if(equation[i]=='=')
          {
-            if(!(equation[i+1]==equation[t]||(equation[i+1]>'0'&&equation[i+1]<='9')))
+            if(!(equation[i+1]==equation[t]||(equation[i+1]>='0'&&equation[i+1]<='9')))
+            return 1;
+         }
+         else if(equation[i]=='.')
+         {
+            if(!(equation[i+1]>='0'&&equation[i+1]<='9'))
             return 1;
          }
 
@@ -84,7 +89,7 @@ int LinkList::analyze()
     else
     return 1;
 }
-int LinkList::Get(int i,char x,Link *head) const
+double LinkList::Get(int i,char x,Link *head) const
 {
     Link *node;
     node = head;
@@ -96,11 +101,11 @@ int LinkList::Get(int i,char x,Link *head) const
     }
     return 0;
 }
-int LinkList::Get_coefficient(int i)
+double LinkList::Get_coefficient(int i)
 {
     return get_coefficient[i];
 }
-/*void LinkList::print()
+void LinkList::print()
 {
     Link *node;
     node = head;
@@ -109,32 +114,69 @@ int LinkList::Get_coefficient(int i)
         cout<<node->Num<<" "<<node->X<<" "<<node->Index<<endl;
         node = node->Next;
         }
-}*/
-Link * LinkList::get() {
-    int j = 0,m = 0,k =1 ,Operator = 1;
+}
+Link * LinkList::get(){
+    int multiple,j = 0,k =1 ,Operator = 1;
+    double m = 0;
     for(int i = 0; i < equation.length(); i ++)
     {
-
+        multiple = 0;
             Link *newLinkList;
             newLinkList = (Link*)malloc(sizeof(Link));
             newLinkList->Next = NULL;
-            while(equation[i]<='9'&&equation[i]>='0'){i++;j++;}
-            while(j>0){m+=(equation[i-j]-48)*pow(10,j-1);j--;}
+            while(equation[i]<='9'&&equation[i]>='0'||equation[i]=='.'){
+            if(equation[i]=='.') multiple = i;
+            i++;j++;
+            }
+            while(j>0){
+            if((i-j)>multiple)
+             {
+                m+=(equation[i-j]-48)*pow(10,j-1);j--;
+             }
+            else if((i-j)<multiple){m+=(equation[i-j]-48)*pow(10,j-2);j--;}
+            else j--;
+            }
+            if(multiple!=0)
+            m = m*(pow(10,multiple+1-i)*1.0);
             if(!m) m = 1;
             newLinkList->Num = m * k *Operator;
-            m = 0;
+            m = 0;multiple = 0;
             if((equation[i]>='a'&&equation[i]<='z')||(equation[i]>='A'&&equation[i]<='Z'))
             {
                 newLinkList->X = equation[i];
                 i++;
-                if(equation[i]=='^') {newLinkList->Index=equation[i+1]-48;i+=2;}
-                else newLinkList->Index = 1;
+                if(equation[i]=='^')
+                 {
+                    i++;
+                    while(equation[i]<='9'&&equation[i]>='0'||equation[i]=='.')
+                     {
+                        if(equation[i]=='.') multiple = i;
+                        i++;j++;
+                     }
+                     while(j>0)
+                      {
+                        if((i-j)>multiple)
+                        {
+                            m+=(equation[i-j]-48)*pow(10,j-1);j--;
+                          }
+                          else if((i-j)<multiple){m+=(equation[i-j]-48)*pow(10,j-2);j--;}
+                          else j--;
+                        }
+                        if(multiple!=0)
+                        m = m*(pow(10,multiple+1-i)*1.0);
+                        newLinkList->Index = m;
+                        m = 0;
+                 }
+                 else newLinkList->Index = 1;
             }
             else{newLinkList->X = 0;newLinkList->Index=0;}
             if(equation[i]=='-')k = -1;
             if(equation[i]=='+')k = 1;
             else if(equation[i]=='=')
-            Operator = -Operator;
+            {
+                Operator = -Operator;
+                k = 1;
+            }
             MAX =( MAX>newLinkList->Index) ? MAX:newLinkList->Index;
             get_coefficient[newLinkList->Index]=newLinkList->Num;
             head = Rank(head,newLinkList);

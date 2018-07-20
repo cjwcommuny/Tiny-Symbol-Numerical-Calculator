@@ -27,7 +27,7 @@ double niudun(const LinkList &ll)
 {
     int n = ll.Get_max();
     Link *tail = ll.gethead();
-    int Max1 =tail->Num>0?tail->Num:-tail->Num;
+    double Max1 =tail->Num>0?tail->Num:-tail->Num;
     double a = 0.0;
     double Max = pow(10000,1.0/n)>Max1?pow(10000,1.0/n):Max1;
     double Min = -Max;
