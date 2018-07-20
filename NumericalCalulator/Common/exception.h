@@ -39,4 +39,10 @@ public:
     MatrixNotCompatibleException(): std::exception("Matrices not compatible") {}
 };
 
+class MatrixRankNotFullException: public std::exception // when algorithm fails, use this
+{
+public:
+    MatrixRankNotFullException(): std::exception("The rank of the matrix is not full") {}
+};
+
 #endif // EXCEPTION_H

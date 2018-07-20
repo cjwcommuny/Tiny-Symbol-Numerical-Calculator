@@ -1,6 +1,7 @@
 #include "Algorithm/matrixtransformation.h"
 using namespace std;
 #include<cmath>
+#include "Common/exception.h"
 #define MAX 100
 
 shared_ptr<matrix> matrixTranspose(matrix &M)
@@ -17,7 +18,7 @@ shared_ptr<matrix> matrixTranspose(matrix &M)
 shared_ptr<matrix> matrixInverse(matrix &M)
 {
     if (M.getRow() != M.getCol())
-        return NULL;
+        throw MatrixRankNotFullException();
     size_t total = M.getCol();
     //vector <size_t> is(total + 1);
     //vector <size_t> js(total + 1);

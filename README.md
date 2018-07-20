@@ -1,3 +1,7 @@
+---
+typora-root-url: ./
+---
+
 # Numerical/Symbol Calculator
 
 ## 简介
@@ -35,7 +39,7 @@
     * 数字高亮
     * 注释高亮
 
-![语法高亮](D:\Workspace\project\picture for readme\语法高亮.PNG)
+![语法高亮](.\picture for readme\语法高亮.PNG)
 
 
 
@@ -118,7 +122,7 @@
   draw(x^2)
   ```
 
-  ![curve](D:\Workspace\project\picture for readme\curve.PNG)
+  ![curve](.\picture for readme\curve.PNG)
 
 
 
