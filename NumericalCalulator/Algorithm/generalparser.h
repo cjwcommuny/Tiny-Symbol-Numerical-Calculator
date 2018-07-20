@@ -2,8 +2,6 @@
 #define GENERALPARSER_H
 
 #include <string>
-#include <memory>
-#include "Parameter/Parameter.h"
 #include "Common/matrix.h"
 #include "Common/functionname.h"
 #include "Algorithm/matrixparser.h"
@@ -11,7 +9,7 @@
 #include "Algorithm/computedeterminant.h"
 
 
-std::shared_ptr<Parameter> generalParser(std::string expression);
+std::string generalParser(std::string expression);
 
 std::string removeSpace(std::string expression);
 
