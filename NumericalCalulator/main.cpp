@@ -4,6 +4,7 @@
 #include "Common/matrix.h"
 #include "Algorithm/generalparser.h"
 #include "Algorithm/matrixtransformation.h"
+#include "Algorithm/solvelinear.h"
 
 int main(int argc, char *argv[])
 {
@@ -69,11 +70,50 @@ int main(int argc, char *argv[])
     std::cout<<M2->toString()<<endl;
     */
 
-    
+    //test LUdecompose
+
+        std::shared_ptr<matrix> M(new matrix(100, 100));
+        std::shared_ptr<matrix> b(new matrix(100, 100));
+        std::shared_ptr<matrix> x(new matrix(100, 100));
+        M->setRow(4);
+        M->setCol(4);
+        M->setDataSingle(5, 0, 0);
+        M->setDataSingle(7, 0, 1);
+        M->setDataSingle(6, 0, 2);
+        M->setDataSingle(5, 0, 3);
+
+        M->setDataSingle(7, 1, 0);
+        M->setDataSingle(10, 1, 1);
+        M->setDataSingle(8, 1, 2);
+        M->setDataSingle(7, 1, 3);
+
+        M->setDataSingle(6, 2, 0);
+        M->setDataSingle(8, 2, 1);
+        M->setDataSingle(10, 2, 2);
+        M->setDataSingle(9, 2, 3);
+
+        M->setDataSingle(5, 3, 0);
+        M->setDataSingle(7, 3, 1);
+        M->setDataSingle(9, 3, 2);
+        M->setDataSingle(10, 3, 3);
+
+        b->setRow(4);
+        b->setCol(1);
+        b->setDataSingle(1, 0, 0);
+        b->setDataSingle(-1, 1, 0);
+        b->setDataSingle(-1, 2, 0);
+        b->setDataSingle(1, 3, 0);
+
+        x = LUdecompose(M, b);
+        x->print();
+
+
+    /*
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
     return a.exec();
+    */
 }
 
 
