@@ -31,14 +31,14 @@ typedef struct link
     Link* gettail() const {return tail;}
     LinkList(string Equation);
     Link * get  ();
-    Link * Rank (Link *head,Link *node);
+    Link * Rank (Link *node);
     int Get_max () const
     {
         return MAX;
     }
     int analyze();
-    int Get  (int i,char x,Link *head) const;
-    int Get_coefficient(int i);
+    char Get  (char i,char x) const;
+    char Get_coefficient(int i);
     double compute(double x) const;
     void print() const
     {
