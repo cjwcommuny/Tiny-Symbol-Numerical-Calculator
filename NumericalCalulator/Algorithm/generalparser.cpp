@@ -61,11 +61,12 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         std::cout << "sss.str: " << ss.str() << std::endl;
         return std::make_shared<StringParameter>(ss.str());
     } else if (functionName == DrawPolynomialCurve) {
-        //std::cout << "=============polynomial test==========" << std::endl;
+        std::cout << "=============polynomial test==========" << std::endl;
         LinkList polynomial(component_out[0]);
-        //std::cout << "==========polynomial: ============" << std::endl;
-        //polynomial.print();
-        //std::cout << "==========polynomial end==========" << std::endl;
+        std::cout << "==========polynomial: ============" << std::endl;
+        std::cout << component_out[0] << std::endl;
+        polynomial.print();
+        std::cout << "==========polynomial end==========" << std::endl;
         std::vector<Point> vertexArr = generateVertexArr(polynomial);
         //std::cout << "=========== vector test start=========" << std::endl;
         //for (auto iter = vertexArr.cbegin(); iter != vertexArr.cend(); ++iter) {
