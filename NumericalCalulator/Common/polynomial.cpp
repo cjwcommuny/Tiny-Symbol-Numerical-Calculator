@@ -65,7 +65,7 @@ int LinkList::analyze()
         }
          else if(equation[i]=='^')
         {
-             if(!(equation[i+1]>'0'&&equation[i+1]<='9'))
+             if(!(equation[i+1]>='0'&&equation[i+1]<='9'))
              return 1;
          }
          else if(equation[i]=='+'||equation[i]=='-')
