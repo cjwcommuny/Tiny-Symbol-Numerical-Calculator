@@ -2,6 +2,9 @@
 #define SOLVELINEAR_H
 
 #endif // SOLVELINEAR_H
+#include "Common/matrix.h"
+
+using namespace std;
 #include <memory>
 #include <vector>
 #include "Common/matrix.h"

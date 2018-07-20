@@ -1,5 +1,4 @@
 #include "generalparser.h"
-#include "Common/exception.h"
 #include "Algorithm/matrixtransformation.h"
 #include "Common/polynomial.h"
 #include "Common/point.h"
@@ -40,8 +39,7 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         //std::cout << "=============ComputeDeterminant test==========" << std::endl;
         std::shared_ptr<matrix> mat = matrixParser(component_out[0]);
         //std::cout << "=============matrix parser end==========" << std::endl;
-        double result;
-        result = computeDeterminant(*mat);
+        double result = computeDeterminant(*mat);
         std::stringstream ss;
         ss << result;
         resultStr = ss.str();
@@ -137,18 +135,17 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
             rightBracePosition = iter;
             rightBraceFound = true;
             if (rightBracePosition != expression.cend() - 1) {
-                throw UnexpectExpressionException();
+                //error: redundant symbol in the tail of expression
             }
         }
     }
     if (leftBraceFound == false || rightBraceFound == false) {
-        throw BraceNoCompatibleException();
+        //error: brace not found or not compatible
     } else if (leftBracePosition > rightBracePosition) {
-        throw BraceNoCompatibleException();
+        //error: brace not compatible
     }
     std::string functionName(expression.cbegin(), leftBracePosition);
-    if (functionName == "draw")
-    {
+    if (functionName == "draw") {
         std::string subExpression(leftBracePosition + 1, rightBracePosition);
         component_out.push_back(subExpression);
         return DrawPolynomialCurve;
@@ -163,26 +160,20 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
     { //single parameter
         std::string subExpression(leftBracePosition + 1, rightBracePosition);
         component_out.push_back(subExpression);
-        if (functionName == "ComputeDeterminant")
-        {
+        if (functionName == "ComputeDeterminant") {
             return ComputeDeterminant;
         }
         else if (functionName == "SolvePoly")
         {
             //std::cout << "==========recognize solvepoly=========" << std::endl;
             return SolvePolynomialEquation;
-        }
-        else if (functionName == "invert")
-        {
+        } else if (functionName == "invert") {
             return MatrixInversion;
-        }
-        else if (functionName == "transpose")
-        {
+        } else if (functionName == "transpose") {
             return MatrixTranspose;
         }
-        else
-        { //no such functionName
-            throw FunctionNotFoundException();
+        else {//no such functionName
+            //error: no such function name
         }
     }
 }
