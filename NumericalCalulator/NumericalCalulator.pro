@@ -52,7 +52,10 @@ SOURCES += \
     Common/polynomial.cpp \
     View/curveform.cpp \
     View/highlighttextbox.cpp \
-    Algorithm/generatevertexarr.cpp
+    Algorithm/generatevertexarr.cpp \
+    Algorithm/matrixtransformation.cpp \
+    Algorithm/niudun.cpp \
+    Common/polynomial.cpp
 
 
 HEADERS += \
@@ -85,8 +88,9 @@ HEADERS += \
     Common/polynomial.h \
     View/curveform.h \
     View/highlighttextbox.h \
-    Algorithm/generatevertexarr.h
-
+    Algorithm/generatevertexarr.h \
+    Algorithm/matrixtransformation.h \
+    Algorithm/niudun.h
 
 FORMS += \
     View/view.ui \

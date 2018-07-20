@@ -52,7 +52,7 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         std::cout << "=============polynomial test==========" << std::endl;
         LinkList polynomial(component_out[0]);
         std::cout << "==========polynomial: ============" << std::endl;
-        polynomial.print();
+        //polynomial.print();
         std::cout << "==========polynomial end==========" << std::endl;
         std::vector<Point> vertexArr = generateVertexArr(polynomial);
         std::cout << "=========== vector test start=========" << std::endl;

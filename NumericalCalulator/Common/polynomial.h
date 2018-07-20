@@ -14,29 +14,29 @@ typedef struct link
     char Operator;
 	int Index;
 }Link;
-static Link *head,*tail;
-class LinkList
+
+ class LinkList
 {
     std::string equation;
     private:
+    Link *head,*tail;
     size_t MAX;
-    std::map<int,double> get_coefficient;
-public:
-	Link *head,*tail;
-	public:
-	LinkList();
-	LinkList(string Equation);
-    Link *gethead() { return head; }
-    Link * get();
-    Link * Rank(Link *head,Link *node);
-    int Get_max()
+    map<int,int> get_coefficient;
+    public:
+    LinkList();
+    Link* gethead() const {return head;}
+    Link* gettail() const {return tail;}
+    LinkList(string Equation);
+    Link * get  ();
+    Link * Rank (Link *head,Link *node);
+    int Get_max () const
     {
         return MAX;
     }
     int analyze();
-    int Get(int i,char x,Link *head);
-    double Get_coefficient(int i);
+    int Get  (int i,char x,Link *head) const;
+    int Get_coefficient(int i);
     double compute(double x) const;
-    void print();
+    //void print();
 };
 #endif
