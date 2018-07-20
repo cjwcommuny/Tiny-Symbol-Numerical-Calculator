@@ -6,6 +6,7 @@
 #include "generatevertexarr.h"
 #include "Common/polynomial.h"
 #include "Algorithm/niudun.h"
+#include "Algorithm/solvelinear.h"
 #include <iostream>
 
 std::shared_ptr<Parameter> generalParser(std::string expression)
@@ -74,6 +75,26 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         //}
         //std::cout << "=========== vector test end=========" << std::endl;
         return std::make_shared<VectorParameter<Point>>(VectorParameter<Point>(vertexArr));
+    } else if (functionName == SolveLinearEquations) {
+        std::cout << "============ solve linear==========" << std::endl;
+        matrix mat1, mat2;
+        std::cout << "str: " << std::endl;
+        std::cout << component_out[0] << std::endl;
+        std::shared_ptr<matrix> originalMat = matrixParser(component_out[0]);
+        std::cout << originalMat->toString() << std::endl;
+        std::cout << "============ parser end==========" << std::endl;
+        /*
+        originalMat->splitByCol(originalMat->getCol() - 1, mat1, mat2);
+        std::cout << mat1.toString() << std::endl;
+        std::cout << mat2.toString() << std::endl;
+        std::cout << "============split end==========" << std::endl;
+        
+        std::shared_ptr<matrix> matLeft = std::make_shared<matrix>(mat1);
+        std::shared_ptr<matrix> matRight = std::make_shared<matrix>(mat2);
+        std::shared_ptr<matrix> solutionMat = LUdecompose(matLeft, matRight);
+        std::cout << "============ solve linear end and return==========" << std::endl;
+        return std::make_shared<StringParameter>(solutionMat->toString());*/
+        return std::make_shared<StringParameter>(std::string("test"));
     }
 }
 
@@ -134,7 +155,9 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
     }
     else if (functionName == "SolveLinear")
     {
-        //TODO
+        std::string subExpression(leftBracePosition + 1, rightBracePosition);
+        component_out.push_back(subExpression);
+        return SolveLinearEquations;
     }
     else
     { //single parameter
@@ -146,7 +169,7 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
         }
         else if (functionName == "SolvePoly")
         {
-            std::cout << "==========recognize solvepoly=========" << std::endl;
+            //std::cout << "==========recognize solvepoly=========" << std::endl;
             return SolvePolynomialEquation;
         }
         else if (functionName == "invert")

@@ -75,6 +75,8 @@ public:
     friend matrix operator+(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator-(matrix lMatrix, matrix rMatrix);
+
+    void splitByCol(size_t col, matrix &mat1, matrix &mat2) const;
 };
 
 #endif // MATRIX_H

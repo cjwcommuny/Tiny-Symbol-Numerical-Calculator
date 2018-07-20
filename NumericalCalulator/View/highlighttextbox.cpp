@@ -15,7 +15,8 @@ HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
                     << "\\bComputeDeterminant\\b"
                     << "\\bSolvePoly\\b"
                     << "\\binvert\\b"
-                    << "\\btranspose\\b";
+                    << "\\btranspose\\b"
+                    << "\\bSolveLinear\\b";
     foreach (const QString &pattern, keywordPatterns) {
         rule.pattern = QRegularExpression(pattern);
         rule.format = keywordFormat;

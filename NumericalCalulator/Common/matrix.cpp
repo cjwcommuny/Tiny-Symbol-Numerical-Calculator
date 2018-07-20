@@ -50,3 +50,23 @@ matrix operator-(matrix lMatrix, matrix rMatrix)
         return resultMatrix;
     }
 }
+
+void matrix::splitByCol(size_t col, matrix &mat1, matrix &mat2) const//the number of columns of the left matrix is col
+{
+    std::cout << "enter split function" << std::endl;
+    matrix matLeft(getRow(), col);
+    matrix matRight(getRow(), getCol() - col);
+    for (auto i = 0; i < getRow(); ++i) {
+        for (auto j = 0; j < getCol(); ++j) {
+            if (j < col) {//left matrix
+                std::cout << "left: " << i << " " << j << std::endl;
+                matLeft.setDataSingle(data[i][j], i, j);
+            } else {
+                std::cout << "left: " << i << " " << j << std::endl;
+                matRight.setDataSingle(data[i][j], i, j - col);
+            }
+        }
+    }
+    mat1 = matLeft;
+    mat2 = matRight;
+}
