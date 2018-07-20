@@ -29,7 +29,22 @@ std::string generalParser(std::string expression)
     } else if (functionName == SolvePolynomialEquation) {
         
     } else if (functionName == DrawPolynomialCurve) {
+<<<<<<< HEAD
 
+=======
+        std::cout << "=============polynomial test==========" << std::endl;
+        LinkList polynomial(component_out[0]);
+        std::cout << "==========polynomial: ============" << std::endl;
+        //polynomial.print();
+        std::cout << "==========polynomial end==========" << std::endl;
+        std::vector<Point> vertexArr = generateVertexArr(polynomial);
+        std::cout << "=========== vector test start=========" << std::endl;
+        for (auto iter = vertexArr.cbegin(); iter != vertexArr.cend(); ++iter) {
+            std::cout << "X: " << iter->getX() << " Y: " << iter->getY() << std::endl;
+        }
+        std::cout << "=========== vector test end=========" << std::endl;
+        return std::make_shared<VectorParameter<Point>>(VectorParameter<Point>(vertexArr));
+>>>>>>> master
     }
     return resultStr;
 }

@@ -53,7 +53,13 @@ SOURCES += \
     View/curveform.cpp \
     View/highlighttextbox.cpp \
     Algorithm/generatevertexarr.cpp \
+<<<<<<< HEAD
     Algorithm/solvelinear.cpp
+=======
+    Algorithm/matrixtransformation.cpp \
+    Algorithm/niudun.cpp \
+    Common/polynomial.cpp
+>>>>>>> master
 
 
 HEADERS += \
@@ -87,8 +93,13 @@ HEADERS += \
     View/curveform.h \
     View/highlighttextbox.h \
     Algorithm/generatevertexarr.h \
+<<<<<<< HEAD
     Algorithm/solvelinear.h
 
+=======
+    Algorithm/matrixtransformation.h \
+    Algorithm/niudun.h
+>>>>>>> master
 
 FORMS += \
     View/view.ui \
