@@ -37,8 +37,8 @@ typedef struct link
         return MAX;
     }
     int analyze();
-    char Get  (char i,char x) const;
-    char Get_coefficient(int i);
+    double Get  (double i,char x) const;
+    double Get_coefficient(int i);
     double compute(double x) const;
     void print() const
     {
