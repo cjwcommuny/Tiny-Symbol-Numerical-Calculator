@@ -50,7 +50,7 @@ int LinkList::analyze()
         if(equation[M]=='=')
         equal++;
      }
-     if(equal!=1) return 1;
+     if(equal>1) return 1;
     if((equation[0]>'0'&&equation[0]<='9')||equation[0]=='-'||equation[0]==equation[t])
     if((equation[size-1]>='0'&&equation[size-1]<='9')||equation[size-1]==equation[t])
     {
