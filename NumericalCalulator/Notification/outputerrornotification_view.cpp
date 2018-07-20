@@ -5,7 +5,7 @@ void OutputErrorNotification_view::OnCommandComplete(const std::string& str, boo
 {
     if (str == "ResultGenerated") {
         if (bOK == false) {
-            _view->ChangeOutputResultText("Fatal Error!!");
+            _view->ChangeOutputResultText(*(_view->getResult()));
         } else {
             //generate success, do nothing
         }

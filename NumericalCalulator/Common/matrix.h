@@ -60,12 +60,23 @@ public:
         }
         return ss.str();
     }
-
+    void print()
+        {
+            for (int i = 0; i < nRow; i++)
+            {
+                for (int j = 0; j < nCol; j++)
+                    cout << data[i][j] << " ";
+                cout << endl;
+            }
+            //cout << "data[" << i << "][" << j << "]: " << data[i][j] << " ";
+        }
     friend matrix operator*(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator+(matrix lMatrix, matrix rMatrix);
 
     friend matrix operator-(matrix lMatrix, matrix rMatrix);
+
+    void splitByCol(size_t col, matrix &mat1, matrix &mat2) const;
 };
 
 #endif // MATRIX_H

@@ -1,6 +1,7 @@
 #include "View/view.h"
 #include "ui_view.h"
 #include <QPainter>
+#include <iostream>
 
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -9,6 +10,8 @@ View::View(QWidget *parent) :
     notification_error(std::make_shared<OutputErrorNotification_view>(this))
 {
     ui->setupUi(this);
+    setupEditor();
+    //ui->curveGraphView->getNotification()
 }
 
 View::~View()
@@ -40,3 +43,15 @@ void View::paintEvent(QPaintEvent *)
 }
 
 
+void View::setupEditor()
+{
+    highlighter = new HighlightTextBox(ui->inputTextBox->document());
+}
+
+void View::drawCurve()
+{
+    std::cout << "===========draw curve==========" << std::endl;
+    getUi()->curveGraphView->setVertexArr(getVertexArr());
+    getUi()->curveGraphView->setIsDraw(true);
+    getUi()->curveGraphView->update();
+}

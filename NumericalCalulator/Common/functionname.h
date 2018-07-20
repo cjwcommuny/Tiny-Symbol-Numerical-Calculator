@@ -6,7 +6,9 @@ typedef enum {
     MatrixTranspose,
     ComputeDeterminant,
     SolvePolynomialEquation,
-    DrawPolynomialCurve
+    DrawPolynomialCurve,
+    MatrixBinaryOperation,
+    SolveLinearEquations
 } FunctionType;
 
 #endif // FUNCTIONNAME_H
