@@ -30,6 +30,7 @@ private:
     QTextCharFormat keywordFormat;
     QTextCharFormat numberFormat;
     QTextCharFormat commentFormat;
+    QTextCharFormat operatorFormat;
     //Ui::HighlightTextBox *ui;
 };
 

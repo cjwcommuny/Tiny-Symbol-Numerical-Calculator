@@ -37,6 +37,13 @@ HighlightTextBox::HighlightTextBox(QTextDocument *parent) :
     commentRule.pattern = QRegularExpression("#[^\n]*");
     commentRule.format = commentFormat;
     highlightingRules.append(commentRule);
+
+    //operator format
+    HighlightingRule operatorRule;
+    operatorFormat.setForeground(QColor(0,0,255, 255));//purple
+    operatorRule.pattern = QRegularExpression("[\+\-\*]");// seems to be no used
+    operatorRule.format = operatorFormat;
+    highlightingRules.append(operatorRule);
 }
 
 HighlightTextBox::~HighlightTextBox()

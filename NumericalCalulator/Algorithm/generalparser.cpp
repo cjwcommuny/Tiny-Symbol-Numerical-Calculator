@@ -1,5 +1,14 @@
 #include "generalparser.h"
 #include "Algorithm/matrixtransformation.h"
+<<<<<<< HEAD
+=======
+#include "Common/polynomial.h"
+#include "Common/point.h"
+#include "generatevertexarr.h"
+#include "Common/polynomial.h"
+#include "Algorithm/niudun.h"
+#include <iostream>
+>>>>>>> master
 
 std::string generalParser(std::string expression)
 {
@@ -27,22 +36,37 @@ std::string generalParser(std::string expression)
         std::shared_ptr<matrix> mat2 = matrixTranspose(*mat);
         resultStr = mat2->toString();
     } else if (functionName == SolvePolynomialEquation) {
+<<<<<<< HEAD
         
     } else if (functionName == DrawPolynomialCurve) {
 <<<<<<< HEAD
 
 =======
         std::cout << "=============polynomial test==========" << std::endl;
+=======
+        std::cout << "==========start solvepoly=========" << std::endl;
         LinkList polynomial(component_out[0]);
-        std::cout << "==========polynomial: ============" << std::endl;
+        std::cout << "==========poly parser end =========" << std::endl;
+        std::cout << "polynomial: " << component_out[0] << std::endl;
+        double resultDouble = niudun(polynomial);
+        std::cout << "==========newton method end=========" << std::endl;
+        std::stringstream ss;
+        ss << resultDouble;
+        std::cout << "sss.str: " << ss.str() << std::endl;
+        return std::make_shared<StringParameter>(ss.str());
+    } else if (functionName == DrawPolynomialCurve) {
+        //std::cout << "=============polynomial test==========" << std::endl;
+>>>>>>> master
+        LinkList polynomial(component_out[0]);
+        //std::cout << "==========polynomial: ============" << std::endl;
         //polynomial.print();
-        std::cout << "==========polynomial end==========" << std::endl;
+        //std::cout << "==========polynomial end==========" << std::endl;
         std::vector<Point> vertexArr = generateVertexArr(polynomial);
-        std::cout << "=========== vector test start=========" << std::endl;
-        for (auto iter = vertexArr.cbegin(); iter != vertexArr.cend(); ++iter) {
-            std::cout << "X: " << iter->getX() << " Y: " << iter->getY() << std::endl;
-        }
-        std::cout << "=========== vector test end=========" << std::endl;
+        //std::cout << "=========== vector test start=========" << std::endl;
+        //for (auto iter = vertexArr.cbegin(); iter != vertexArr.cend(); ++iter) {
+           // std::cout << "X: " << iter->getX() << " Y: " << iter->getY() << std::endl;
+        //}
+        //std::cout << "=========== vector test end=========" << std::endl;
         return std::make_shared<VectorParameter<Point>>(VectorParameter<Point>(vertexArr));
 >>>>>>> master
     }
@@ -103,6 +127,7 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
         if (functionName == "ComputeDeterminant") {
             return ComputeDeterminant;
         } else if (functionName == "SolvePoly") {
+            std::cout << "==========recognize solvepoly=========" << std::endl;
             return SolvePolynomialEquation;
         } else if (functionName == "invert") {
             return MatrixInversion;

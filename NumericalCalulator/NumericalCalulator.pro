@@ -58,7 +58,12 @@ SOURCES += \
 =======
     Algorithm/matrixtransformation.cpp \
     Algorithm/niudun.cpp \
+<<<<<<< HEAD
     Common/polynomial.cpp
+>>>>>>> master
+=======
+    Common/polynomial.cpp \
+    Algorithm/solvelinear.cpp
 >>>>>>> master
 
 
@@ -98,7 +103,12 @@ HEADERS += \
 
 =======
     Algorithm/matrixtransformation.h \
+<<<<<<< HEAD
     Algorithm/niudun.h
+>>>>>>> master
+=======
+    Algorithm/niudun.h \
+    Algorithm/solvelinear.h
 >>>>>>> master
 
 FORMS += \

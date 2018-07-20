@@ -57,7 +57,10 @@ shared_ptr<matrix> LUdecompose(shared_ptr<matrix> &M, shared_ptr<matrix> &b)
     for(size_t i = 0; i < n; i++)
     {
         y->setDataSingle(b->getData(i, 0), i, 0);
+<<<<<<< HEAD
         cout<<"y = "<<y->getData(i, 0)<<endl;
+=======
+>>>>>>> master
         for(size_t j = 0; j < i; j++)
         {
             y->setDataSingle(y->getData(i, 0) - L->getData(i, j)*y->getData(j, 0), i, 0);
@@ -67,7 +70,10 @@ shared_ptr<matrix> LUdecompose(shared_ptr<matrix> &M, shared_ptr<matrix> &b)
     //由 Ux=y 求出 x[i]
     for(size_t i = n - 1; i > 0; i--)
     {
+<<<<<<< HEAD
         cout<<"this i "<<i<<endl;
+=======
+>>>>>>> master
         x->setDataSingle(y->getData(i, 0), i, 0);
         for(size_t j = i + 1; j < n; j++)
         {
