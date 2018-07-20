@@ -22,6 +22,7 @@
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
+#include "curveform.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -36,6 +37,7 @@ public:
     QPlainTextEdit *resultTextBox;
     QWidget *tab_2;
     QPlainTextEdit *ErrorTextBox;
+    CurveForm *curveGraphView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -44,7 +46,7 @@ public:
     {
         if (view->objectName().isEmpty())
             view->setObjectName(QStringLiteral("view"));
-        view->resize(720, 720);
+        view->resize(720, 836);
         centralWidget = new QWidget(view);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         inputTextBox = new QPlainTextEdit(centralWidget);
@@ -55,19 +57,22 @@ public:
         returnButton->setGeometry(QRect(40, 130, 131, 51));
         outputTabWidget = new QTabWidget(centralWidget);
         outputTabWidget->setObjectName(QStringLiteral("outputTabWidget"));
-        outputTabWidget->setGeometry(QRect(20, 210, 681, 211));
+        outputTabWidget->setGeometry(QRect(20, 210, 681, 141));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         resultTextBox = new QPlainTextEdit(tab);
         resultTextBox->setObjectName(QStringLiteral("resultTextBox"));
-        resultTextBox->setGeometry(QRect(0, 0, 681, 191));
+        resultTextBox->setGeometry(QRect(0, 0, 681, 111));
         outputTabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         ErrorTextBox = new QPlainTextEdit(tab_2);
         ErrorTextBox->setObjectName(QStringLiteral("ErrorTextBox"));
-        ErrorTextBox->setGeometry(QRect(-7, -4, 681, 191));
+        ErrorTextBox->setGeometry(QRect(-7, -4, 681, 121));
         outputTabWidget->addTab(tab_2, QString());
+        curveGraphView = new CurveForm(centralWidget);
+        curveGraphView->setObjectName(QStringLiteral("curveGraphView"));
+        curveGraphView->setGeometry(QRect(20, 380, 671, 341));
         view->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(view);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -83,7 +88,7 @@ public:
         retranslateUi(view);
         QObject::connect(returnButton, SIGNAL(clicked()), inputTextBox, SLOT(copy()));
 
-        outputTabWidget->setCurrentIndex(0);
+        outputTabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(view);

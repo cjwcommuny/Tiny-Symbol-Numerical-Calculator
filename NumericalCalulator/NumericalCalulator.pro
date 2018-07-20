@@ -37,13 +37,27 @@ SOURCES += \
     Notification/outputnumericalresultnotification_view.cpp \
     Common/matrix.cpp \
     Common/polynomial.cpp \
+    Common/matrix.cpp \
+    Common/matrix.cpp \
+    Common/polynomial.cpp \
     Notification/outputerrornotification_view.cpp \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp \
+<<<<<<< HEAD
     Algorithm/matrixtransformation.cpp \
     Algorithm/niudun.cpp
     Common/polynomial.cpp
+=======
+    View/curveform.cpp \
+    Common/drawpolynomialcurve.cpp \
+    Common/point.cpp \
+    Algorithm/generalparser.cpp \
+    Common/functionname.cpp \
+    Algorithm/matrixtransformation.cpp \
+    Common/polynomial.cpp \
+    Algorithm/niudun.cpp
+>>>>>>> master
 
 
 HEADERS += \
@@ -58,6 +72,9 @@ HEADERS += \
     Notification/notification.h \
     Notification/outputnumericalresultnotification_viewmodel.h \
     Notification/outputnumericalresultnotification_view.h \
+    Common/matrix.h \
+    Common/polynomial.h \
+    Common/matrix.h \
     Common/matrix.h\
     Common/etlbase.h \
     Notification/outputerrornotification_view.h \
@@ -65,11 +82,23 @@ HEADERS += \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
     Common/polynomial.h \
+<<<<<<< HEAD
     Algorithm/matrixtransformation.h \
     Algorithm/niudun.h
+=======
+    View/curveform.h \
+    Common/drawpolynomialcurve.h \
+    Common/point.h \
+    Algorithm/generalparser.h \
+    Common/functionname.h \
+    Algorithm/matrixtransformation.h \
+    Common/polynomial.h \
+
+>>>>>>> master
 
 FORMS += \
-    View/view.ui
+    View/view.ui \
+    View/curveform.ui
 
 DISTFILES += \
     NumericalCalulator.pro.user \

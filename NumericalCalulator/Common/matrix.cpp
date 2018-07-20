@@ -1,5 +1,6 @@
 #include "matrix.h"
 
+
 matrix operator*(matrix lMatrix, matrix rMatrix)
 {
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
@@ -16,6 +17,7 @@ matrix operator*(matrix lMatrix, matrix rMatrix)
         return resultMatrix;
     }
 }
+
 
 
 matrix operator+(matrix lMatrix, matrix rMatrix)

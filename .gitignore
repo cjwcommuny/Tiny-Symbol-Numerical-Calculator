@@ -4,4 +4,8 @@ NumericalCalulator/NumericalCalulator.pro.user.*
 *.653579c
 *.653579c
 *.HM
+*.obj
+*.user
+.vscode/
+NumericalCalulator/NumericalCalulator.pro.user
 *.user

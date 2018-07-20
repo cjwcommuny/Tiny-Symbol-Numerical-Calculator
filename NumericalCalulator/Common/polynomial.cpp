@@ -214,6 +214,7 @@ Link * LinkList::Rank(Link *head,Link *node)
     }
     return head;
 }
+<<<<<<< HEAD
 string LinkList::Quadrature()
 {
     string x;
@@ -249,3 +250,5 @@ string LinkList::Quadrature()
     x +="+C";
     return x;
 }
+=======
+>>>>>>> master

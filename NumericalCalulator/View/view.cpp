@@ -1,5 +1,6 @@
 #include "View/view.h"
 #include "ui_view.h"
+#include <QPainter>
 
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -31,3 +32,11 @@ std::shared_ptr<std::string> View::getResult() const
 {
     return result;
 }
+
+void View::paintEvent(QPaintEvent *)
+{
+    QPainter painter(ui->curveGraphView);
+    painter.drawLine(QPointF(0, 0), QPointF(100, 100));
+}
+
+

@@ -5,6 +5,7 @@ QMAKE_CXX.INCDIRS = \
     "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.16299.0\\shared" \
     "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.16299.0\\um" \
     "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.16299.0\\winrt" \
+    "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.16299.0\\cppwinrt"
 QMAKE_CXX.LIBDIRS = \
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.13.26128\\ATLMFC\\lib\\x64" \
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.13.26128\\lib\\x64" \

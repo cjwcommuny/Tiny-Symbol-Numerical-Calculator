@@ -3,10 +3,12 @@
 #include <memory>
 #include "Common/etlbase.h"
 #include "Common/matrix.h"
-#include "Notification/notification.h"
-
+#include "Notification/outputnumericalresultnotification_viewmodel.h"
+#include "Viewmodel/viewmodel.h"
+#include "Common/matrix.h"
 #include "Algorithm/matrixparser.h"
 #include "Algorithm/computedeterminant.h"
+
 
 
 

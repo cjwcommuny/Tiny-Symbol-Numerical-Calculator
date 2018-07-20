@@ -12,11 +12,30 @@ INPUT(
 ./release\outputnumericalresultnotification_view.o
 ./release\matrix.o
 ./release\polynomial.o
+<<<<<<< HEAD
+=======
+./release\matrix.o
+./release\matrix.o
+./release\polynomial.o
+>>>>>>> master
 ./release\outputerrornotification_view.o
 ./release\matrixparser.o
 ./release\computedeterminant.o
 ./release\solvepolynomialequation.o
+<<<<<<< HEAD
 ./release\matrixtransformation.o
 ./release\niudun.o
 ./release\moc_view.o
+=======
+./release\curveform.o
+./release\drawpolynomialcurve.o
+./release\point.o
+./release\generalparser.o
+./release\functionname.o
+./release\matrixtransformation.o
+./release\polynomial.o
+./release\niudun.o
+./release\moc_view.o
+./release\moc_curveform.o
+>>>>>>> master
 );
