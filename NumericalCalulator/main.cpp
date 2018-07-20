@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     */
 
     //test LUdecompose
-
+    /*
         std::shared_ptr<matrix> M(new matrix(100, 100));
         std::shared_ptr<matrix> b(new matrix(100, 100));
         std::shared_ptr<matrix> x(new matrix(100, 100));
@@ -106,14 +106,14 @@ int main(int argc, char *argv[])
 
         x = LUdecompose(M, b);
         x->print();
+    */
 
 
-    /*
     QApplication a(argc, argv);
     App *app = new App();
     app->run();
     return a.exec();
-    */
+
 }
 
 
