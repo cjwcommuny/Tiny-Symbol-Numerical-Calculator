@@ -1,4 +1,5 @@
 #include "generalparser.h"
+#include "Common/exception.h"
 #include "Algorithm/matrixtransformation.h"
 #include "Common/polynomial.h"
 #include "Common/point.h"
@@ -38,7 +39,8 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         //std::cout << "=============ComputeDeterminant test==========" << std::endl;
         std::shared_ptr<matrix> mat = matrixParser(component_out[0]);
         //std::cout << "=============matrix parser end==========" << std::endl;
-        double result = computeDeterminant(*mat);
+        double result;
+        result = computeDeterminant(*mat);
         std::stringstream ss;
         ss << result;
         resultStr = ss.str();

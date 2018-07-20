@@ -55,7 +55,8 @@ SOURCES += \
     Algorithm/generatevertexarr.cpp \
     Algorithm/matrixtransformation.cpp \
     Algorithm/niudun.cpp \
-    Common/polynomial.cpp
+    Common/polynomial.cpp \
+    Common/exception.cpp
 
 
 HEADERS += \
@@ -90,7 +91,8 @@ HEADERS += \
     View/highlighttextbox.h \
     Algorithm/generatevertexarr.h \
     Algorithm/matrixtransformation.h \
-    Algorithm/niudun.h
+    Algorithm/niudun.h \
+    Common/exception.h
 
 FORMS += \
     View/view.ui \
