@@ -113,7 +113,7 @@ Link * LinkList::get(){
     double m = 0;
     for(int i = 0; i < equation.length(); i ++)
     {
-        multiple = 0;
+        multiple = -1;
             Link *newLinkList;
             newLinkList = (Link*)malloc(sizeof(Link));
             newLinkList->Next = NULL;
@@ -133,7 +133,7 @@ Link * LinkList::get(){
             else if((i-j)<multiple){m+=(equation[i-j]-48)*pow(10,j-2);j--;}
             else j--;
             }
-            if(multiple!=0)
+            if(multiple>0)
             m = m*(pow(10,multiple+1-i)*1.0);
             if(!m) m = 0;
             newLinkList->Num = m * k *Operator;
@@ -160,7 +160,7 @@ Link * LinkList::get(){
                           else if((i-j)<multiple){m+=(equation[i-j]-48)*pow(10,j-2);j--;}
                           else j--;
                         }
-                        if(multiple!=0)
+                        if(multiple>0)
                         m = m*(pow(10,multiple+1-i)*1.0);
                         newLinkList->Index = m;
                         m = 0;
