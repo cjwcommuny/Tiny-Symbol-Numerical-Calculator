@@ -30,7 +30,8 @@ class LinkList
         return MAX;
     }
     int analyze();
-    string Quadrature();
+    Link *gethead() const {return head;}
+    Link *gettail() const {return tail;}
     double Get  (double i,char x) const;
     double compute(double x) const;
     void print() const

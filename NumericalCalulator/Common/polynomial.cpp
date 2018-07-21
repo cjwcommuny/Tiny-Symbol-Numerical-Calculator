@@ -1,6 +1,5 @@
 #include "Common/polynomial.h"
 #include <sstream>
-#include <exception>
 
 double LinkList::compute(double x) const
 {
@@ -22,9 +21,16 @@ LinkList::LinkList(string Equation)
     }
     head = tail = (Link*)malloc(sizeof(Link));
     head =tail = NULL;
+    try{
         if(this->analyze()==1)
-        throw UnexpectExpressionException();
+        throw "abc";
         this->get();
+        this->print();
+    }
+    catch(char *)
+    {
+        cout<<"incrroct input"<<endl;
+    }
 }
 int LinkList::analyze()
 {
@@ -49,6 +55,7 @@ int LinkList::analyze()
      if(equal>1) return 1;
     if((equation[0]>'0'&&equation[0]<='9')||equation[0]=='-'||equation[0]==equation[t])
     if((equation[size-1]>='0'&&equation[size-1]<='9')||equation[size-1]==equation[t])
+    {
         for(int i = 0;i<size-1;i++)
     {
         if(equation[i]>='0'&&equation[i]<='9')
@@ -63,7 +70,7 @@ int LinkList::analyze()
          }
          else if(equation[i]=='+'||equation[i]=='-')
          {
-             if(!((equation[i+1]>='0'&&equation[i+1]<='9')||equation[i+1]==equation[t]||'('))
+             if(!((equation[i+1]>'0'&&equation[i+1]<='9')||equation[i+1]==equation[t]||'('))
              return 1;
          }
          else if(equation[i]==equation[t])
@@ -226,6 +233,7 @@ string LinkList::Quadrature()
             x += t.str();
             t.str("");
         }
+
         node = node->Next;
     }
     x +="+C";
