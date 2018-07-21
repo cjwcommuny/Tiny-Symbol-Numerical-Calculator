@@ -4,6 +4,8 @@
 
 matrix operator*(matrix lMatrix, matrix rMatrix)
 {
+    lMatrix.print();
+    rMatrix.print();
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getCol() != rMatrix.getRow()) {
         throw MatrixNotCompatibleException();

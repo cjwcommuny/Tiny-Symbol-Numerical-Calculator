@@ -68,12 +68,20 @@ int main(int argc, char **argv)
     /*
     std::shared_ptr<matrix> M1(new matrix(100, 100));
     std::shared_ptr<matrix> M2(new matrix(100, 100));
-    char result = simpleExpressionParser("[1,2]+[2,3]     ", M1, M2);
+    char result = simpleExpressionParser("  4  * [2,3]     ", M1, M2);
     std::cout<<"result = "<<result<<endl;
     //std::cout<<M1->getRow()<<endl;
-    std::cout<<M1->toString()<<endl;
+    std::cout<<M1->toString();
     std::cout<<M2->toString()<<endl;
     */
+
+    //test parser
+
+    //std::shared_ptr<matrix> mp1 = SingleRowmatrixParser("[1, 2; 3 ;4]");
+    //std::shared_ptr<matrix> mp = matrixParser("[1; 2; 3 ;4]");
+    //mp1->print();
+    //mp->print();
+
 
     //test LUdecompose
     /*
@@ -113,6 +121,15 @@ int main(int argc, char **argv)
         x->print();
     */
 
+    //test transform
+    /*
+    string temp;
+    temp.assign("  -1.9");
+    double tUncertain;
+    stringstream stream(temp);
+    stream >> tUncertain;
+    cout<<"t = "<<tUncertain<<endl;
+    */
 
 
     QApplication a(argc, argv);
