@@ -39,4 +39,10 @@ public:
     MatrixNotCompatibleException(): std::exception("Matrices not compatible") {}
 };
 
+class InversionFailedException: public std::exception // when inverse matrix does not exist, use this
+{
+public:
+    InversionFailedException(): std::exception("Inverse matrix doesn't exist") {}
+};
+
 #endif // EXCEPTION_H

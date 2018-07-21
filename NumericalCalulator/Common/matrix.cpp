@@ -4,6 +4,8 @@
 
 matrix operator*(matrix lMatrix, matrix rMatrix)
 {
+    lMatrix.print();
+    rMatrix.print();
     matrix resultMatrix(lMatrix.getRow(), rMatrix.getCol());
     if (lMatrix.getCol() != rMatrix.getRow()) {
         throw MatrixNotCompatibleException();
@@ -11,7 +13,9 @@ matrix operator*(matrix lMatrix, matrix rMatrix)
         for (size_t i = 0; i < lMatrix.getRow(); ++i) {
             for (size_t j = 0; j < rMatrix.getCol(); ++j) {//for every cell in the result matrix
                 for (size_t k = 0; k < lMatrix.getCol(); ++k) {
-                    resultMatrix.data[i][j] += lMatrix.getData(i, k) * rMatrix.getData(j, k);
+                    //cout<<"l = "<<lMatrix.getData(i, k)<<endl;
+                    //cout<<"r = "<<rMatrix.getData(j, k)<<endl;
+                    resultMatrix.data[i][j] += lMatrix.getData(i, k) * rMatrix.getData(k, j);
                 }
             }
         }

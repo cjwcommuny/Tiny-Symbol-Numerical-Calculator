@@ -1,14 +1,18 @@
 #include "Algorithm/matrixtransformation.h"
 using namespace std;
 #include<cmath>
+#include "Common/exception.h"
+#include "Algorithm/computedeterminant.h"
 #define MAX 100
 
 shared_ptr<matrix> matrixTranspose(matrix &M)
 {
     shared_ptr<matrix> mptr(new matrix(M.getCol(), M.getRow()));
     std::cout << "======" << mptr->getRow() << " " << mptr->getCol() << std::endl;
+    //cout<<M.getData(0, 2);
     for(int i = 0; i < M.getRow(); i++)
         for (int j = 0; j < M.getCol(); j++) {
+            //cout<<"for i = "<<i<<" j = "<<j<<", this M = "<<endl;
             mptr->setDataSingle(M.getData(i, j), j, i);
         }
     return mptr;
@@ -16,8 +20,10 @@ shared_ptr<matrix> matrixTranspose(matrix &M)
 
 shared_ptr<matrix> matrixInverse(matrix &M)
 {
+    if(computeDeterminant(M) == 0)
+        throw InversionFailedException();
     if (M.getRow() != M.getCol())
-        return NULL;
+        throw InversionFailedException();
     size_t total = M.getCol();
     //vector <size_t> is(total + 1);
     //vector <size_t> js(total + 1);
@@ -44,7 +50,7 @@ shared_ptr<matrix> matrixInverse(matrix &M)
             }
         }
         if (fabs(max) < 0.00001f)
-            return NULL;
+            throw InversionFailedException();
         if (is[k] != k)
         {
             f = -f;

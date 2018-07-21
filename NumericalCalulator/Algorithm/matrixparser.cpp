@@ -1,24 +1,22 @@
 #include "Algorithm/matrixparser.h"
+#include "Common/exception.h"
 using namespace std;
 
 char simpleExpressionParser(std::string expression, shared_ptr<matrix> &M1, shared_ptr<matrix> &M2)
 {
     int l = expression.length();
-    int i = 0, l1;
+    int i = 0, l1 = 0;
     char ope;
-    while(expression[i] != '[' && i < l)
-        i++;
-    l1 = i;
     while((expression[l1] != '+' && expression[l1] != '-' && expression[l1] != '*') && l1 < l)
-        l1++;
+            l1++;
     ope = expression[l1];
     string temp;
     temp.assign(expression, i, l1 - i);
     cout<<"temp = "<<temp<<endl;
     M1 = matrixParser(temp);
     i = ++l1;
-    while(expression[i] != '[' && i < l)
-        i++;
+    //while(expression[] != '[' && i < l)
+     //   i++;
     temp.assign(expression, i, l - i + 1);
     cout<<"temp = "<<temp<<endl;
     M2 = matrixParser(temp);
@@ -28,6 +26,7 @@ char simpleExpressionParser(std::string expression, shared_ptr<matrix> &M1, shar
 /*this function is used to analyse an expression with only one pair of '[' and ']', and return a pointer to a matrix */
 std::shared_ptr<matrix> SingleRowmatrixParser(std::string expression)
 {
+    //cout<<expression<<endl;
     shared_ptr<matrix> mptr(new matrix);
     vector<double> tVec;
     double tUncertain;
@@ -41,21 +40,18 @@ std::shared_ptr<matrix> SingleRowmatrixParser(std::string expression)
         l1 = i;        //begin location of the number
         if (expression[l1] == '[')
         {
-            cout << "error: dismatch of '[' and ']' " << endl;
-            mptr->setCol(0);
-            mptr->setRow(0);
-            return mptr;
+            throw BraceNoCompatibleException();
         }
-        //while (expression[l1] != ' ' && expression[l1] != '[' && expression[l1] != '\0' &&expression[l1] != ',' && expression[l1] != ';')
-        while(expression[l1] >= '0' && expression[l1]<= '9')
+        while((expression[l1] >= '0' && expression[l1]<= '9' )|| expression[l1] == '-' || expression[l1] == '.')
             l1++;      //end location of the number
 
         string temp;	//transfer the string to T type
-        //temp.assign(expression, i, l1 - i + 1);
-        temp.assign(expression, i, l1 - i);
+        temp.assign(expression, i, l1 - i + 1);
+
+        //temp.assign(expression, i, l1 - i);
         stringstream stream(temp);
         stream >> tUncertain;
-        //cout<<"tUncertain = "<<tUncertain<<endl;
+        cout<<"tUncertain = "<<tUncertain<<endl;
 
         tVec.push_back(tUncertain);
         count++;
@@ -70,31 +66,29 @@ std::shared_ptr<matrix> SingleRowmatrixParser(std::string expression)
             c++;
         }
         while (expression[i] == ' ' || expression[i] == ',')
-            i++;  //skip the blanks
-        if(expression[i] == ']')
-            break;
+            i++;  //skip the blanks    
         if (rc == 0)
         {
             mptr->setData(tVec);
             tVec.clear();
         }
+        if(expression[i] == ']')
+            break;
     }
 
+    cout<<"count= "<<count<<"  and c = "<<c<<endl;
     if (rc == 1)
     {
         mptr->setRow(1);
         mptr->setCol(count);
-        //cout << "size = " << sizeof(tVec) / sizeof(tVec[0]) - 1 << endl;
         mptr->setData(tVec);
     }
     else if (rc == 0)
     {
         if (count - c != 1)  //if the columns are not all the same
         {
+            //throw MatrixNotCompatibleException();
             cout << "error: vertical matrix dismatch" << endl;
-            mptr->setRow(0);
-            mptr->setCol(0);
-            return mptr;
         }
         mptr->setCol(1);
         mptr->setRow(count);
@@ -116,24 +110,32 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
     int l1 = 0;
     int l2 = 0;
     int count = 0, j;
+    int count1 = 0, count2 = 0;
     string temp;
     for (int s = 0; s < l; s++)
     {
-        if ((expression[s] < '0' || expression[s] > '9') && expression[s] != ' ' &&expression[s] != ',' &&expression[s] != ';' && expression[s] != '[' && expression[s] != ']')
-            //if(expression[s] == '@' || expression[s] == '!')
+        if ((expression[s] < '0' || expression[s] > '9') && expression[s] != ' ' &&expression[s] != ',' &&expression[s] != ';' && expression[s] != '[' && expression[s] != ']'&& expression[s] != '-' &&expression[s] != '.')
         {
+            throw IllegalCharacterException();
             cout << "syntax error at location: " << s << endl;
-            //cout << (int)expression[s] << endl;
             return mptr;
         }
+        if(expression[s] == '[') count1++;
+        if(expression[s] == ']') count2++;
     }
+    if(count1 != count2)
+        throw BraceNoCompatibleException();
     while(expression[i] == ' ') i++;
-    if (expression[i] >= '0' && expression[i] <= '9')
+    if (expression[i] >= '0' && expression[i] <= '9' || expression[i] == '-' || expression[i] == '.')
     {
         temp.assign(expression, i, l - i + 1);
         stringstream stream(temp);
         stream >> tUncertain;
-        //cout << tUncertain << endl;
+        size_t u = l - 1;
+        while(expression[u] == ' ')
+            u--;
+        if(expression[u] == ']')
+            throw BraceNoCompatibleException();
 
         //set the parameters of the matrix
         mptr->setRow(1);
@@ -142,22 +144,20 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
         mptr->setData(tVec);
         return mptr;
     }
-    else if (expression[i++] == '[')    // [[003, 04 5; [2 ,3, 4]; [7, 7 ,7] ;[2 5 8]]
+    else if (expression[i++] == '[')    // [1; 2; 3]
     {
-        while (expression[i] == ' ') i++;
-        if (expression[i] >= '0' && expression[i] <= '9')
+        //while (expression[i] == ' ') i++;
+        if (expression[i] >= '0' && expression[i] <= '9' || expression[i] == '-')
         {
             int t = l -1;
             while(expression[t] == ' ' || expression[t] == ';')
-                t--;
+                t--;     //l - 1 - (i - 1)+ 1
             //temp.assign(expression, i - 1, l - i + 2);
-            temp.assign(expression, i - 1, t - i + 3);
+            temp.assign(expression, i - 1, t - i + 1);
             if (expression[t] != ']')
             {
-                cout << "error: there is no corresponding ']'" << endl;
-                mptr->setRow(0);
-                mptr->setCol(0);
-                return mptr;
+                throw BraceNoCompatibleException();
+                //cout << "error: there is no corresponding ']'" << endl;
             }
             mptr = SingleRowmatrixParser(temp);
             return mptr;
@@ -181,19 +181,18 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
                 temp.assign(expression, i, l2 - i + 1);
                 cout<<"temp = "<<temp<<endl;
                 mt = SingleRowmatrixParser(temp);
+                mt->print();
                 if (mt->getCol() == 0 && mt->getRow() == 0)
                     return mt;
                 countMatrix++;
                 l2++;
-                /*
+
                 if (expression[l2] == '\0')    //no ']' in the end of the expression
                 {
-                    cout << "error: nooooooo corresponding ']' in the end" << endl;
-                    mptr->setRow(0);
-                    mptr->setCol(0);
-                    return mptr;
+                    throw BraceNoCompatibleException();
+                    //cout << "error: nooooooo corresponding ']' in the end" << endl;
                 }
-                */
+
                 if (expression[l2] == ']')  //end of the expression
                 {
                     //rc = 1;
@@ -205,10 +204,8 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
                         l2++;
                         if(expression[l2] == ']')
                         {
-                            cout << "error: dismatch of '[' and ']' " << endl;
-                            mptr->setRow(0);
-                            mptr->setCol(0);
-                            return mptr;
+                            throw BraceNoCompatibleException();
+                            //cout << "error: dismatch of '[' and ']' " << endl;
                         }
                     }
                 }
@@ -223,10 +220,8 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
                         }
                         if (expression[l2] >= '0' && expression[l2] <= '9')
                         {
-                            cout << "error: lack of '['" << endl;
-                            mptr->setRow(0);
-                            mptr->setCol(0);
-                            return mptr;
+                            throw BraceNoCompatibleException();
+                            //cout << "error: lack of '['" << endl;
                         }
                         l2++;
                     }
@@ -263,7 +258,6 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
                     for (j = 0; j < mt->getRow(); j++)
                     {
                         tVec.push_back(mt->getData(j, 0));
-                        //cout << mt->getData(j, 0) << "  " << endl;
                         mptr->setData(tVec);
                         tVec.clear();
                     }
@@ -277,22 +271,16 @@ std::shared_ptr<matrix> matrixParser(std::string expression)
                     for (j = 0; j < mt->getRow(); j++)
                     {
                         tVec.push_back(mt->getData(j, 0));
-                        //cout << mt->getData(j, 0) << "  " << endl;
                     }
                     i = l2;
                 }
             }
-            //cout << "tVec: ";
-            //for (int u = 0; u < mptr->getRow()*mptr->getCol(); u++)
-            //	cout << tVec[u] << " ";
             cout << "cMatrix: " << cMatrix << endl;
             cout << "countMatrix: " << countMatrix << endl;
             if (cMatrix != 1 && countMatrix - cMatrix != 0)
             {
-                cout << "dismatch of matrixes" << endl;
-                mptr->setCol(0);
-                mptr->setRow(0);
-                return mptr;
+                throw MatrixNotCompatibleException();
+                //cout << "dismatch of matrixes" << endl;
             }
             if (rc == 0 && mt->getRow() == 1)
             {
