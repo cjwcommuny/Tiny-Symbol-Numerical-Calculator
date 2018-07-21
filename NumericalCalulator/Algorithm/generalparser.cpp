@@ -6,6 +6,7 @@
 #include "Common/polynomial.h"
 #include "Algorithm/niudun.h"
 #include "Algorithm/solvelinear.h"
+#include "Algorithm/solvepolynomialequation.h"
 #include <iostream>
 
 std::shared_ptr<Parameter> generalParser(std::string expression)
@@ -50,15 +51,21 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         resultStr = mat2->toString();
         return std::make_shared<StringParameter>(StringParameter(resultStr));
     } else if (functionName == SolvePolynomialEquation) {
-        std::cout << "==========start solvepoly=========" << std::endl;
-        LinkList polynomial(component_out[0]);
-        std::cout << "==========poly parser end =========" << std::endl;
+        //std::cout << "==========start solvepoly=========" << std::endl;
         std::cout << "polynomial: " << component_out[0] << std::endl;
-        double resultDouble = niudun(polynomial);
-        std::cout << "==========newton method end=========" << std::endl;
+        LinkList polynomial(component_out[0]);
+        polynomial.print();
+        std::vector<double> resultVec = solvePolynomialEquation(polynomial);
+        //std::cout << "==========poly parser end =========" << std::endl;
+        //std::cout << "polynomial: " << component_out[0] << std::endl;
         std::stringstream ss;
-        ss << resultDouble;
-        std::cout << "sss.str: " << ss.str() << std::endl;
+        for (auto result: resultVec) {
+            ss << result << " ";
+        }
+        ss << std::endl;
+        //double resultDouble = resultVec[0];
+        //std::cout << "==========newton method end=========" << std::endl;
+        //std::cout << "sss.str: " << ss.str() << std::endl;
         return std::make_shared<StringParameter>(ss.str());
     } else if (functionName == DrawPolynomialCurve) {
         std::cout << "=============polynomial test==========" << std::endl;
@@ -82,7 +89,7 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         std::shared_ptr<matrix> originalMat = matrixParser(component_out[0]);
         std::cout << originalMat->toString() << std::endl;
         std::cout << "============ parser end==========" << std::endl;
-        /*
+        
         originalMat->splitByCol(originalMat->getCol() - 1, mat1, mat2);
         std::cout << mat1.toString() << std::endl;
         std::cout << mat2.toString() << std::endl;
@@ -92,8 +99,8 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         std::shared_ptr<matrix> matRight = std::make_shared<matrix>(mat2);
         std::shared_ptr<matrix> solutionMat = LUdecompose(matLeft, matRight);
         std::cout << "============ solve linear end and return==========" << std::endl;
-        return std::make_shared<StringParameter>(solutionMat->toString());*/
-        return std::make_shared<StringParameter>(std::string("test"));
+        return std::make_shared<StringParameter>(solutionMat->toString());
+        //return std::make_shared<StringParameter>(std::string("test"));
     } else if (functionName == IntegratePolynomial) {
         LinkList polynomial(component_out[0]);
         return std::make_shared<StringParameter>(polynomial.Quadrature());

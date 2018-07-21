@@ -1,19 +1,21 @@
 #include "solvepolynomialequation.h"
-/*
-std::vector<double> solvePolynomialEquation(Polynomial &equation)
+#include "Common/exception.h"
+#include "Algorithm/niudun.h"
+
+std::vector<double> solvePolynomialEquation(LinkList &equation)
 {
 
     std::vector<double> result;
-    if (equation.getHighestRank() == 0) {
+    if (equation.Get_max() == 0) {
         if (equation.getCoefficient(0) != 0) {
-            //no answer
+            throw EquationNoSolutionException();
         } else {
-            //solution can be any number in R
+            throw EquationSolutionIsRException();
         }
-    } else if (equation.getHighestRank() == 1) {
+    } else if (equation.Get_max() == 1) {
         result.push_back(-double(equation.getCoefficient(0)) / equation.getCoefficient(1));
         return result;
-    } else if (equation.getHighestRank() == 2) {
+    } else if (equation.Get_max() == 2) {
         double a = equation.getCoefficient(2);
         double b = equation.getCoefficient(1);
         double c = equation.getCoefficient(0);
@@ -32,8 +34,9 @@ std::vector<double> solvePolynomialEquation(Polynomial &equation)
             return result;
         }
     } else {
-        //high order equation
+        result.push_back(niudun(equation));
+        return result;
     }
 
 }
-*/
+
