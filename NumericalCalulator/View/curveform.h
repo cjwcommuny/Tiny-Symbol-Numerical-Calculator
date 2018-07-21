@@ -4,7 +4,7 @@
 #include <QFrame>
 #include <memory>
 #include <vector>
-#include "common/point.h"
+#include "Common/point.h"
 
 namespace Ui {
 class CurveForm;
