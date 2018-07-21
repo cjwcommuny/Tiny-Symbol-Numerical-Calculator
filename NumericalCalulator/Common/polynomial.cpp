@@ -122,6 +122,9 @@ Link * LinkList::get(){
             if(equation[i]=='.') multiple = i;
             i++;j++;
             }
+            if(j==0) newLinkList->Num = 1*Operator*k;
+            else
+            {
             while(j>0){
             if((i-j)>multiple)
              {
@@ -132,9 +135,10 @@ Link * LinkList::get(){
             }
             if(multiple!=0)
             m = m*(pow(10,multiple+1-i)*1.0);
-            if(!m) m = 1;
+            if(!m) m = 0;
             newLinkList->Num = m * k *Operator;
             m = 0;multiple = 0;
+            }
             if((equation[i]>='a'&&equation[i]<='z')||(equation[i]>='A'&&equation[i]<='Z'))
             {
                 newLinkList->X = equation[i];
