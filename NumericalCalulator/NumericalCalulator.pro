@@ -44,12 +44,17 @@ SOURCES += \
     Algorithm/matrixparser.cpp \
     Algorithm/computedeterminant.cpp \
     Algorithm/solvepolynomialequation.cpp \
+    Algorithm/matrixtransformation.cpp \
+    Algorithm/niudun.cpp \
+    Common/polynomial.cpp \
+    View/curveform.cpp \
     Common/drawpolynomialcurve.cpp \
     Common/point.cpp \
     Algorithm/generalparser.cpp \
     Common/functionname.cpp \
     Algorithm/matrixtransformation.cpp \
     Common/polynomial.cpp \
+    Algorithm/niudun.cpp \
     View/curveform.cpp \
     View/highlighttextbox.cpp \
     Algorithm/generatevertexarr.cpp \
@@ -87,6 +92,9 @@ HEADERS += \
     Algorithm/computedeterminant.h \
     Algorithm/solvepolynomialequation.h \
     Common/polynomial.h \
+    Algorithm/matrixtransformation.h \
+    Algorithm/niudun.h \
+    View/curveform.h \
     Common/drawpolynomialcurve.h \
     Common/point.h \
     Algorithm/generalparser.h \
@@ -105,6 +113,7 @@ HEADERS += \
     Algorithm/solvelinear.h \
     Algorithm/solvelinear.h \
     Common/exception.h
+
 
 
 FORMS += \

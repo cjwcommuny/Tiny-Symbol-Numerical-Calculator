@@ -5,9 +5,13 @@
 #include "Algorithm/generalparser.h"
 #include "Algorithm/matrixtransformation.h"
 #include "Algorithm/solvelinear.h"
-
-int main(int argc, char *argv[])
+#include"common/polynomial.h"
+using namespace std;
+#include<stdio.h>
+#include<string>
+int main()
 {
+
     /*
     std::cout << "=============start test==========" << std::endl;
     std::string str("x^2 + x + 1");
@@ -58,6 +62,7 @@ int main(int argc, char *argv[])
     std::cout << resultStr << " "  << std::endl;
     std::cout << "=======" << std::endl;
     */
+
 
     //test simple expression
     /*
@@ -125,6 +130,7 @@ int main(int argc, char *argv[])
     stream >> tUncertain;
     cout<<"t = "<<tUncertain<<endl;
     */
+
 
     QApplication a(argc, argv);
     App *app = new App();

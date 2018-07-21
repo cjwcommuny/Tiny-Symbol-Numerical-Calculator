@@ -1,7 +1,8 @@
+#include"common/polynomial.h"
 #include"algorithm/niudun.h"
-#include"Common/polynomial.h"
 #include <assert.h>
-double fun(double a, const LinkList &ll)
+#include <exception>
+double fun(double a,const LinkList &ll)
 {
     double sum = 0;
     Link *node = ll.gethead();
@@ -25,10 +26,12 @@ double cfun(double a,const LinkList &ll)
 }
 double niudun(const LinkList &ll)
 {
-    int n = ll.Get_max();
+    double n = ll.Get_max();
     Link *tail = ll.gethead();
-    int Max1 =tail->Num>0?tail->Num:-tail->Num;
+    double Max1 =tail->Num>0?tail->Num:-tail->Num;
     double a = 0.0;
+    while(!cfun(a))
+        a+=1;
     double Max = pow(10000,1.0/n)>Max1?pow(10000,1.0/n):Max1;
     double Min = -Max;
     for(int i = 0;i<1000;i++)
@@ -36,6 +39,7 @@ double niudun(const LinkList &ll)
         if(cfun(a,ll))
         {
         a = a - fun(a,ll)/cfun(a,ll);
+        a = a>Max?Max:a<Min?Min:a;
         }
         if(pow(fun(a,ll),2)<pow(0.01,2))
         {
@@ -43,5 +47,5 @@ double niudun(const LinkList &ll)
             return a;
         }
     }
-    cout<<"not find"<<endl;
+    throw SolutionNotFoundException();
 }
