@@ -1,4 +1,5 @@
 #include "generalparser.h"
+#include "Common/exception.h"
 #include "Algorithm/matrixtransformation.h"
 #include "Common/polynomial.h"
 #include "Common/point.h"
@@ -186,7 +187,7 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
             return IntegratePolynomial;
         }
         else {//no such functionName
-            //error: no such function name
+            throw FunctionNotFoundException();
         }
     }
 }
