@@ -154,11 +154,9 @@ Link * LinkList::get(){
                      while(j>0)
                       {
                         if((i-j)>multiple)
-                        {
-                            m+=(equation[i-j]-48)*pow(10,j-1);j--;
-                          }
-                          else if((i-j)<multiple){m+=(equation[i-j]-48)*pow(10,j-2);j--;}
-                          else j--;
+                            m+=(equation[i-j]-48)*pow(10,j-1);
+                        else if((i-j)<multiple) m+=(equation[i-j]-48)*pow(10,j-2);
+                        j--;
                         }
                         if(multiple>0)
                         m = m*(pow(10,multiple+1-i)*1.0);

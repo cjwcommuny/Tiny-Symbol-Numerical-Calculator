@@ -4,6 +4,6 @@
 #include <vector>
 #include <math.h>
 
-//std::vector<double> solvePolynomialEquation(Polynomial &equation);
+std::vector<double> solvePolynomialEquation(LinkList &equation);
 
 #endif // SOLVEPOLYNOMIALEQUATION_H

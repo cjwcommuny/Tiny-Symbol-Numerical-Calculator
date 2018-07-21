@@ -52,10 +52,22 @@ public:
     InversionFailedException(): std::exception("Inverse matrix doesn't exist") {}
 };
 
-class MatrixRankNotFullException: public std::exception // when algorithm fails, use this
+class MatrixRankNotFullException: public std::exception 
 {
 public:
     MatrixRankNotFullException(): std::exception("The rank of the matrix is not full") {}
+};
+
+class EquationNoSolutionException: public std::exception 
+{
+public:
+    EquationNoSolutionException(): std::exception("The equation doesn't have solution") {}
+};
+
+class EquationSolutionIsRException: public std::exception 
+{
+public:
+    EquationSolutionIsRException(): std::exception("The solution of this equation can be andy number in R") {}
 };
 
 #endif // EXCEPTION_H

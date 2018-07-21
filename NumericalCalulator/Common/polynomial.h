@@ -43,5 +43,17 @@ class LinkList
         }
     }
     std::string Quadrature();
+    double getCoefficient(double index) const 
+    {
+        const double epsilon = 0.001;
+        Link *current = head;
+        while (current != nullptr) {
+            //std::cout << "coefficient: " << current->Num << "index: " << current->Index << std::endl;
+            if (fabs(current->Index - index) < epsilon) {
+                return current->Num;
+            }
+            current = current->Next;
+        }
+    }
 };
 #endif
