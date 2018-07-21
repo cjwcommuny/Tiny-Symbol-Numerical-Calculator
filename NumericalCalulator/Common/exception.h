@@ -24,7 +24,7 @@ public:
 class SolutionNotFoundException: public std::exception
 {
 public:
-    SlutionNotFoundException(): std::exception("Slution not found") {}
+    SolutionNotFoundException(): std::exception("Solution not found") {}
 };
 
 

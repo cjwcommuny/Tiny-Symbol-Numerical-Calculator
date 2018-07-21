@@ -94,6 +94,9 @@ std::shared_ptr<Parameter> generalParser(std::string expression)
         std::cout << "============ solve linear end and return==========" << std::endl;
         return std::make_shared<StringParameter>(solutionMat->toString());*/
         return std::make_shared<StringParameter>(std::string("test"));
+    } else if (functionName == IntegratePolynomial) {
+        LinkList polynomial(component_out[0]);
+        return std::make_shared<StringParameter>(polynomial.Quadrature());
     }
 }
 
@@ -172,6 +175,8 @@ FunctionType seperateComponent(const std::string &expression, std::vector<std::s
             return MatrixInversion;
         } else if (functionName == "transpose") {
             return MatrixTranspose;
+        } else if (functionName == "integrate") {
+            return IntegratePolynomial;
         }
         else {//no such functionName
             //error: no such function name
