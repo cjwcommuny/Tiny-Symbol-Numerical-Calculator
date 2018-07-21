@@ -2,10 +2,7 @@
 using namespace std;
 #include<cmath>
 #include "Common/exception.h"
-<<<<<<< HEAD
 #include "Algorithm/computedeterminant.h"
-=======
->>>>>>> master
 #define MAX 100
 
 shared_ptr<matrix> matrixTranspose(matrix &M)
@@ -26,11 +23,8 @@ shared_ptr<matrix> matrixInverse(matrix &M)
     if(computeDeterminant(M) == 0)
         throw InversionFailedException();
     if (M.getRow() != M.getCol())
-<<<<<<< HEAD
         throw InversionFailedException();
-=======
-        throw MatrixRankNotFullException();
->>>>>>> master
+        //throw MatrixRankNotFullException();
     size_t total = M.getCol();
     //vector <size_t> is(total + 1);
     //vector <size_t> js(total + 1);

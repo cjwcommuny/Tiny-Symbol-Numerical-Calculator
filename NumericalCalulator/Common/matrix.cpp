@@ -13,11 +13,6 @@ matrix operator*(matrix lMatrix, matrix rMatrix)
         for (size_t i = 0; i < lMatrix.getRow(); ++i) {
             for (size_t j = 0; j < rMatrix.getCol(); ++j) {//for every cell in the result matrix
                 for (size_t k = 0; k < lMatrix.getCol(); ++k) {
-<<<<<<< HEAD
-                    //cout<<"l = "<<lMatrix.getData(i, k)<<endl;
-                    //cout<<"r = "<<rMatrix.getData(j, k)<<endl;
-=======
->>>>>>> master
                     resultMatrix.data[i][j] += lMatrix.getData(i, k) * rMatrix.getData(k, j);
                 }
             }

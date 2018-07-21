@@ -46,17 +46,16 @@ public:
     MatrixNotCompatibleException(): std::exception("Matrices not compatible") {}
 };
 
-<<<<<<< HEAD
 class InversionFailedException: public std::exception // when inverse matrix does not exist, use this
 {
 public:
     InversionFailedException(): std::exception("Inverse matrix doesn't exist") {}
-=======
+};
+
 class MatrixRankNotFullException: public std::exception // when algorithm fails, use this
 {
 public:
     MatrixRankNotFullException(): std::exception("The rank of the matrix is not full") {}
->>>>>>> master
 };
 
 #endif // EXCEPTION_H
