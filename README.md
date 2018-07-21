@@ -6,23 +6,58 @@
 
 
 
+## 例子
+
+```
+ComputeDeterminant([[1,2];[3,4]])
+invert([[1,2];[3,4]])
+transpose([[1,2];[3,4]])
+[1,2] * [[1,2,3];[4,5,6]
+[1,2] * [[1,2,3];[4,5,6]]
+SolveLinear([[2,1,3];[1,-1,1]])
+draw(x^2)
+draw(x^0.5)
+SolvePoly(x^2-x=0)
+SolvePoly(x^2-2x+1 = 0)
+SolvePoly(x^4+1 = 0)
+integrate(x^2+x)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 组员与分工
 
 ### 分工
 
-* 陈佳伟：MVVM框架搭建；绘制曲线；矩阵算行列式；组装集成组员的代码（view、viewmodel层）
-* 晏港：多项式语法解析器；多项式数据结构；高阶方程求解
+* 陈佳伟：MVVM框架搭建；曲线绘制；矩阵算行列式；组装集成组员的代码（view、viewmodel层）
+* 晏港：多项式语法解析器；多项式数据结构；高阶方程求解；多项式表达式积分
 * 姚力铭：矩阵语法解析器；矩阵数据结构；矩阵的运算（包括转置、求逆）；线性方程组的求解
 
 三人分别在 GitHub 的三条分支上进行工作，如图所示：
 
-![branch](D:\Workspace\project\picture for readme\branch.PNG)
+![branch](.\picture for readme\branch.PNG)
 
 当一人在自己分支上完成一个功能或修复一个 bug 后会推送至 master 分支。
 
 ### 协作情况
 
-![commit](D:\Workspace\project\picture for readme\commit.PNG)
+![commit](.\picture for readme\commit.PNG)
 
 ## 总体界面
 
@@ -46,7 +81,6 @@
   ```
   [[1,2];[3,4]] + [[7,6];[3,4]]
   ```
-  
 
 * 矩阵的减法
 

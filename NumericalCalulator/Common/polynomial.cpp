@@ -55,7 +55,7 @@ int LinkList::analyze()
     {
         if(equation[i]>='0'&&equation[i]<='9')
         {
-             if(!(equation[i+1]>='0'&&equation[i+1]<='9'||equation[i+1]=='.'||equation[i+1]==equation[t]||equation[i+1]=='='||equation[i+1]=='+'||equation[i+1]=='-'))
+             if(!(equation[i+1]>='0' && equation[i+1]<='9'|| equation[i+1]<='*' ||equation[i+1]=='.'||equation[i+1]==equation[t]||equation[i+1]=='='||equation[i+1]=='+'||equation[i+1]=='-'))
              return 1;
         }
          else if(equation[i]=='^')
@@ -84,7 +84,7 @@ int LinkList::analyze()
             return 1;
          }
         else if(equation[i]=='*'){
-            if(!(else if(equation[i+1]==equation[t])))
+            if(!(equation[i+1]==equation[t]))
                 return 1;
         }
         }
