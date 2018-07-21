@@ -9,7 +9,7 @@
 using namespace std;
 #include<stdio.h>
 #include<string>
-int main()
+int main(int argc, char **argv)
 {
 
     /*

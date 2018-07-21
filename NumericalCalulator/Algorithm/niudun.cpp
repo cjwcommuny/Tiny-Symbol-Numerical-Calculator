@@ -1,7 +1,7 @@
 #include"common/polynomial.h"
 #include"algorithm/niudun.h"
 #include <assert.h>
-#include <exception>
+#include "Common/exception.h"
 double fun(double a,const LinkList &ll)
 {
     double sum = 0;
@@ -30,7 +30,7 @@ double niudun(const LinkList &ll)
     Link *tail = ll.gethead();
     double Max1 =tail->Num>0?tail->Num:-tail->Num;
     double a = 0.0;
-    while(!cfun(a))
+    while(!cfun(a, ll))
         a+=1;
     double Max = pow(10000,1.0/n)>Max1?pow(10000,1.0/n):Max1;
     double Min = -Max;

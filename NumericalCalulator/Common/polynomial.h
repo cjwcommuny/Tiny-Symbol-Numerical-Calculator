@@ -23,8 +23,6 @@ class LinkList
     std::map<double,double> get_coefficient;
     public:
     LinkList(string Equation);
-    Link *gethead() const{return head;}
-    Link *gettail() const{return tail;}
     Link * get();
     Link * Rank(Link *node);
     double Get_max() const
@@ -32,6 +30,8 @@ class LinkList
         return MAX;
     }
     int analyze();
+    Link *gethead() const {return head;}
+    Link *gettail() const {return tail;}
     double Get  (double i,char x) const;
     double compute(double x) const;
     void print() const
