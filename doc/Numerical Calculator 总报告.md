@@ -44,10 +44,87 @@ Matlab、Octave是知名的带图形化界面的数值/符号计算器，在矩�
 
 ## 最终运行效果图
 
+### 语法高亮
+
+![语法高亮](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/语法高亮.PNG)
 
 
-![最终效果图1](.\最终效果图1.PNG)
+
+### 不定积分
 
 
 
-![总体截图](D:\Workspace\project\doc\总体截图.PNG)
+![最终效果图1](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/最终效果图1.PNG)
+
+
+
+### 绘制曲线
+
+
+
+![总体截图](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/总体截图.PNG)
+
+
+
+### 矩阵加法、减法、乘法
+
+![addition](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/addition.PNG)
+
+
+
+![矩阵减法](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/矩阵减法.PNG)
+
+
+
+![矩阵乘法](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/矩阵乘法.PNG)
+
+### 矩阵求逆
+
+![矩阵乘法](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/求逆.PNG)
+
+
+
+### 矩阵转置
+
+![转置](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/转置.PNG)
+
+
+
+### 求行列式
+
+![行列式](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/行列式.PNG)
+
+
+
+### 求解线性方程组
+
+![线性方程组](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/线性方程组.PNG)
+
+
+
+### 求解高阶方程
+
+![一次方程](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/一次方程.PNG)
+
+![二次方程](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/二次方程.PNG)
+
+
+
+![三次](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/三次.PNG)
+
+
+
+### 错误表达式判定
+
+![非法字符](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/非法字符.PNG)
+
+
+
+![括号不匹配](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/括号不匹配.PNG)
+
+
+
+![非法函数名](https://github.com/ZJU-CPP-SUMMER-TERM/project/raw/master/doc/images/非法函数名.PNG)
+
+
+
